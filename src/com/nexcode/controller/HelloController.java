@@ -28,7 +28,7 @@ public class HelloController {
 	protected ModelAndView helloWorld(@PathVariable Map<String, String> pathV) {
 		String faculty = pathV.get("facultyName");
 		String name = pathV.get("userName");
-		ModelAndView modelandview = new ModelAndView("HelloPage");
+		ModelAndView modelandview = new ModelAndView("HelloView");
 		modelandview.addObject("welcomeMessage", "Hello " + name + " Your faculty is: " + faculty);
 		return modelandview;
 	}
