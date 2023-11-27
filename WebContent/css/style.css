@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+
+:root{
+	--primary: #79EABA;
+	--secondary: #080930;
+	--btnYellow: #FCFF59;
+	--btnRed: #FF0000;
+	--blue: #507FF9;
+	--lightGrey: #D9D9D9;
+	--lightGreen: #92F9E0;
+	--lightBlue: #AFF5FF;
+	--lightPurple: #E0ECFF;
+	--darkGrey: #696969;
+}
+
+body{
+	background-color: white;
+	max-width: 100%;
+	overflow-x: hidden;
+}
