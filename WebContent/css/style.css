@@ -18,3 +18,19 @@ body{
 	max-width: 100%;
 	overflow-x: hidden;
 }
+
+h1{
+	font-size: 52px;
+}
+
+h2{
+	font-size: 48px;
+}
+
+h3{
+	font-size: 32px;
+}
+
+p{
+	font-size: 16px;
+}
