@@ -10,7 +10,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		/> <bean name="/welcome.html" class="com.tutorial.controller.HelloController" 
 		/> -->
 	<context:component-scan
-		base-package="com.nexcode.controller" />
+		base-package="com.nexcode.controller, com.admin.controller, com.user.controller" />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/" />
