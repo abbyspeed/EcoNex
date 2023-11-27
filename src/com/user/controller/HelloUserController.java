@@ -1,4 +1,4 @@
-package com.admin.controller;
+package com.user.controller;
 
 import java.util.Map;
 
@@ -9,7 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/greet")
-public class HelloController {
+public class HelloUserController {
+	
+	//THIS IS A TEMPLATE TO START FROM
 //	@RequestMapping("/welcome")
 //	protected ModelAndView helloWorld() {
 //		ModelAndView modelandview = new ModelAndView("HelloPage");
@@ -23,13 +25,13 @@ public class HelloController {
 //		modelandview.addObject("welcomeMessage", "Selamat Datang with annotation! ");
 //		return modelandview;
 //	}
-
-	@RequestMapping("/welcome/{facultyName}/{userName}")
-	protected ModelAndView helloWorld(@PathVariable Map<String, String> pathV) {
-		String faculty = pathV.get("facultyName");
-		String name = pathV.get("userName");
-		ModelAndView modelandview = new ModelAndView("HelloView");
-		modelandview.addObject("welcomeMessage", "Hello " + name + " Your faculty is: " + faculty);
-		return modelandview;
-	}
+//
+//	@RequestMapping("/welcome/{facultyName}/{userName}")
+//	protected ModelAndView helloWorld(@PathVariable Map<String, String> pathV) {
+//		String faculty = pathV.get("facultyName");
+//		String name = pathV.get("userName");
+//		ModelAndView modelandview = new ModelAndView("HelloView");
+//		modelandview.addObject("welcomeMessage", "Hello " + name + " Your faculty is: " + faculty);
+//		return modelandview;
+//	}
 }
