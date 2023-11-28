@@ -28,12 +28,12 @@ public class AuthController {
 //		return modelandview;
 //	}
 //	
-//	@RequestMapping("/signup")
-//	protected ModelAndView helloWorld(@PathVariable Map<String, String> pathV) {
+	@RequestMapping("/signup")
+	protected ModelAndView signUp(@PathVariable Map<String, String> pathV) {
 //		String faculty = pathV.get("facultyName");
 //		String name = pathV.get("userName");
-//		ModelAndView modelandview = new ModelAndView("HelloView");
-//		modelandview.addObject("welcomeMessage", "Hello " + name + " Your faculty is: " + faculty);
-//		return modelandview;
-//	}
+		ModelAndView modelandview = new ModelAndView("SignUpView");
+		modelandview.addObject("welcomeMessage", "Hello");
+		return modelandview;
+	}
 }
