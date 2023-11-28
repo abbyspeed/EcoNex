@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NexCode - Login</title>
+<title>NexCode - SignUp</title>
 <!-- Font Awesome -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -97,11 +97,16 @@
 										src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
 										style="width: 185px;" alt="logo">
 								</div>
-								<h3 class="login-heading mb-4 text-center">Log in to your
+								<h3 class="login-heading mb-4 text-center">Create an
 									account</h3>
 
 								<!-- Sign In Form -->
 								<form>
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="floatingInput"
+											placeholder="John Doe"> <label for="floatingInput">Full
+											Name</label>
+									</div>
 									<div class="form-floating mb-3">
 										<input type="email" class="form-control" id="floatingInput"
 											placeholder="name@example.com"> <label
@@ -111,6 +116,11 @@
 										<input type="password" class="form-control"
 											id="floatingPassword" placeholder="Password"> <label
 											for="floatingPassword">Password</label>
+									</div>
+									<div class="form-floating mb-3">
+										<input type="password" class="form-control"
+											id="floatingPassword" placeholder="Password"> <label
+											for="floatingPassword">Confirm Password</label>
 									</div>
 
 									<!-- <div class="form-check mb-3">
@@ -123,10 +133,10 @@
 									<div class="d-grid">
 										<button
 											class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-											type="submit">Log in</button>
+											type="submit">Sign Up</button>
 										<div class="text-center">
-											<a class="small" href="/EcoNex/auth/signup">Don't have an account? <span class="">Sign
-													up instead</span></a>
+											<a class="small" href="/EcoNex/auth/login">Got an account? <span class="">Log
+													in instead</span></a>
 										</div>
 									</div>
 
