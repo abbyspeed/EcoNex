@@ -11,10 +11,27 @@
 	--lightBlue: #AFF5FF;
 	--lightPurple: #E0ECFF;
 	--darkGrey: #696969;
+	--cards: #92F9E0, #AFF5FF, #E0ECFF;
 }
 
 body{
 	background-color: white;
 	max-width: 100%;
 	overflow-x: hidden;
+}
+
+h1{
+	font-size: 52px;
+}
+
+h2{
+	font-size: 48px;
+}
+
+h3{
+	font-size: 32px;
+}
+
+p{
+	font-size: 16px;
 }
