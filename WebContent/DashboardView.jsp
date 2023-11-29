@@ -6,6 +6,7 @@
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width">
 		<title>Welcome back!</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
 			<%@include file="/css/sidebarNav.css"%>
 			<%@include file="/css/dashboardContent.css"%>
@@ -14,32 +15,35 @@
 	</head>
 	<body>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<script type="text/javascript" src = "/js/dashboard.js"></script>
 		<nav class="sideBar">
 			<div class="sideBar-header">
 				<a href="#">
-					<img src="#"/>
+					<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701198691/img/logo_medium_e6ci8s.svg"/>
 				</a>
-				<i class="# toggle"></i>
+				<a class="toggle">
+					<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070223/icons/Menu_Alt_05_nffut7.svg" class="toggle">
+				</a>
 			</div>
 			
-			<ul class="sideBar-items">
-                <li class="sideBar-item">
-                    <a href="#" class="active">
-                        <i class="fa-solid fa-wave-square"></i>
-                        Home
+			<ul class="items">
+                <li class="item active">
+                    <a href="#">
+                        <i class="fa-solid fa-house fa icon"></i>
+                        <span class="text">Home</span>
                     </a>
                 </li>
-                <li class="sideBar-item">
-                    <a href="#" class="">
-                        <i class="fa-solid fa-bell"></i>
-                        Events
+                <li class="item">
+                    <a href="#">
+                        <i class="fa-regular fa-calendar icon"></i>
+                        <span class="text">Events</span>
                     </a>
                 </li>
-                <li class="sideBar-divider"></li>
-                <li class="sideBar-item">
-                    <a href="#" class="">
-                        <i class="fa-solid fa-bell"></i>
-                        Settings
+                <li class="divider"></li>
+                <li class="item">
+                    <a href="#">
+                        <i class="fa-solid fa-gear icon"></i>
+                        <span class="text">Settings</span>
                     </a>
                 </li>
             </ul>
@@ -47,15 +51,15 @@
 		
 		<section class="content">
 			<div class="content-header">
-				<div>
+				<div class="title">
 					<p>Dashboard</p>
 					<h3>Hello, Nurnabihah</h3>
 					<p>Check out what's new today</p>
 				</div>
-				<div>
-					<p>Nurnabihah</p>
+				<div class="profileBadge">
 					<a href="#">
-						
+						<span>Nurnabihah</span>
+						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
 					</a>
 				</div>
 			</div>
@@ -65,15 +69,27 @@
 					<h2 style="">
 						SELAMAT MENYAMBUT HARI KERJA PERMBERSIHAN
 					</h2>
-					<div class="dashboardCard-img"></div>
-					<div class="dashboardCard-btn">Check it out</div>
+					<div class="dashboardCard-img">
+						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070234/img/eventfb-photo_2_fmizsy.png">
+					</div>
+					<div class="dashboardCard-btn">
+						<a href="#">
+							Check it out
+						</a>
+					</div>
 				</div>
 				<div class="dashboardCard" style="margin-top: 30px">
 					<h2>
 						POLY-<br>CARBONATE: WHAT IS IT TODAY?
 					</h2>
-					<div class="dashboardCard-img"></div>
-					<div class="dashboardCard-btn">Check it out</div>
+					<div class="dashboardCard-img">
+						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070228/img/eventfb-photo_f71rnr.png">
+					</div>
+					<div class="dashboardCard-btn">
+						<a href="#">
+							Check it out
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
