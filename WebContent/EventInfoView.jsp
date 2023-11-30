@@ -3,19 +3,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1" name="viewport" content="width=device-width">
-		<title>Welcome back!</title>
+		<meta charset="ISO-8859-1">
+		<title>EcoNex</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
-		<script src="/js/sidebar.js" type="text/javascript"></script>
+		<script src="/js/content-menu.js" type="text/javascript"></script>
 		<style>
+			<%@include file="/css/contentMenu.css"%>
 			<%@include file="/css/sidebarNav.css"%>
 			<%@include file="/css/dashboardContent.css"%>
 			<%@include file="/css/style.css"%>
 		</style>
 	</head>
 	<body>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		<nav class="sideBar">
 			<div class="sideBar-header">
 				<a href="#">
@@ -27,13 +27,13 @@
 			</div>
 			
 			<ul class="items">
-                <li class="item active">
+                <li class="item">
                     <a href="#">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
-                <li class="item">
+                <li class="item active">
                     <a href="#">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
@@ -51,47 +51,60 @@
 		
 		<section class="content">
 			<div class="content-header">
-				<div class="title">
-					<p>Dashboard</p>
-					<h3>Hello, Nurnabihah</h3>
-					<p>Check out what's new today</p>
+				<div class="item">
+					<div class="title">
+						<p>Events/Iskandar Puteri Low Carbon Competition</p>
+						<h2>Iskandar Puteri Low Carbon Competition</h2>
+					</div>
+					<div class="profileBadge">
+						<a href="#">
+							<span>Nurnabihah</span>
+							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						</a>
+					</div>
 				</div>
-				<div class="profileBadge">
-					<a href="#">
-						<span>Nurnabihah</span>
-						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
-					</a>
+				<div class="menu">
+					<a href="#" class="tab-item">Data Entry</a>
+					<a href="#" class="tab-item">Instructions</a>
+					<a href="#" class="tab-item active">Event Info</a>
+					<a href="#" class="tab-item">Project Impact</a>
+					<div class="menu-selected"></div>
 				</div>
 			</div>
 			
 			<div class="content-posts">
-				<div class="dashboardCard">
-					<h2 style="">
-						SELAMAT MENYAMBUT HARI KERJA PERMBERSIHAN
-					</h2>
-					<div class="dashboardCard-img">
-						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070234/img/eventfb-photo_2_fmizsy.png">
+				<div class="tab-content">
+					<h3 class="event-slogan">
+						Save energy for a better <br>
+						environment now and tomorrow
+					</h3>
+					<div class="event-section">
+						<h4>WHAT IS IT?</h4>
+						<hr>
+						<div class="event-desc">
+							<p>
+								This competition aims to provide encouragement and motivation to the 
+								residents of the Iskandar Puteri City Council, MBIP to <b>cultivate a low-
+								carbon lifestyle</b>. Through the competition to reduce the use of water (m3), 
+								electricity (kWh) and also the amount of recycling (kg), it can help the world, 
+								especially MBIP in efforts to reduce carbon production.
+							</p>
+						</div>
 					</div>
-					<div class="dashboardCard-btn">
-						<a href="#">
-							Check it out
-						</a>
-					</div>
-				</div>
-				<div class="dashboardCard" style="margin-top: 30px">
-					<h2>
-						POLY-<br>CARBONATE: WHAT IS IT TODAY?
-					</h2>
-					<div class="dashboardCard-img">
-						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070228/img/eventfb-photo_f71rnr.png">
-					</div>
-					<div class="dashboardCard-btn">
-						<a href="#">
-							Check it out
-						</a>
+					<div style="height: 70px"></div>
+					<div class="event-section">
+						<h4>STARTING ON</h4>
+						<hr>
+						<div class="event-desc">
+							<h1 style="font-size: 108px;">1 NOV 2023</h1>
+							<p style="width: 100%; text-align: right;">
+								Until April 2024
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		
 	</body>
 </html>
