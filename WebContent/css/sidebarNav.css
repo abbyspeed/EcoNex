@@ -84,8 +84,9 @@
 	position: -webkit-sticky;
   	position: sticky;
 	top: 0;
-	background-color: #FFFFFF;
 	padding: 30px;
+	max-height: 204px;
+	margin-bottom: 10px;
 }
 
 .content-header .item{
@@ -96,6 +97,23 @@
 
 .content-header .title{
 	width: 100%;
+}
+
+.content-header h2{
+	margin-bottom: 20px;
+}
+
+.content-header .reminder{
+	height: 38px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.content-header .line{
+	width: 100%;
+	flex-direction: column;
+	border-bottom: 3px solid var(--lightGrey);
+	border-radius: 3px;
 }
 
 .content-header .profileBadge{

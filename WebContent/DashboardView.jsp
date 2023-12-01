@@ -15,7 +15,6 @@
 		</style>
 	</head>
 	<body>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		<nav class="sideBar">
 			<div class="sideBar-header">
 				<a href="#">
@@ -51,16 +50,18 @@
 		
 		<section class="content">
 			<div class="content-header">
-				<div class="title">
-					<p>Dashboard</p>
-					<h3>Hello, Nurnabihah</h3>
-					<p>Check out what's new today</p>
-				</div>
-				<div class="profileBadge">
-					<a href="#">
-						<span>Nurnabihah</span>
-						<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
-					</a>
+				<div class="item">
+					<div class="title">
+						<p>Dashboard</p>
+						<h3>Hello, Nurnabihah</h3>
+						<p>Check out what's new today</p>
+					</div>
+					<div class="profileBadge">
+						<a href="#">
+							<span>Nurnabihah</span>
+							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						</a>
+					</div>
 				</div>
 			</div>
 			
