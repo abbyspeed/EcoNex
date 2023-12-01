@@ -1,0 +1,22 @@
+*.DS_Store
+bin
+target
+build/
+.gradle/
+.classpath
+.factorypath
+.springBeans
+.project
+.settings
+src/main/webapp/META-INF
+.idea
+*.iml
+.metadata
+# Maven
+log/
+*.log
+*.class
+*.jar
+*.war
+*.ear
+*.tmp
