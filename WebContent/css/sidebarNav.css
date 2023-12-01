@@ -5,6 +5,8 @@
 	box-sizing: border-box;
 }
 
+/* SIDEBAR MENU */
+
 .sideBar{
 	background-color: var(--primary);
 	margin: 0;
@@ -68,6 +70,9 @@
 	height: 68vh;
 }
 
+
+/* CONTENT HEADER */
+
 .content{
 	height: 100vh;
 	width: calc(100% - 235px);
@@ -79,17 +84,49 @@
 	position: -webkit-sticky;
   	position: sticky;
 	top: 0;
+	padding: 30px;
+	max-height: 204px;
+	margin-bottom: 10px;
+}
+
+.content-header .item{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	background-color: #FFFFFF;
-	padding: 30px;
 }
 
-.content-header a{
+.content-header .title{
+	width: 100%;
+}
+
+.content-header h2{
+	margin-bottom: 20px;
+}
+
+.content-header .reminder{
+	height: 38px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.content-header .line{
+	width: 100%;
+	flex-direction: column;
+	border-bottom: 3px solid var(--lightGrey);
+	border-radius: 3px;
+}
+
+.content-header .profileBadge{
+	width: 200px;
+	display: inline-block;
+}
+
+.content-header .profileBadge a{
 	text-decoration: none;
 	color: #000000;
+	align-items: center;
 	font-weight: 600;
+	float: right;
 }
 
 .content-header img{
