@@ -75,7 +75,8 @@
 					</div>
 					<div class="dashboardCard-btn">
 						<a href="#">
-							Check it out
+							<span>Visit Our Facebook</span>
+							<i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; margin-left: 10px;"></i>
 						</a>
 					</div>
 				</div>
@@ -88,7 +89,8 @@
 					</div>
 					<div class="dashboardCard-btn">
 						<a href="#">
-							Check it out
+							<span>Visit Our Facebook</span>
+							<i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; margin-left: 10px;"></i>
 						</a>
 					</div>
 				</div>

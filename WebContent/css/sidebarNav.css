@@ -85,8 +85,8 @@
   	position: sticky;
 	top: 0;
 	padding: 30px;
-	max-height: 204px;
-	margin-bottom: 10px;
+	max-height: 208px;
+	background-color: #FFFFFF;
 }
 
 .content-header .item{
@@ -138,6 +138,5 @@
 }
 
 .content-posts{
-	padding: 30px;
-	padding-top: 0;
+	padding: 0 30px;
 }
