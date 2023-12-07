@@ -88,7 +88,7 @@
             </li>
             <li class="divider"></li>
             <li class="item active">
-               <a href="#">
+               <a href="/EcoNex/profile/settings">
                <i class="fa-solid fa-gear icon"></i>
                <span class="text">Settings</span>
                </a>
@@ -278,6 +278,7 @@
 			const response = confirm("Are you sure?");
 			if(response) {
 					alert("Account Deleted");
+					logout();
 				}
             }
 
