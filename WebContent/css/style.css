@@ -7,6 +7,7 @@
 	--btnRed: #FF0000;
 	--blue: #507FF9;
 	--lightGrey: #D9D9D9;
+	--lightGrey2: rgba(217, 217, 217, 0.3);
 	--lightGreen: #92F9E0;
 	--lightBlue: #AFF5FF;
 	--lightPurple: #E0ECFF;
@@ -42,6 +43,10 @@ h3{
 
 h4{
 	font-size: 20px;
+}
+
+h5{
+	font-size: 14px;
 }
 
 p{

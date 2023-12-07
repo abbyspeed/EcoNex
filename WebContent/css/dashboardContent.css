@@ -10,7 +10,7 @@
 	margin-right: 10px;
 	margin-bottom: 30px;
 	max-width: 370px;
-	height: 630px;
+	height: 645px;
 	background-color: var(--lightBlue);
 	border-radius: 10px;
 	flex-basis: 30%;
@@ -37,12 +37,18 @@
 }
 
 .dashboardCard-btn{
-	padding: 10px 30px;
+	padding: 15px 30px;
 	margin-bottom: 10px;
 	border: 0;
 	border-radius: 10px;
 	text-align: center;
 	background-color: white;
+}
+
+.dashboardCard-btn a{
+	text-decoration: none;
+	color: black;
+	font-size: 14px;
 }
 
 .dashBoardCard:nth-child(2n){
