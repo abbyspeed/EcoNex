@@ -74,7 +74,7 @@
 /* CONTENT HEADER */
 
 .content{
-	height: 100vh;
+	/* height: 100vh; */
 	width: calc(100% - 235px);
 	position: relative;
 	left: 235px;
