@@ -36,11 +36,6 @@
 		height: 100%;
 	}
 } */
-
-body {
-	background-color: #EEEEEE;
-}
-
 .login {
 	min-height: 100vh;
 }
@@ -109,22 +104,22 @@ body {
 								<form>
 									<div class="form-floating mb-3">
 										<input type="text" class="form-control" id="floatingInput"
-											placeholder="John Doe" required> <label for="floatingInput">Full
+											placeholder="John Doe"> <label for="floatingInput">Full
 											Name</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="email" class="form-control" id="floatingInput"
-											placeholder="name@example.com" required> <label
+											placeholder="name@example.com"> <label
 											for="floatingInput">Email address</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="password" class="form-control"
-											id="floatingPassword" placeholder="Password" required> <label
+											id="floatingPassword" placeholder="Password"> <label
 											for="floatingPassword">Password</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="password" class="form-control"
-											id="floatingPassword" placeholder="Password" required> <label
+											id="floatingPassword" placeholder="Password"> <label
 											for="floatingPassword">Confirm Password</label>
 									</div>
 

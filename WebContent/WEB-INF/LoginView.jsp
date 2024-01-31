@@ -91,8 +91,8 @@
                         <div class="col-md-9 col-lg-8 mx-auto">
                            <div class="text-center">
                               <img
-                                 src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701198691/img/logo_medium_e6ci8s.svg"
-                                 style="width: 185px;" alt="logo">
+                                 src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701198691/img/logo_big_sgydui.svg"
+                                 style="width: 185px; margin-bottom: 15px;" alt="logo">
                            </div>
                            <h3 class="login-heading mb-4 text-center">Log in to your
                               account

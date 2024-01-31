@@ -45,7 +45,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="components/Sidebar.jsp">
+		<jsp:include page="WEB-INF/components/Sidebar.jsp">
 		<jsp:param name="pageName" value="Events" />
 		<jsp:param name="heading" value="Ongoing" />
 		<jsp:param name="subheading" value="" />
