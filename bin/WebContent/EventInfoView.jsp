@@ -28,7 +28,7 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="Dashboard.jsp">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
@@ -66,7 +66,7 @@
 				<div class="line">
 					<div class="menu">
 						<a href="#" class="tab-item">Data Entry</a>
-						<a href="#" class="tab-item">Instructions</a>
+						<a href="InstructionsView.jsp" class="tab-item">Instructions</a>
 						<a href="#" class="tab-item active">Event Info</a>
 						<a href="#" class="tab-item">Project Impact</a>
 						<div class="menu-selected"></div>
