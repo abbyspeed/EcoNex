@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="#">
+                    <a href="WEB-INF/EventsView.jsp">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>

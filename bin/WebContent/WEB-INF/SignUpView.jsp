@@ -36,6 +36,11 @@
 		height: 100%;
 	}
 } */
+
+body {
+	background-color: #EEEEEE;
+}
+
 .login {
 	min-height: 100vh;
 }
@@ -94,8 +99,8 @@
 							<div class="col-md-9 col-lg-8 mx-auto">
 								<div class="text-center">
 									<img
-										src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-										style="width: 185px;" alt="logo">
+										src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701198691/img/logo_big_sgydui.svg"
+										style="width: 185px; margin-bottom: 15px;" alt="logo">
 								</div>
 								<h3 class="login-heading mb-4 text-center">Create an
 									account</h3>
@@ -104,22 +109,22 @@
 								<form>
 									<div class="form-floating mb-3">
 										<input type="text" class="form-control" id="floatingInput"
-											placeholder="John Doe"> <label for="floatingInput">Full
+											placeholder="John Doe" required> <label for="floatingInput">Full
 											Name</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="email" class="form-control" id="floatingInput"
-											placeholder="name@example.com"> <label
+											placeholder="name@example.com" required> <label
 											for="floatingInput">Email address</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="password" class="form-control"
-											id="floatingPassword" placeholder="Password"> <label
+											id="floatingPassword" placeholder="Password" required> <label
 											for="floatingPassword">Password</label>
 									</div>
 									<div class="form-floating mb-3">
 										<input type="password" class="form-control"
-											id="floatingPassword" placeholder="Password"> <label
+											id="floatingPassword" placeholder="Password" required> <label
 											for="floatingPassword">Confirm Password</label>
 									</div>
 
