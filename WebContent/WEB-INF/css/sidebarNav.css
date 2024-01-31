@@ -74,7 +74,7 @@
 /* CONTENT HEADER */
 
 .content{
-	/* height: 100vh; */
+	height: 100vh;
 	width: calc(100% - 235px);
 	position: relative;
 	left: 235px;
@@ -85,8 +85,8 @@
   	position: sticky;
 	top: 0;
 	padding: 30px;
-	max-height: 208px;
-	background-color: #FFFFFF;
+	max-height: 204px;
+	margin-bottom: 10px;
 }
 
 .content-header .item{
@@ -137,15 +137,7 @@
 	margin-left: 15px;
 }
 
-.content-header .back{
-	color: black;
-	text-decoration: none;
-	margin-left: 50px;
-	position: absolute;
-	top: 10;
-	left: 0;
-}
-
 .content-posts{
-	padding: 0 30px;
+	padding: 30px;
+	padding-top: 0;
 }
