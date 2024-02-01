@@ -59,7 +59,7 @@
             <li class="item active">
                 <a href="">
                     <i class="fa-regular fa-calendar icon"></i>
-                    <span class="text">Events</span>
+                    <span class="text">Projects</span>
                 </a>
             </li>
             <li class="divider"></li>
@@ -76,7 +76,7 @@
 		<div class="content-header">
 			<div class="item">
 				<div class="title">
-					<p>Events/Iskandar Puteri Low Carbon Competition</p>
+					<p>Projects/Iskandar Puteri Low Carbon Competition</p>
 					<h2>Iskandar Puteri Low Carbon Competition</h2>
 				</div>
 				<div class="profileBadge">
