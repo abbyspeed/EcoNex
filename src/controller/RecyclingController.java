@@ -14,22 +14,11 @@ import dbAccess.RecyclingDAO;
 import model.Recycling;
 
 @Controller
-@RequestMapping("/recycling")
+@RequestMapping("/Recycling")
 public class RecyclingController {
 	RecyclingDAO recyclingDao = new RecyclingDAO();
 	
-	@ModelAttribute
-	@RequestMapping("/getAll")
-	public String getAll(Model model) {
-		List<Recycling> recyclingList = recyclingDao.getAll();
-		
-		model.addAttribute("recyclingList", recyclingList);
-		
-		return "";
-	}
-	
-	@ModelAttribute
-	@RequestMapping("/getByID")
+	@RequestMapping("/GetByID")
 	public String getById(HttpServletRequest request, Model model) {
 		int recId = Integer.parseInt(request.getParameter("recId"));
 		
@@ -39,13 +28,12 @@ public class RecyclingController {
 		return "";
 	}
 	
-	@RequestMapping("/createNewForm")
+	@RequestMapping("/NewForm")
 	public String createNewForm(HttpServletRequest request) {	
-		return "";
+		return "RecyclingInfoView";
 	}
 	
-	@ModelAttribute
-	@RequestMapping("/added")
+	@RequestMapping("/Added")
 	public String add(HttpServletRequest request, Model model) {
 		int conId = Integer.parseInt(request.getParameter("conId"));
 		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
@@ -69,8 +57,7 @@ public class RecyclingController {
 		return "";
 	}
 	
-	@ModelAttribute
-	@RequestMapping("/editForm")
+	@RequestMapping("/EditForm")
 	public String editForm(HttpServletRequest request, Model model) {
 		int recId = Integer.parseInt(request.getParameter("recId"));
 		
@@ -80,8 +67,7 @@ public class RecyclingController {
 		return "";
 	}
 	
-	@ModelAttribute
-	@RequestMapping("/updated")
+	@RequestMapping("/Updated")
 	public String update(HttpServletRequest request, Model model) {
 		int recId = Integer.parseInt(request.getParameter("recId"));
 		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
@@ -105,8 +91,7 @@ public class RecyclingController {
 		return "";
 	}
 	
-	@ModelAttribute
-	@RequestMapping("/deleted")
+	@RequestMapping("/Deleted")
 	public String delete(HttpServletRequest request) {
 		int recId = Integer.parseInt(request.getParameter("recId"));
 

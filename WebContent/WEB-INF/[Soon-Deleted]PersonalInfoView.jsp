@@ -8,9 +8,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dataEntryContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
+			<%@include file="css/style.css"%>
 		</style>
 	</head>
 	<body>
@@ -63,8 +63,8 @@
 			<div class="content-posts">
 				<div class="left">
 					<ol class="stepper">
-						<li>Personal Information</li>
-						<li class="active">Housing Information</li>
+						<li class="active">Personal Information</li>
+						<li>Housing Information</li>
 						<li>Carbon Consumption</li>
 						<li>Done!</li>
 					</ol>
@@ -74,86 +74,70 @@
 				
 				<div class="center">
 					<div class="form">
-						<h3 style="margin-bottom: 20px">Housing Information</h3>
+						<h3 style="margin-bottom: 20px">Personal Information</h3>
 						<form>
 							<table>
 								<tr>
 									<td>
-										<label for="idNo">Select Area</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="phoneNo">Select Category</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<select id="housingArea" name="housingArea">
-											<option value="default" selected="selected">Choose your area</option>
-											<option value="skudai">Skudai</option>
-											<option value="lima kedai">Lima Kedai</option>
-											<option value="gelang patah">Gelang Patah</option>
-											<option value="kangkar pulai">Kangkar Pulai</option>
-											<option value="iskandar puteri">Iskandar Puteri</option>
-											<option value="ulu choh">Ulu Choh</option>
-										</select>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<select id="housingCategory" name="housingCategory">
-											<option value="default" selected="selected">Choose your category</option>
-											<option value="b1">B1</option>
-											<option value="b2">B2</option>
-											<option value="b1">M1</option>
-											<option value="b2">M2</option>
-										</select>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<label for="idNo">Name of Housing/Institution/School/Office</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="phoneNo">Number of Households</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="text" id="housingName" name="housingName" 
-										placeholder="e.g Taman Sri Skudai">
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<input type="text" id="housingHouseholds" name="housingHouseholds" 
-										placeholder="e.g 240">
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<label for="housingAddress">Full Address</label>
+										<label for="fullName">Full Name</label>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<input type="text" id="housingAddress1" name="housingAddress1" 
-										placeholder="Address Line 1">
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3" style="margin-top: 5px;">
-										<input type="text" id="housingAddress2" name="housingAddress2" 
-										placeholder="Address Line 2">
+										<input type="text" id="fullName" name="fullName" 
+										placeholder="e.g. Malis Puteri Binti Saujana Malik">
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<label for="housingPostcode">Postcode</label>
-										<input type="text" id="housingPostcode" name="housingPostcode" 
-										placeholder="e.g 46000">
+										<label for="idNo">Identification Card No</label>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<label for="phoneNo">Phone Number</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" id="idNo" name="idNo" 
+										placeholder="e.g 890311052319">
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<input type="text" id="phoneNo" name="phoneNo" 
+										placeholder="e.g 0192341553">
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="empStatus">Employment Status</label>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<label for="empSector">Employment Sector</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<select id="empStatus" name="empStatus">
+											<option value="default" selected="selected">Choose your status</option>
+											<option value="employed">Employed</option>
+											<option value="self-employed">Self-employed</option>
+											<option value="student">Student</option>
+											<option value="unemployed">Unemployed</option>
+											<option value="retiree">Retiree</option>
+											<option value="houseperson">Houseperson</option>
+										</select>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<select id="empSector" name="empSector">
+											<option value="default" selected="selected">Choose your sector</option>
+											<option value="public">Public</option>
+											<option value="private">Private</option>
+										</select>
 									</td>
 								</tr>
 							</table>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
     <style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dataEntryContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
+			<%@include file="css/style.css"%>
 	</style>
 </head>
 <body>
@@ -67,12 +68,12 @@
 
 			<div class="content-posts">
 				<div class="left">
-					<ol class="stepper">
-						<li>Personal Information</li>
-						<li>Housing Information</li>
-						<li class="active">Carbon Consumption</li>
-						<li>Done!</li>
-					</ol>
+					<div class="form-menu">
+						<a href="">Housing Information</a>
+						<a href="">Electricity Consumption</a>
+						<a href="" class="active">Water Consumption</a>
+						<a href="">Recycling Activity</a>
+					</div>
 					
 					<button class="btn-cancel">Leave</button>
 				</div>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,9 +9,9 @@
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<script src="/js/sidebar.js" type="text/javascript"></script>
 		<style>
-			<%@include file="/css/contentMenu.css"%>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/contentMenu.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/style.css"%>
 			<%@include file="css/eventComponents.css"%>
 		</style>
 	</head>
@@ -79,7 +79,7 @@
 				<h4>All data entries</h4>
 				<div class="grid-view">
 					<div class="month-card">
-						<h4>Month</h4>
+						<h3>Month</h3>
 						<p class="sub-desc">Entry status description</p>
 						<div class="sub-status">
 							Submission status
@@ -94,8 +94,24 @@
 							</a>
 						</div>
 					</div>
+					<div class="month-card new">
+						<h3>Month</h3>
+						<p class="sub-desc">Entry status description</p>
+						<div class="sub-status">
+							Submission status
+						</div>
+						<div class="bottom-layer">
+							<div class="sub-date">
+								<p>Due Date</p>
+								<p>Date</p>
+							</div>
+							<a href="" class="sub-btn new">
+								Upload Details
+							</a>
+						</div>
+					</div>
 					<div class="month-card active">
-						<h4>Month</h4>
+						<h3>Month</h3>
 						<p class="sub-desc">Entry status description</p>
 						<div class="sub-status">
 							Submission status
@@ -111,23 +127,7 @@
 						</div>
 					</div>
 					<div class="month-card active">
-						<h4>Month</h4>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="" class="sub-btn active">
-								View Submission
-							</a>
-						</div>
-					</div>
-					<div class="month-card active">
-						<h4>Month</h4>
+						<h3>Month</h3>
 						<p class="sub-desc">Entry status description</p>
 						<div class="sub-status">
 							Submission status
