@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,9 +8,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dataEntryContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
+			<%@include file="css/style.css"%>
 		</style>
 	</head>
 	<body>
@@ -62,82 +62,83 @@
 			
 			<div class="content-posts">
 				<div class="left">
-					<ol class="stepper">
-						<li class="active">Personal Information</li>
-						<li>Housing Information</li>
-						<li>Carbon Consumption</li>
-						<li>Done!</li>
-					</ol>
+					<div class="form-menu">
+						<a href="">Housing Information</a>
+						<a href="" class="active">Electricity Consumption</a>
+						<a href="">Water Consumption</a>
+						<a href="">Recycling Activity</a>
+					</div>
 					
 					<button class="btn-cancel">Leave</button>
 				</div>
 				
 				<div class="center">
 					<div class="form">
-						<h3 style="margin-bottom: 20px">Personal Information</h3>
+						<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
 						<form>
 							<table>
 								<tr>
 									<td>
-										<label for="fullName">Full Name</label>
+										<label for="electricityDays">Total Days</label>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<label for="electricityProrate">Prorate Factor</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" id="electricityDays" name="electricityDays" 
+										placeholder="e.g 30">
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<input type="text" id="electricityProrate" name="electricityProrate" 
+										placeholder="e.g 1.0233">
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="electricityUsage">Current Usage</label>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<label for="electricityAmount">Current Amount</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" id="electricityUsage" name="electricityUsage" 
+										placeholder="e.g 100">
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<input type="text" id="electricityAmount" name="electricityAmount" 
+										placeholder="e.g 20">
+									</td>
+								</tr>
+	
+								<tr>
+									<td>
+										<label for="electricityProof">Bill Proof</label>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<input type="text" id="fullName" name="fullName" 
-										placeholder="e.g. Malis Puteri Binti Saujana Malik">
+										<input type="file" id="electricityProof" name="electricityProof" accept="image/*">
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<label for="idNo">Identification Card No</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="phoneNo">Phone Number</label>
+										<label for="electricityDesc">Describe how you saved electricity in detail</label>
 									</td>
 								</tr>
 								<tr>
-									<td>
-										<input type="text" id="idNo" name="idNo" 
-										placeholder="e.g 890311052319">
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<input type="text" id="phoneNo" name="phoneNo" 
-										placeholder="e.g 0192341553">
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<label for="empStatus">Employment Status</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="empSector">Employment Sector</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<select id="empStatus" name="empStatus">
-											<option value="default" selected="selected">Choose your status</option>
-											<option value="employed">Employed</option>
-											<option value="self-employed">Self-employed</option>
-											<option value="student">Student</option>
-											<option value="unemployed">Unemployed</option>
-											<option value="retiree">Retiree</option>
-											<option value="houseperson">Houseperson</option>
-										</select>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<select id="empSector" name="empSector">
-											<option value="default" selected="selected">Choose your sector</option>
-											<option value="public">Public</option>
-											<option value="private">Private</option>
-										</select>
+									<td colspan="3">
+										<textarea rows="20" cols="90" name="electricityDesc" 
+										placeholder="e.g I set a timer as to how long I can turn the lights on at night."></textarea>
 									</td>
 								</tr>
 							</table>

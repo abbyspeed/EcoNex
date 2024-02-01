@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,8 @@
     <!-- Include Bootstrap CSS here -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/style.css"%>
 	</style>
 </head>
 <body>

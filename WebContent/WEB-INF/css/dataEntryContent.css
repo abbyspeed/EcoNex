@@ -6,60 +6,34 @@
 	justify-content: space-between;
 }
 
-.content-posts .left{
+.left{
 	width: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	text-align: center;
 }
 
-.content-posts .stepper{
-	list-style: none;
-	justify-content: space-between;
-	margin: 40px 20px 20px 20px;
-	padding: 0;
-	font-size: 14px;
-	counter-reset: step;
+.form-menu{
+	margin-top: 30px;
 }
 
-.stepper li{
+.form-menu a{
 	display: grid;
 	place-items: center;
 	gap: 8px;
-	margin-bottom: 50px;
-	background-color: #FFFFFF;
+	padding: 10px 0;
+	margin-bottom: 20px;
+	text-decoration: none;
+	background-color: var(--lightGrey2);
+	color: black;
+	border-radius: 4px;
 }
 
-.stepper li::before{
-	content: counter(step) " ";
-	counter-increment: step;
-	display: grid;
-	place-content: center;
-	height: 25px;
-	aspect-ratio: 1;
+.form-menu a.active{
 	background-color: var(--secondary);
-	color: #FFFFFF;
-	box-sizing: border-box;
-	border-radius: 50%;
+	color: white;
 }
-
-.stepper li.active ~ li::before{
-	background: var(--lightGrey);
-	color: var(--darkGrey);
-}
-
-/*
-.stepper li.active::after {
-	content: "";
-	position: absolute;
-	height: 50%;
-	left: 100; 
-	top: auto;
-	right: auto;
-	width: 2px;
-	background-color: pink;
-	overflow: hidden;
-}*/
 
 .content-posts .form{
 	width: 100vh;

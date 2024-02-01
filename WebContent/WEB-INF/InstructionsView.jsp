@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +11,10 @@
     <script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
     <script src="/js/content-menu.js" type="text/javascript"></script>
     <style>
-			<%@include file="/css/contentMenu.css"%>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dashboardContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/contentMenu.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dashboardContent.css"%>
+			<%@include file="css/style.css"%>
 	</style>
 </head>
 <body>

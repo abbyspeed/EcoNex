@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,9 +8,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dataEntryContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
+			<%@include file="css/style.css"%>
 		</style>
 	</head>
 	<body>
@@ -66,12 +66,12 @@
 			
 			<div class="content-posts">
 				<div class="left">
-					<ol class="stepper">
-						<li>Personal Information</li>
-						<li>Housing Information</li>
-						<li class="active">Carbon Consumption</li>
-						<li>Done!</li>
-					</ol>
+					<div class="form-menu">
+						<a href="">Housing Information</a>
+						<a href="">Electricity Consumption</a>
+						<a href="">Water Consumption</a>
+						<a href="" class="active">Recycling Activity</a>
+					</div>
 					
 					<button class="btn-cancel">Leave</button>
 				</div>

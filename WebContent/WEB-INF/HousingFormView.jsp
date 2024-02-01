@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,9 +8,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
-			<%@include file="/css/sidebarNav.css"%>
-			<%@include file="/css/dataEntryContent.css"%>
-			<%@include file="/css/style.css"%>
+			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
+			<%@include file="css/style.css"%>
 		</style>
 	</head>
 	<body>
@@ -62,83 +62,98 @@
 			
 			<div class="content-posts">
 				<div class="left">
-					<ol class="stepper">
-						<li>Personal Information</li>
-						<li>Housing Information</li>
-						<li class="active">Carbon Consumption</li>
-						<li>Done!</li>
-					</ol>
+					<div class="form-menu">
+						<a href="" class="active">Housing Information</a>
+						<a href="">Electricity Consumption</a>
+						<a href="">Water Consumption</a>
+						<a href="">Recycling Activity</a>
+					</div>
 					
 					<button class="btn-cancel">Leave</button>
 				</div>
 				
 				<div class="center">
 					<div class="form">
-						<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
+						<h3 style="margin-bottom: 20px">Housing Information</h3>
 						<form>
 							<table>
 								<tr>
 									<td>
-										<label for="electricityDays">Total Days</label>
+										<label for="idNo">Select Area</label>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<label for="electricityProrate">Prorate Factor</label>
+										<label for="phoneNo">Select Category</label>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<input type="text" id="electricityDays" name="electricityDays" 
-										placeholder="e.g 30">
+										<select id="housingArea" name="housingArea">
+											<option value="default" selected="selected">Choose your area</option>
+											<option value="skudai">Skudai</option>
+											<option value="lima kedai">Lima Kedai</option>
+											<option value="gelang patah">Gelang Patah</option>
+											<option value="kangkar pulai">Kangkar Pulai</option>
+											<option value="iskandar puteri">Iskandar Puteri</option>
+											<option value="ulu choh">Ulu Choh</option>
+										</select>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<input type="text" id="electricityProrate" name="electricityProrate" 
-										placeholder="e.g 1.0233">
+										<select id="housingCategory" name="housingCategory">
+											<option value="default" selected="selected">Choose your category</option>
+											<option value="b1">B1</option>
+											<option value="b2">B2</option>
+											<option value="m1">M1</option>
+											<option value="m2">M2</option>
+										</select>
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<label for="electricityUsage">Current Usage</label>
+										<label for="idNo">Name of Housing/Institution/School/Office</label>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<label for="electricityAmount">Current Amount</label>
+										<label for="phoneNo">Number of Households</label>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<input type="text" id="electricityUsage" name="electricityUsage" 
-										placeholder="e.g 100">
+										<input type="text" id="housingName" name="housingName" 
+										placeholder="e.g Taman Sri Skudai">
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<input type="text" id="electricityAmount" name="electricityAmount" 
-										placeholder="e.g 20">
-									</td>
-								</tr>
-	
-								<tr>
-									<td>
-										<label for="electricityProof">Bill Proof</label>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<input type="file" id="electricityProof" name="electricityProof" accept="image/*">
+										<input type="text" id="housingHouseholds" name="housingHouseholds" 
+										placeholder="e.g 240">
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<label for="electricityDesc">Describe how you saved electricity in detail</label>
+										<label for="housingAddress">Full Address</label>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<textarea rows="20" cols="90" name="electricityDesc" 
-										placeholder="e.g I set a timer as to how long I can turn the lights on at night."></textarea>
+										<input type="text" id="housingAddress1" name="housingAddress1" 
+										placeholder="Address Line 1">
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3" style="margin-top: 5px;">
+										<input type="text" id="housingAddress2" name="housingAddress2" 
+										placeholder="Address Line 2">
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label for="housingPostcode">Postcode</label>
+										<input type="text" id="housingPostcode" name="housingPostcode" 
+										placeholder="e.g 46000">
 									</td>
 								</tr>
 							</table>

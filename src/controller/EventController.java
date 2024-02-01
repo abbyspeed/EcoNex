@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/Events")
-public class EventUserController {
+public class EventController {
 	
 	@RequestMapping("/ViewAll")
 	public String getAllEvents(Model model) {
@@ -28,5 +28,16 @@ public class EventUserController {
 	@RequestMapping("/{eventid}/ProjectImpact")
 	public String showProjectImpact(@PathVariable ("eventid") int eventid, Model model) {
 		return "ProjectImpactView";
+	}
+	
+	// ADMIN-ONLY PAGES
+	@RequestMapping("/{eventid}/Submissions")
+	public String showSubmissions(@PathVariable ("eventid") int eventid, Model model) {
+		return "AdminSubmissionView";
+	}
+	
+	@RequestMapping("/{eventid}/Analytics")
+	public String showAnalytics(@PathVariable ("eventid") int eventid, Model model) {
+		return "";
 	}
 }

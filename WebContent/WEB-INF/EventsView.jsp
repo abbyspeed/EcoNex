@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +18,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css"
 	rel="stylesheet" />
 <style>
-<%@ include file="/css/sidebarNav.css"%>
-<%@ include file="/css/dashboardContent.css"%>
-<%@ include file="/css/style.css"%>
+<%@ include file="css/sidebarNav.css"%>
+<%@ include file="css/dashboardContent.css"%>
+<%@ include file="css/style.css"%>
 @media ( min-width : 768px) {
 	.card-container {
 		max-width: 500px;
