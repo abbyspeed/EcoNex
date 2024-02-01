@@ -7,15 +7,11 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.nexcode.controller, 
-										  com.admin.controller, 
-										  com.user.controller, 
-										  com.events.controller,
-										  controller" />
+	<context:component-scan base-package="controller" />
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/admin, /WEB-INF/user" />
+		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 </beans>
