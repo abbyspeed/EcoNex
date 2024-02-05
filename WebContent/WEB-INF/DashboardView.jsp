@@ -33,14 +33,14 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="WEB-INF/EventsView.jsp">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>

@@ -140,7 +140,7 @@ body {
 											class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 											type="submit">Sign Up</button>
 										<div class="text-center">
-											<a class="small" href="/EcoNex/auth/login">Got an account? <span class="">Log
+											<a class="small" href="/EcoNex/login">Got an account? <span class="">Log
 													in instead</span></a>
 										</div>
 									</div>

@@ -21,8 +21,8 @@
          rel="stylesheet" />
       <style>
          <%@include file="css/sidebarNav.css"%>
-         <%@include file="css/dashboardContent.css"%>
-         <%@include file="css/style.css"%>
+		 <%@include file="css/dashboardContent.css"%>
+		 <%@include file="css/style.css"%>
          .btn-login {
          font-size: 0.9rem;
          letter-spacing: 0.05rem;
