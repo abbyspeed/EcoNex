@@ -1,0 +1,113 @@
+@charset "ISO-8859-1";
+
+.content-posts h3{
+	margin: 30px 0;
+}
+
+.content-posts h4{
+	margin-bottom: 10px;
+}
+
+/* DATA ENTRY */
+.grid-view{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.month-card{
+	width: 385px;
+	height: 400px;
+	background-color: var(--lightGrey);
+	margin: 10px 20px 10px 0;
+	padding: 20px;
+}
+
+.month-card.new{
+	background-color: var(--secondary);
+	color: white;
+}
+
+.month-card.active{
+	background-color: white;
+	border: 2px solid var(--primary);
+}
+
+.month-card h3{
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.sub-desc{
+	height: 50px;
+}
+
+.sub-status{
+	height: 190px;
+}
+
+.bottom-layer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sub-date p{
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+.sub-btn{
+	width: 180px;
+	padding: 10px 25px;
+	border-radius: 10px;
+	background-color: var(--darkGrey);
+	color: var(--lightGrey);
+	text-decoration: none;
+	text-align: center;
+}
+
+.sub-btn.new{
+	background-color: var(--btnYellow);
+	color: black;
+}
+
+.sub-btn.active{
+	background-color: black;
+	color: white;
+}
+
+/* SUBMISSION */
+.month-section{
+	display: inline-block;
+}
+
+.user-entries{
+	display: flex;
+	width: 1020px;
+	height: 85px;
+	margin-bottom: 10px;
+	justify-content: space-between;
+	background-color: var(--lightGrey);
+	align-items: center;
+}
+
+.user-entries p{
+	margin: 0;
+}
+
+.user-entries a{
+	height: 100%;
+	padding: 30px;
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+.user-entries-details{
+	padding: 15px;
+}
+
+.user-entries-details td{
+	padding: 0 10px;
+}

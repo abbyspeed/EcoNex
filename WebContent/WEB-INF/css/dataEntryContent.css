@@ -1,0 +1,108 @@
+@charset "ISO-8859-1";
+@import "style.css";
+
+.content-posts{
+	display: flex;
+	justify-content: space-between;
+}
+
+.left{
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.form-menu{
+	margin-top: 30px;
+}
+
+.form-menu a{
+	display: grid;
+	place-items: center;
+	gap: 8px;
+	padding: 10px 0;
+	margin-bottom: 20px;
+	text-decoration: none;
+	background-color: var(--lightGrey2);
+	color: black;
+	border-radius: 4px;
+}
+
+.form-menu a.active{
+	background-color: var(--secondary);
+	color: white;
+}
+
+.content-posts .form{
+	width: 100vh;
+	min-height: 73vh;
+	padding: 30px;
+	background-color: var(--lightGrey2);
+}
+
+.content-posts .right{
+	width: 200px;
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+td{
+	width: 30%
+}
+
+.note{
+	margin: 10px 0;
+	font-weight: 700;
+}
+
+input[type=text], select,
+input[type=file]{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0 20px 0;
+	display: inline-block;
+	border: 1px solid var(--lightGrey);
+	border-radius: 10px;
+	box-sizing: border-box;
+	background-color: #FFFFFF;
+}
+
+input[type=button]{
+	width: 100%;
+	background-color: var(--btnYellow);
+	padding: 10px 20px;
+	margin: 20px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+textarea{
+	width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0 10px 0;
+	border: 1px solid var(--lightGrey);
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.btn-cancel{
+	width: 100%;
+	background-color: #FFFFFF;
+	padding: 10px 20px;
+	margin: 20px 0;
+	border: 3px solid black;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.inputDivider{
+	width: 2%;
+}
