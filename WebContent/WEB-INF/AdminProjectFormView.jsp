@@ -72,7 +72,7 @@
 				<div class="center">
 					<div class="form">
 						<h3 style="margin-bottom: 20px">Project Information</h3>
-						<form action="2/processing" method="post">
+						<form action="/EcoNex/Admin/Projects/ProjectForm/processing" method="post">
 			                <label for="projectName">Name</label>
 			                <input type="text" id="projectName" name="projectName" placeholder="e.g Gotong Royong Perdana" required>
 

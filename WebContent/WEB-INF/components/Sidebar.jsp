@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,9 +58,17 @@
 						<p><%= request.getParameter("subheading") %></p>
 					</div>
 					<div class="profileBadge">
-						<a href="/EcoNex/Admin/Settings">
-							<span>Nurnabihah</span>
-							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						<a href="#">
+							<c:set value="${sessionScope.user.username}" var="username" />
+							<span><c:out value="${username}"></c:out></span>
+							<c:set value="${requestScope.profilePic}" var="profilePic"></c:set>
+							<c:if test="${profilePic == null} }">
+								<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+							</c:if>
+							
+							<c:if test="${profilePic != null} }">
+								<img src="data:image/jpeg;base64,${profilePic}}">
+							</c:if>
 						</a>
 					</div>
 				</div>
