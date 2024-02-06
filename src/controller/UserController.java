@@ -50,7 +50,7 @@ public class UserController {
 	protected ModelAndView dashboard(HttpServletRequest request, RedirectAttributes redirectAttrs) {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		
+
 		System.out.print(user);
 
 		// not logged in
@@ -84,7 +84,7 @@ public class UserController {
 			User foundUser = udao.findUserById(user.getId());
 
 			if ("admin".equals(user.getRole())) {
-				return new ModelAndView("ProfileSettingsView").addObject("initUser", foundUser);
+				return new ModelAndView("ProfileSettingsViewAdmin").addObject("initUser", foundUser);
 			}
 
 			return new ModelAndView("ProfileSettingsView").addObject("initUser", foundUser);
@@ -215,6 +215,37 @@ public class UserController {
 			e.printStackTrace();
 			ModelAndView mv = new ModelAndView("redirect:/settings");
 			redirectAttrs.addFlashAttribute("error", "There was an error. Please try again." + e.getMessage());
+			return mv;
+		}
+	}
+
+	@RequestMapping("/deleteAccount")
+	protected ModelAndView deleteAccount(HttpServletRequest request) {
+		try {
+			UserDAO userDAO = new UserDAO();
+			ModelAndView modelLogin = new ModelAndView("redirect:/login");
+
+			// check if logged in
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute("user");
+
+			// if so, then get user by id from session
+			if (user == null) {
+				return modelLogin;
+			}
+
+			User foundUser = userDAO.findUserById(user.getId());
+
+			// delete user
+			userDAO.delete(foundUser.getId());
+			session.invalidate();
+
+			// redirect to login page
+			return modelLogin;
+		} catch (Exception e) {
+			// Handle other exceptions (log the error, redirect to an error page, etc.)
+			e.printStackTrace();
+			ModelAndView mv = new ModelAndView("redirect:/login");
 			return mv;
 		}
 	}
