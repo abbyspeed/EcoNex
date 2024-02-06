@@ -8,6 +8,53 @@
 	margin-bottom: 10px;
 }
 
+/* VIEW ALL EVENTS */
+@media ( min-width : 768px) {
+	.card-container {
+		max-width: 500px;
+		heigth: auto;
+		margin: 24px 0;
+	}
+}
+
+@media ( max-width : 768px) {
+	.card-container {
+		width: 100%;
+		margin: 24px 0;
+	}
+}
+
+.section-content {
+	width: calc(100% - 235px);
+	position: relative;
+	left: 235px;
+}
+
+.section-content i{
+	margin-right: 10px;
+}
+
+.upcoming-container{
+	padding: 0 30px; 
+	margin-top: 50px;
+}
+
+.upcoming-header{
+	display: flex;
+	justify-content: space-between;
+}
+
+.upcoming-header a{
+	text-decoration: none;
+	border: 2px solid var(--primary);
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px 15px;
+	color: black;
+	font-size: 14px;
+	font-weight: 600;
+}
+
 /* DATA ENTRY */
 .grid-view{
 	display: flex;
@@ -108,6 +155,6 @@
 	padding: 15px;
 }
 
-.user-entries-details td{
+.user-entries-details th, td{
 	padding: 0 10px;
 }

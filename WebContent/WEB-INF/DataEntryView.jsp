@@ -53,8 +53,8 @@
 			<div class="content-header">
 				<div class="item">
 					<div class="title">
-						<p>Events/Iskandar Puteri Low Carbon Competition</p>
-						<h2>Iskandar Puteri Low Carbon Competition</h2>
+						<p>Events/${event.getName()}</p>
+						<h2>${event.getName()}</h2>
 					</div>
 					<div class="profileBadge">
 						<a href="#">
@@ -65,10 +65,10 @@
 				</div>
 				<div class="line">
 					<div class="menu">
-						<a href="#" class="tab-item active">Data Entry</a>
-						<a href="#" class="tab-item">Instructions</a>
-						<a href="" class="tab-item">Event Info</a>
-						<a href="#" class="tab-item">Project Impact</a>
+						<a href="/EcoNex/Events/DataEntry/${eventId}" class="tab-item active">Data Entry</a>
+						<a href="/EcoNex/Events/Instructions/${eventId}" class="tab-item">Instructions</a>
+						<a href="/EcoNex/Events/EventInfo/${eventId}" class="tab-item">Event Info</a>
+						<a href="/EcoNex/Events/ProjectImpact/${eventId}" class="tab-item">Project Impact</a>
 						<div class="menu-selected" style="left: 28px;"></div>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="" class="sub-btn">
+							<a href="Housing/ShowForm/${eventId}" class="sub-btn">
 								Opening soon
 							</a>
 						</div>
@@ -105,7 +105,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="" class="sub-btn new">
+							<a href="Housing/ShowForm/${eventId}" class="sub-btn new">
 								Upload Details
 							</a>
 						</div>
@@ -121,7 +121,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="" class="sub-btn active">
+							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
 								View Submission
 							</a>
 						</div>
@@ -137,7 +137,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="" class="sub-btn active">
+							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
 								View Submission
 							</a>
 						</div>

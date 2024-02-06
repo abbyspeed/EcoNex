@@ -76,8 +76,8 @@
 		<div class="content-header">
 			<div class="item">
 				<div class="title">
-					<p>Projects/Iskandar Puteri Low Carbon Competition</p>
-					<h2>Iskandar Puteri Low Carbon Competition</h2>
+					<p>Projects/${event.getName()}</p>
+					<h2>${event.getName()}</h2>
 				</div>
 				<div class="profileBadge">
 					<a href="#">
@@ -88,40 +88,45 @@
 			</div>
 			<div class="line">
 				<div class="menu">
-					<a href="#" class="tab-item">Event Info</a>
-					<a href="#" class="tab-item active">Submissions</a>
-					<a href="#" class="tab-item">Analytics</a>
+					<a href="/EcoNex/Admin/Projects/ViewProject/${userId}/${eventId}" class="tab-item">Event Info</a>
+					<a href="/EcoNex/Admin/Projects/ViewSubmission/${userId}/${eventId}" class="tab-item active">Submissions</a>
+					<a href="/EcoNex/Admin/Projects/ViewAnalytics/${userId}/${eventId}" class="tab-item">Analytics</a>
 					<div class="menu-selected" style="left: 135px;"></div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="content-posts">
-			<h3>This project has ? total submissions.</h3>
-			<div class="month-section">
-				<h4>Month</h4>
-				<div class="user-entries">
-					<p style="padding: 15px;">Username</p>
-					<div class="user-entries-details">
-						<table>
-							<tr>
-								<td>Area</td>
-								<td>Category</td>
-							</tr>
-							<tr>
-								<td>AreaValue</td>
-								<td>CategoryValue</td>
-							</tr>
-						</table>
+			<h3>This project has ${housingList.size()} total submissions.</h3>
+			<c:choose>
+				<c:when test="${housingList != null}">
+					<div class="month-section">
+						<h4>Month</h4>
+						<div class="user-entries">
+							<p style="padding: 15px;">Username</p>
+							<div class="user-entries-details">
+								<table>
+									<tr>
+										<th>Area</th>
+										<th>Category</th>
+									</tr>
+									<tr>
+										<td>AreaValue</td>
+										<td>CategoryValue</td>
+									</tr>
+								</table>
+							</div>
+							<a href="">View Submission</a>
+						</div>
 					</div>
-					<a href="">View Submission</a>
-				</div>
-			</div>
-			 <!-- Horizontal Rule and Message -->
-	        <hr class="custom-hr">
-	        <div class="alert alert-warning">
-	            <p>Oops, no submissions yet. Come back later!</p>
-	        </div>
+				</c:when>
+				
+				<c:otherwise>
+			        <div class="alert alert-warning">
+			            <p>Oops, no submissions yet. Come back later!</p>
+			        </div>
+		        </c:otherwise>
+	        </c:choose>
 	    </div>
  	</section>
     <!-- Include Bootstrap JS and jQuery here -->

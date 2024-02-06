@@ -72,21 +72,10 @@
 				<div class="center">
 					<div class="form">
 						<h3 style="margin-bottom: 20px">Project Information</h3>
-						<form action="2/processing" method="post">
-			                <label for="projectName">Name</label>
-			                <input type="text" id="projectName" name="projectName" placeholder="e.g Gotong Royong Perdana" required>
+						<form action="added" method="post" enctype="multipart/form-data">
 
-			                <label for="projectSlogan">Slogan</label>
-			                <input type="text" id="projectSlogan" name="projectSlogan" placeholder="e.g Gotong Royong Amalan Mulia" required>
-				
-			                <label for="projectDescription">Description</label>
-			                <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="e.g Program ini adalah bersempena bulan kebersihan seMalaysia. Semua warga umur boleh menyertainya." required></textarea>
-
-			                <label for="startDate">Start Date</label>
-			                <input type="date" id="startDate" name="startDate" required>
-
-			                <label for="endDate">End Date</label>
-			                <input type="date" id="endDate" name="endDate" required>
+			                <label for="projectImage">Upload Image</label>
+		                    <input type="file" id="projectImage" name="projectImage" required>
 			                
 				            <input type="submit" id="submit-form" hidden>
 						</form>
@@ -94,7 +83,7 @@
 				</div>
 
 				<div class="right">
-					<label class="submit-btn" for="submit-form" tabindex="0">Proceed</label>
+					<label class="submit-btn" for="submit-form" tabindex="0">Create</label>
 				</div>
 		    </div>
   		</section>	

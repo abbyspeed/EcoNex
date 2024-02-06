@@ -60,6 +60,7 @@
 .tab-content .event-slogan{
 	margin-top: 30px;
 	margin-bottom: 50px;
+	width: 500px;
 }
 
 .tab-content .event-section{
@@ -78,8 +79,8 @@
 }
 
 .tab-content .event-desc{
-	width: 580px;
-	text-align: justify;
+	width: 600px;
 	float: right;
+	text-align: justify;
 	margin-right: 40px;
 }

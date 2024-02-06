@@ -67,10 +67,10 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<button href="">Housing Information</button>
-						<button href="">Electricity Consumption</button>
-						<button href="">Water Consumption</button>
-						<button href="" class="active">Recycling Activity</button>
+						<a href="">Housing Information</a>
+						<a href="">Electricity Consumption</a>
+						<a href="">Water Consumption</a>
+						<a href="" class="active">Recycling Activity</a>
 					</div>
 					
 					<button class="btn-cancel">Leave</button>
@@ -157,12 +157,14 @@
 									</td>
 								</tr>
 							</table>
+							
+							<input type="submit" id="submit-form"/>
 						</form>
 					</div>
 				</div>
 
 				<div class="right">
-					<input type="button" value="Save">
+					<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 				</div>
 			</div>
 			

@@ -50,10 +50,6 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="#">
-						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
-						<span>Back</span>
-					</a>
 					<p>Events/Iskandar Puteri Low Carbon Competition</p>
 					<h2>Iskandar Puteri Low Carbon Competition</h2>
 					<p class="reminder">Your data is protected by our data and protection guidelines. 
@@ -67,10 +63,10 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<button href="">Housing Information</button>
-						<button href="">Electricity Consumption</button>
-						<button href="">Water Consumption</button>
-						<button href="" class="active">Recycling Activity</button>
+						<a href="">Housing Information</a>
+						<a href="" class="active">Electricity Consumption</a>
+						<a href="">Water Consumption</a>
+						<a href="">Recycling Activity</a>
 					</div>
 					
 					<button class="btn-cancel">Leave</button>
@@ -78,91 +74,82 @@
 				
 				<div class="center">
 					<div class="form">
-						<h3 style="margin-bottom: 20px">Recycling Activity</h3>
+						<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
 						<form>
 							<table>
 								<tr>
 									<td>
-										<h5 class="note">Recyclable Materials (Plastic, Foils, Glass etc.)</h5>
+										<label for="electricityDays">Total Days</label>
+									</td>
+									<td class="inputDivider"></td>
+									<td>
+										<label for="electricityProrate">Prorate Factor</label>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<label for="materialWeight">Total Weight</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="materialAmount">Total Amount</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="text" id="materialWeight" name="materialWeight" 
+										<input type="text" id="electricityDays" name="electricityDays" 
 										placeholder="e.g 30">
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<input type="text" id="materialAmount" name="materialAmount" 
-										placeholder="e.g 30">
+										<input type="text" id="electricityProrate" name="electricityProrate" 
+										placeholder="e.g 1.0233">
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<h5 class="note">Used Cooking Oil</h5>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<label for="oilWeight">Total Weight</label>
+										<label for="electricityUsage">Current Usage</label>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<label for="oilAmount">Total Amount</label>
+										<label for="electricityAmount">Current Amount</label>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<input type="text" id="oilWeight" name="oilWeight" 
-										placeholder="e.g 30">
+										<input type="text" id="electricityUsage" name="electricityUsage" 
+										placeholder="e.g 100">
 									</td>
 									<td class="inputDivider"></td>
 									<td>
-										<input type="text" id="oilAmount" name="oilAmount" 
-										placeholder="e.g 30">
+										<input type="text" id="electricityAmount" name="electricityAmount" 
+										placeholder="e.g 20">
 									</td>
 								</tr>
-								
+	
 								<tr>
 									<td>
-										<label for="activityPic">Pictures of Activity</label>
+										<label for="electricityProof">Bill Proof</label>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<input type="file" id="activityPic" name="activityPic" accept="image/*">
+										<input type="file" id="electricityProof" name="electricityProof" accept="image/*">
 									</td>
 								</tr>
 								
 								<tr>
 									<td>
-										<label for="activityDesc">Describe what did you recycle and how in detail</label>
+										<label for="electricityDesc">Describe how you saved electricity in detail</label>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="3">
-										<textarea rows="20" cols="90" name="activityDesc" 
-										placeholder="e.g I kept every plastic bottle I got from joining events and send it to the recycling centre in bulk."></textarea>
+										<textarea rows="20" cols="90" name="electricityDesc" 
+										placeholder="e.g I set a timer as to how long I can turn the lights on at night."></textarea>
 									</td>
 								</tr>
 							</table>
+							
+							<input type="submit" id="submit-form"/>
 						</form>
 					</div>
 				</div>
 
 				<div class="right">
-					<input type="button" value="Save">
+					<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 				</div>
 			</div>
 			
