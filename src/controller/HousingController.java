@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dbAccess.ConsumptionDAO;
 import dbAccess.HousingDAO;
 import model.Housing;
 
@@ -23,6 +24,7 @@ public class HousingController {
 	ModelAndView model;
 	
 	HousingDAO housingDAO = new HousingDAO();
+	ConsumptionDAO conDAO = new ConsumptionDAO();
 	
 	@RequestMapping("/ShowForm/{userid}/{eventid}")
 	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
@@ -70,6 +72,8 @@ public class HousingController {
 		housing.setPostcode(housingPostcode);
 		
 		housingDAO.add(housing);
+		
+//		conDAO.add(housing.getHousingid(), 1);
 		
 		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
 	}

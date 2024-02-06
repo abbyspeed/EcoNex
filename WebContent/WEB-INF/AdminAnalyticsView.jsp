@@ -33,14 +33,14 @@
                         <span class="text">Home</span>
                     </a>
                 </li>
-                <li class="item">
+                <li class="item active">
                     <a href="#">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Projects</span>
                     </a>
                 </li>
                 <li class="divider"></li>
-                <li class="item active">
+                <li class="item">
                     <a href="#">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>

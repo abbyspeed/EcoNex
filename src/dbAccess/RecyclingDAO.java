@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import model.Electricity;
 import model.Recycling;
 
 public class RecyclingDAO {
@@ -19,6 +20,13 @@ public class RecyclingDAO {
 	
 	public Recycling findById(int recId) {
 		String sql = "SELECT * FROM recycling WHERE recid = ?";
+		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), recId);
+		
+		return recycling;
+	}
+	
+	public Recycling checkByEvent(int recId) {
+		String sql = "SELECT * FROM electricity WHERE electid = ?";
 		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), recId);
 		
 		return recycling;

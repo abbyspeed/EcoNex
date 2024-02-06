@@ -88,70 +88,16 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Recycling Activity</h3>
-							<form action="1/processing" method="POST">
+							<form>
 								<table>
 									<tr>
 										<td>
-											<h5 class="note">Recyclable Materials (Plastic, Foils, Glass etc.)</h5>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="materialWeight">Total Weight</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="materialAmount">Total Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="materialWeight" name="materialWeight" 
-											value="${recycling.getWasteWeight()}" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="materialAmount" name="materialAmount" 
-											value="${recycling.getWasteAmount()}" required>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<h5 class="note">Used Cooking Oil</h5>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<label for="oilWeight">Total Weight</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="oilAmount">Total Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="oilWeight" name="oilWeight" 
-											value="${recycling.getOilWeight()}" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="oilAmount" name="oilAmount" 
-											value="${recycling.getOilAmount()}" required>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<label for="activityDesc">Describe what did you recycle and how in detail</label>
+											<label for="activityPic">Pictures of Activity</label>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="3">
-											<textarea rows="20" cols="90" name="activityDesc" 
-											value="${recycling.getDescription()}" required></textarea>
+											<input type="file" id="activityPic" name="activityPic" accept="image/*" required>
 										</td>
 									</tr>
 								</table>
@@ -166,72 +112,19 @@
 					</div>
 				</c:if>
 				<c:if test="${empty recycling}">
-					<div class="center">
+				<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Recycling Activity</h3>
-							<form action="1/added" method="POST">
+							<form>
 								<table>
 									<tr>
 										<td>
-											<h5 class="note">Recyclable Materials (Plastic, Foils, Glass etc.)</h5>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="materialWeight">Total Weight</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="materialAmount">Total Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="materialWeight" name="materialWeight" 
-											placeholder="e.g 30" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="materialAmount" name="materialAmount" 
-											placeholder="e.g 30" required>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<h5 class="note">Used Cooking Oil</h5>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<label for="oilWeight">Total Weight</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="oilAmount">Total Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="oilWeight" name="oilWeight" 
-											placeholder="e.g 30" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="oilAmount" name="oilAmount" 
-											placeholder="e.g 30" required>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="activityDesc">Describe what did you recycle and how in detail</label>
+											<label for="activityPic">Pictures of Activity</label>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="3">
-											<textarea rows="20" cols="90" name="activityDesc" 
-											placeholder="e.g I kept every plastic bottle I got from joining events and send it to the recycling centre in bulk." required></textarea>
+											<input type="file" id="activityPic" name="activityPic" accept="image/*" required>
 										</td>
 									</tr>
 								</table>

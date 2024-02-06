@@ -158,3 +158,12 @@
 .user-entries-details th, td{
 	padding: 0 10px;
 }
+
+/* CHANGE CONFIRMATION */
+.change-container{
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+	border: 2px solid --var(lightGrey);
+	border-radius: 5px;
+}

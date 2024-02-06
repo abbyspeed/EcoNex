@@ -51,6 +51,10 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
+					<a class="back" href="/EcoNex/Admin/Projects/ViewSubmissions/${userId}/${eventId}">
+						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
+						<span>Back</span>
+					</a>
 					<p>Events/Iskandar Puteri Low Carbon Competition</p>
 					<h2>Iskandar Puteri Low Carbon Competition</h2>
 					<p class="reminder">Your data is protected by our data and protection guidelines. 

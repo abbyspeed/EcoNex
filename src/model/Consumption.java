@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Consumption {
 	private int conId, housingId;
 	private int month;

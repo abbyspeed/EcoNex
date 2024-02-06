@@ -4,7 +4,12 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Utils {
@@ -12,4 +17,24 @@ public class Utils {
 		DateFormat dateformatter = new SimpleDateFormat("dd MMM yyyy");
 		return dateformatter.format(date);
 	}
+	
+//	public static List<Integer> getListMonths(Date startDate, Date endDate, Locale locale) {
+//	    Calendar calendar = Calendar.getInstance(locale);
+//	    calendar.setTime(startDate);
+//
+//	    DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM", Locale.ENGLISH);
+//        Month startMonth = Month.from(parser.parse((CharSequence) startDate));
+//        Month endMonth = Month.from(parser.parse((CharSequence) startDate));
+//        
+//        int monthNumber = month.getValue();
+//	    
+//	    List<String> months = new ArrayList<>();
+//
+//	    while (calendar.getTime().getTime() <= endDate.getTime()) {
+//	        months.add(df.format(calendar.getTime()));
+//	        calendar.add(Calendar.MONTH, 1);
+//	    }
+//
+//	    return months;
+//	}
 }

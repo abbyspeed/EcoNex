@@ -50,7 +50,7 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="#">
+					<a class="back" href="/EcoNex/Admin/Projects/ViewSubmissions/${userId}/${eventId}">
 						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
 						<span>Back</span>
 					</a>

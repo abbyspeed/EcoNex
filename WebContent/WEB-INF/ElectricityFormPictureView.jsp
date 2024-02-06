@@ -8,9 +8,10 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
+			<%@include file="css/contentMenu.css"%>
 			<%@include file="css/sidebarNav.css"%>
-			<%@include file="css/dataEntryContent.css"%>
 			<%@include file="css/style.css"%>
+			<%@include file="css/eventComponents.css"%>
 		</style>
 	</head>
 	<body>
@@ -50,7 +51,7 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="/EcoNex/Admin/Projects/ViewSubmissions/${userId}/${eventId}">
+					<a class="back" href="/EcoNex/Events/DataEntry/${eventId}">
 						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
 						<span>Back</span>
 					</a>
@@ -67,94 +68,77 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<a href="">Housing Information</a>
-						<a href="" class="active">Electricity Consumption</a>
-						<a href="">Water Consumption</a>
-						<a href="">Recycling Activity</a>
+						<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
+							<button>Housing Information</button>
+						</a>
+						<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
+							<button class="active">Electricity Consumption</button>
+						</a>
+						<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
+							<button>Water Consumption</button>
+						</a>
+						<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
+							<button>Recycling Activity</button>
+						</a>
 					</div>
 					
-					<button class="btn-cancel">Leave</button>
+					<a href="1/deleted" class="btn-delete">Delete</a>
 				</div>
 				
-				<div class="center">
-					<div class="form">
-						<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-						<form>
-							<table>
-								<tr>
-									<td>
-										<label for="electricityDays">Total Days</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="electricityProrate">Prorate Factor</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="text" id="electricityDays" name="electricityDays" 
-										placeholder="e.g 30">
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<input type="text" id="electricityProrate" name="electricityProrate" 
-										placeholder="e.g 1.0233">
-									</td>
-								</tr>
+				<c:if test="${not empty electricity}">
+					<div class="center">
+						<div class="form">
+							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
+							<form action="1/updated" method="post" enctype="multipart/form-data">
+								<table>
+									<tr>
+										<td>
+											<label for="electricityProof">Bill Proof</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<input type="file" id="electricityProof" name="electricityProof" accept="image/*" value="${electricity.getBill()}" required>
+										</td>
+									</tr>
+								</table>
 								
-								<tr>
-									<td>
-										<label for="electricityUsage">Current Usage</label>
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<label for="electricityAmount">Current Amount</label>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="text" id="electricityUsage" name="electricityUsage" 
-										placeholder="e.g 100">
-									</td>
-									<td class="inputDivider"></td>
-									<td>
-										<input type="text" id="electricityAmount" name="electricityAmount" 
-										placeholder="e.g 20">
-									</td>
-								</tr>
-	
-								<tr>
-									<td>
-										<label for="electricityProof">Bill Proof</label>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<input type="file" id="electricityProof" name="electricityProof" accept="image/*">
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<label for="electricityDesc">Describe how you saved electricity in detail</label>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<textarea rows="20" cols="90" name="electricityDesc" 
-										placeholder="e.g I set a timer as to how long I can turn the lights on at night."></textarea>
-									</td>
-								</tr>
-							</table>
-							
-							<input type="submit" id="submit-form"/>
-						</form>
+								<input type="submit" id="submit-form" hidden/>
+							</form>
+						</div>
 					</div>
-				</div>
-
-				<div class="right">
-					<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
-				</div>
+	
+					<div class="right">
+						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
+					</div>
+				</c:if>
+				<c:if test="${empty electricity}">
+					<div class="center">
+						<div class="form">
+							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
+							<form action="1/added" method="post" enctype="multipart/form-data">
+								<table>
+									<tr>
+										<td>
+											<label for="electricityProof">Bill Proof</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<input type="file" id="electricityProof" name="electricityProof" accept="image/*" required>
+										</td>
+									</tr>
+								</table>
+								
+								<input type="submit" id="submit-form" hidden/>
+							</form>
+						</div>
+					</div>
+	
+					<div class="right">
+						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
+					</div>
+				</c:if>
 			</div>
 			
 		</section>

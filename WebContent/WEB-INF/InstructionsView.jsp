@@ -69,53 +69,51 @@
 					<div class="menu">
 						<a href="#" class="tab-item">Data Entry</a>
 						<a href="#" class="tab-item active">Instructions</a>
-						<a href="EventInfoView.jsp" class="tab-item">Event Info</a>
+						<a href="#" class="tab-item">Event Info</a>
 						<a href="#" class="tab-item">Project Impact</a>
 						<div class="menu-selected" style="left: 135px;"></div>
 					</div>
 				</div>
 			</div>
-		    <div class="container mt-5">
-		        <h1 class="mb-4">Welcome to EcoNex - User Guide</h1>
-		        
-		        <!-- Feature 1: Streamlined Data Entry -->
-		        <div class="card mb-4">
-		            <div class="card-header">
-		                Feature 1: Streamlined Data Entry
-		            </div>
-		            <div class="card-body">
-		                <p class="card-text">
-		                    EcoNex provides an easy-to-use interface for entering your carbon consumption data. Simply click on the "Enter Data" button and follow the prompts to submit your monthly information.
-		                </p>
-		            </div>
-		        </div>
-		
-		        <!-- Feature 2: Automated Data Calculation -->
-		        <div class="card mb-4">
-		            <div class="card-header">
-		                Feature 2: Automated Data Calculation
-		            </div>
-		            <div class="card-body">
-		                <p class="card-text">
-		                    Say goodbye to manual calculations! EcoNex uses advanced algorithms to automatically calculate your carbon reduction based on the data you provide. This ensures accuracy and reduces errors.
-		                </p>
-		            </div>
-		        </div>
-		
-		        <!-- Feature 3: Data Representation and Reporting -->
-		        <div class="card">
-		            <div class="card-header">
-		                Feature 3: Data Representation and Reporting
-		            </div>
-		            <div class="card-body">
-		                <p class="card-text">
-		                    Explore your contributions! EcoNex generates detailed reports and graphs, allowing you to track your progress and compare it with your community's achievements. Stay motivated and make a positive impact.
-		                </p>
-		            </div>
-		        </div>
-				
-		        
-		        <a href="index.html" class="btn btn-primary mt-4">Start Using EcoNex</a>
+			<div class="content-posts">
+			    <div class="container mt-5">
+			        <h1 class="mb-4">User Guide</h1>
+			        
+			        <div class="card mb-4">
+			            <div class="card-header">
+			                Rules to Follow
+			            </div>
+			            <div class="card-body">
+			                <p class="card-text">
+			                    <ol>
+			                    	<li>This competition is open specifically to residents within the administrative area of Iskandar Puteri City Council only.</li>
+			                    	<li>Each house/public institution/private company/school within the MBIP area can send only <b>one</b> entry.</li>
+			                    	<li>The selection of the winning criteria is based on the amount of savings, the highest reduction in water and electricity consumption and the amount of recycling.</li>
+									<li>Winners are notified online and also at a presentation ceremony to be organized in December.</li>
+									<li>MBIP reserves the right to amend the conditions and changes regarding the competition without any prior notification.</li>
+									<li>MBIP's decision is <b>final</b> and no appeals will be entertained.</li>
+			                    </ol>
+			                </p>
+			            </div>
+			        </div>
+
+			        <div class="card mb-4">
+			            <div class="card-header">
+			                Entry Reminders
+			            </div>
+			            <div class="card-body">
+			                <p class="card-text">
+			                    <ol>
+			                    	<li>Start by entering your housing details first.</li>
+			                    	<li>There will be 3 categories: <b>Electricity</b>, <b>Water</b> and <b>Recycling Waste</b></li>
+			                    	<li>You are only allowed to key in information that is true (in which proof is under your possession).</li>
+									<li>Any false information or act of impersonating someone will be taken <b>seriously</b>.</li>
+			                    </ol>
+			                </p>
+			            </div>
+			        </div>
+			        <div style="height: 20px"></div>
+				</div>
 		    </div>
     	</section>
     <!-- Include Bootstrap JS and jQuery here -->

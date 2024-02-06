@@ -1,9 +1,14 @@
 package controller;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
@@ -16,12 +21,14 @@ import dbAccess.ElectricityDAO;
 import model.Electricity;
 
 @Controller
+@MultipartConfig
 @RequestMapping("/Electricity")
 public class ElectricityController {
 	
 	ModelAndView model;
 	
 	ElectricityDAO electricityDAO = new ElectricityDAO();
+	Electricity electricity = new Electricity();
 
 	@RequestMapping("/ShowForm/{userid}/{eventid}")
 	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
@@ -45,42 +52,105 @@ public class ElectricityController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
-	public void addHousingInfo(HttpServletRequest request, HttpServletResponse response, 
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingAdd", method = RequestMethod.POST)
+	public ModelAndView addElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
 							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
 		int userId = Integer.parseInt(userid);
 		int eventId = Integer.parseInt(eventid);
-		String housingArea = request.getParameter("housingArea");
-		String housingCategory = request.getParameter("housingCategory");
-		String housingName = request.getParameter("housingName");
-		int householdNo = Integer.parseInt(request.getParameter("housingHouseholds"));
-		String housingAddress = request.getParameter("housingAddress");
-		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
+		int noOfDays = Integer.parseInt(request.getParameter("electricityDays"));
+		double profactor = Double.parseDouble(request.getParameter("electricityProrate"));
+		int currentUsage = Integer.parseInt(request.getParameter("electricityUsage"));
+		double amount = Double.parseDouble(request.getParameter("electricityAmount"));
+		String description = request.getParameter("electricityDesc");
 		
-		Electricity housing = new Electricity();
+//		electricity.setConId(userId);
+		electricity.setNoOfDays(noOfDays);
+		electricity.setProfactor(profactor);
+		electricity.setCurrentUsage(currentUsage);
+		electricity.setAmount(amount);
+		electricity.setDescription(description);
 		
-		electricityDAO.add(housing);
+		model = new ModelAndView("ElectricityFormPictureView");
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		return model;
+	}
+	
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
+	public void addElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
+							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		int userId = Integer.parseInt(userid);
+		int eventId = Integer.parseInt(eventid);
+		Part filePart = request.getPart("electricityProof");
+		
+		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+		
+		InputStream inputStream = null;
+		
+		if (filePart != null) {
+			// prints out some information for debugging
+			System.out.println(filePart.getName());
+			System.out.println(filePart.getSize());
+			System.out.println(filePart.getContentType());
+			
+			// obtains input stream of the upload file
+			inputStream = filePart.getInputStream();
+		}
+		
+		electricity.setBill(fileName);
+		
+		electricityDAO.add(1, electricity);
+		
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
+	}
+	
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingUpdate", method = RequestMethod.POST)
+	public ModelAndView updateElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
+							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
+		int userId = Integer.parseInt(userid);
+		int eventId = Integer.parseInt(eventid);
+		int noOfDays = Integer.parseInt(request.getParameter("electricityDays"));
+		double profactor = Double.parseDouble(request.getParameter("electricityProrate"));
+		int currentUsage = Integer.parseInt(request.getParameter("electricityUsage"));
+		double amount = Double.parseDouble(request.getParameter("electricityAmount"));
+		String description = request.getParameter("electricityDesc");
+		
+		electricity.setNoOfDays(noOfDays);
+		electricity.setProfactor(profactor);
+		electricity.setCurrentUsage(currentUsage);
+		electricity.setAmount(amount);
+		electricity.setDescription(description);
+		
+		model = new ModelAndView("ElectricityFormPictureView");
+		
+		return model;
 	}
 	
 	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
-	public void updateHousingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
+	public void updateElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
+							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
 		int userId = Integer.parseInt(userid);
 		int eventId = Integer.parseInt(eventid);
-		String housingArea = request.getParameter("housingArea");
-		String housingCategory = request.getParameter("housingCategory");
-		String housingName = request.getParameter("housingName");
-		int householdNo = Integer.parseInt(request.getParameter("housingHouseholds"));
-		String housingAddress = request.getParameter("housingAddress");
-		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
+		Part filePart = request.getPart("electricityProof");
 		
-		Electricity housing = new Electricity();
+		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 		
-		electricityDAO.update(1, housing);
+		InputStream inputStream = null;
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		if (filePart != null) {
+			// prints out some information for debugging
+			System.out.println(filePart.getName());
+			System.out.println(filePart.getSize());
+			System.out.println(filePart.getContentType());
+			
+			// obtains input stream of the upload file
+			inputStream = filePart.getInputStream();
+		}
+		
+		electricity.setBill(fileName);
+		
+		electricityDAO.add(1, electricity);
+		
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
 	}
 	
 	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/deleted", method = RequestMethod.POST)
@@ -92,6 +162,6 @@ public class ElectricityController {
 		
 		electricityDAO.delete(1);
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
 	}
 }

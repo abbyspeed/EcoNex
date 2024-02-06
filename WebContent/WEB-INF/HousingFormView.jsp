@@ -50,7 +50,7 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="/EcoNex/Events/DataEntry/1">
+					<a class="back" href="/EcoNex/Events/DataEntry/${eventId}">
 						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
 						<span>Back</span>
 					</a>
@@ -68,16 +68,16 @@
 				<c:if test="${not empty housing}">
 					<div class="left">
 						<div class="form-menu">
-							<a href="">
+							<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
 								<button class="active">Housing Information</button>
 							</a>
-							<a href="">
+							<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
 								<button>Electricity Consumption</button>
 							</a>
-							<a href="">
+							<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
 								<button>Water Consumption</button>
 							</a>
-							<a href="">
+							<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
 								<button>Recycling Activity</button>
 							</a>
 						</div>

@@ -90,58 +90,16 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/processingUpdate" method="POST">
+							<form action="1/updated" method="POST">
 								<table>
 									<tr>
 										<td>
-											<label for="waterDays">Total Days</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="waterProrate">Prorate Factor</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="number" id="waterDays" name="waterDays" 
-											value="${water.getNoOfDays()}" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="number" step="any" id="waterProrate" name="waterProrate" 
-											value="${water.getProrate()}" required>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<label for="waterUsage">Current Usage</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="waterAmount">Current Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="number" id="waterUsage" name="waterUsage" 
-											value="${water.getCurrentUsage()}" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="number" step="any" id="waterAmount" name="waterAmount" 
-											value="${water.getAmount()}" required>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="waterDesc">Describe how you saved water in detail</label>
+											<label for="waterProof">Bill Proof</label>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="3">
-											<textarea rows="20" cols="90" name="waterDesc" 
-											value="${water.getDescription()}" required></textarea>
+											<input type="file" id="waterProof" name="waterProof" accept="image/*" required>
 										</td>
 									</tr>
 								</table>
@@ -159,58 +117,16 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/processingAdd" method="POST">
+							<form action="1/added" method="POST">
 								<table>
 									<tr>
 										<td>
-											<label for="waterDays">Total Days</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="waterProrate">Prorate Factor</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="waterDays" name="waterDays" 
-											placeholder="e.g 30" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="waterProrate" name="waterProrate" 
-											placeholder="e.g 1.0233" required>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<label for="waterUsage">Current Usage</label>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<label for="waterAmount">Current Amount</label>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="text" id="waterUsage" name="waterUsage" 
-											placeholder="e.g 100" required>
-										</td>
-										<td class="inputDivider"></td>
-										<td>
-											<input type="text" id="waterAmount" name="waterAmount" 
-											placeholder="e.g 20" required>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label for="waterDesc">Describe how you saved water in detail</label>
+											<label for="waterProof">Bill Proof</label>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="3">
-											<textarea rows="20" cols="90" name="waterDesc" 
-											placeholder="e.g I used the rainwater I collected to water my plants." required></textarea>
+											<input type="file" id="waterProof" name="waterProof" accept="image/*" required>
 										</td>
 									</tr>
 								</table>
