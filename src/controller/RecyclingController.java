@@ -16,6 +16,7 @@ import model.Recycling;
 @Controller
 @RequestMapping("/Recycling")
 public class RecyclingController {
+	
 	RecyclingDAO recyclingDao = new RecyclingDAO();
 	
 	@RequestMapping("/GetByID")
@@ -30,7 +31,7 @@ public class RecyclingController {
 	
 	@RequestMapping("/NewForm")
 	public String createNewForm(HttpServletRequest request) {	
-		return "RecyclingInfoView";
+		return "RecyclingFormView";
 	}
 	
 	@RequestMapping("/Added")

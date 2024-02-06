@@ -67,7 +67,7 @@
 						<div class="left">
 							<div class="form-menu">
 								<button href="" class="active">Housing Information</button>
-								<button href="">Electricity Consumption</button>
+								<button href="" disabled>Electricity Consumption</button>
 								<button href="">Water Consumption</button>
 								<button href="">Recycling Activity</button>
 							</div>
@@ -160,7 +160,7 @@
 										</tr>
 									</table>
 									
-									<input type="submit" id="submit-form" hidden/>
+									<input type="submit" id="submit-form"/>
 								</form>
 							</div>
 						</div>
@@ -178,12 +178,8 @@
 								<a href="">
 									<button disabled>Electricity Consumption</button>
 								</a>
-								<a href="">
-									<button disabled>Water Consumption</button>
-								</a>
-								<a href="">
-									<button disabled>Recycling Activity</button>
-								</a>
+								<button href="">Water Consumption</button>
+								<button href="">Recycling Activity</button>
 							</div>
 							
 							<button class="btn-cancel">Leave</button>
@@ -274,7 +270,7 @@
 										</tr>
 									</table>
 									
-									<input type="submit" id="submit-form" hidden/>
+									<input type="submit" id="submit-form"/>
 								</form>
 							</div>
 						</div>

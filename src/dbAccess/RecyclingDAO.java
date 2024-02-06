@@ -12,9 +12,9 @@ public class RecyclingDAO {
 	
 	public List<Recycling> getAll(){
 		String sql = "SELECT * FROM recycling";
-		List<Recycling> rList = jdbctemp.query(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class));
+		List<Recycling> recyclingList = jdbctemp.query(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class));
 		
-		return rList;
+		return recyclingList;
 	}
 	
 	public Recycling findById(int recId) {
@@ -24,10 +24,10 @@ public class RecyclingDAO {
 		return recycling;
 	}
 	
-	public int add(int conid, Recycling recycling) {
+	public int add(int conId, Recycling recycling) {
 		String sql = "INSERT INTO recycling (conid, wasteweight, wasteamount, oilweight, oilamount, image, description, status) " +
 					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		Object args[] = { conid,
+		Object args[] = { conId,
 						  recycling.getWasteWeight(), 
 						  recycling.getWasteAmount(), 
 						  recycling.getOilWeight(),

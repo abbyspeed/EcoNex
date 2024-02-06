@@ -19,18 +19,24 @@
 }
 
 .form-menu a{
+	text-decoration: none;
+}
+
+.form-menu button{
 	display: grid;
 	place-items: center;
 	gap: 8px;
 	padding: 10px 0;
 	margin-bottom: 20px;
 	text-decoration: none;
-	background-color: var(--lightGrey2);
+	background-color: var(--lightGrey);
 	color: black;
 	border-radius: 4px;
+	width: 100%;
+	border: none;
 }
 
-.form-menu a.active{
+.form-menu button.active{
 	background-color: var(--secondary);
 	color: white;
 }
@@ -59,8 +65,10 @@ td{
 	font-weight: 700;
 }
 
-input[type=text], select,
-input[type=file]{
+input[type=text], 
+select,
+input[type=file],
+input[type=date]{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0 20px 0;
@@ -71,7 +79,11 @@ input[type=file]{
 	background-color: #FFFFFF;
 }
 
-input[type=button]{
+input[type=submit]{
+	display: hidden;
+}
+
+.submit-btn{
 	width: 100%;
 	background-color: var(--btnYellow);
 	padding: 10px 20px;
@@ -80,6 +92,8 @@ input[type=button]{
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
 }
 
 textarea{
@@ -87,9 +101,8 @@ textarea{
 	padding: 10px 20px;
 	margin: 8px 0 10px 0;
 	border: 1px solid var(--lightGrey);
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 14px;
+	border-radius: 10px;
+	font-size: 16px;
 }
 
 .btn-cancel{

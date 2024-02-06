@@ -1,8 +1,8 @@
 package model;
 
 public class Housing {
-	private int housingId, eventId, userId, householdNo;
-	private String address, eligibility;
+	private int housingId, eventId, userId, householdNo, postcode;
+	private String name, address, eligibility, area, category;
 	
 	public int getHousingid() {
 		return housingId;
@@ -12,28 +12,52 @@ public class Housing {
 		this.housingId = housingid;
 	}
 	
-	public int getEventid() {
+	public int getHousingId() {
+		return housingId;
+	}
+
+	public void setHousingId(int housingId) {
+		this.housingId = housingId;
+	}
+
+	public int getEventId() {
 		return eventId;
 	}
-	
-	public void setEventid(int eventid) {
-		this.eventId = eventid;
+
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
 	}
-	
-	public int getUserid() {
+
+	public int getUserId() {
 		return userId;
 	}
-	
-	public void setUserid(int userid) {
-		this.userId = userid;
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
-	public int getHouseholdno() {
+	public int getHouseholdNo() {
 		return householdNo;
 	}
 	
-	public void setHouseholdno(int householdno) {
-		this.householdNo = householdno;
+	public void setHouseholdNo(int householdNo) {
+		this.householdNo = householdNo;
+	}
+	
+	public int getPostcode() {
+		return postcode;
+	}
+	
+	public void setPostcode(int postcode) {
+		this.postcode = postcode;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getAddress() {
@@ -50,5 +74,21 @@ public class Housing {
 	
 	public void setEligibility(String eligibility) {
 		this.eligibility = eligibility;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }
