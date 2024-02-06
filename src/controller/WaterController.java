@@ -87,6 +87,7 @@ public class WaterController {
 		water.setCurrentUsage(currentUsage);
 		water.setAmount(amount);
 		water.setDescription(description);
+		water.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("WaterFormPictureView");
 		
@@ -151,6 +152,7 @@ public class WaterController {
 		water.setCurrentUsage(currentUsage);
 		water.setAmount(amount);
 		water.setDescription(description);
+		water.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("WaterFormPictureView");
 		

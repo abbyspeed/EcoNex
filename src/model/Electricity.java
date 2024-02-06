@@ -2,7 +2,7 @@ package model;
 
 public class Electricity {
 	private int electId, conId, noOfDays, currentUsage;
-	private double profactor, amount;
+	private double profactor, amount, carbonValue;
 	private String bill, description, status;
 	
 	public int getElectId() {
@@ -75,5 +75,13 @@ public class Electricity {
 	
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public double getCarbonValue() {
+		return carbonValue;
+	}
+
+	public void setCarbonValue(int currentUsage) {
+		carbonValue = currentUsage * 0.584;
 	}
 }

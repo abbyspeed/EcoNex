@@ -4,9 +4,10 @@ import java.util.Date;
 
 public class Event {
 	private int eventId, userId;
-	private String name, slogan, description, status;
+	private String name, slogan, description, progress;
 	private Date startDate, endDate;
 	private String image;
+	private Utils utils;
 	
 	public int getEventId() {
 		return eventId;
@@ -52,6 +53,10 @@ public class Event {
 		return startDate;
 	}
 	
+	public String parsedStartDate(Date startDate) {
+		return utils.dateToStringParser(startDate);
+	}
+	
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
@@ -60,24 +65,28 @@ public class Event {
 		return endDate;
 	}
 	
+	public String parsedEndDate(Date endDate) {
+		return utils.dateToStringParser(endDate);
+	}
+	
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 	
 	public void setStatus(Date startDate, Date endDate) {
 		if(this.getCurrentDate().compareTo(startDate) < 0) {
-			status = "Upcoming";
+			progress = "Upcoming";
 			
 		} else if(this.getCurrentDate().compareTo(startDate) > 0 || this.getCurrentDate().compareTo(startDate) == 0){
-			status = "Ongoing";
+			progress = "Ongoing";
 			
 		} else if(this.getCurrentDate().compareTo(endDate) > 0 || this.getCurrentDate().compareTo(endDate) == 0) {
-			status = "Ended";
+			progress = "Ended";
 		}
 	}
 	
 	public String getStatus() {
-		return status;
+		return progress;
 	}
 	
 	public Date getCurrentDate() {

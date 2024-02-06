@@ -27,21 +27,21 @@
 			</div>
 			
 			<ul class="items">
-                <li class="item active">
-                    <a href="#">
+                <li class="item">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -57,43 +57,46 @@
 						<h2>${event.getName()}</h2>
 					</div>
 					<div class="profileBadge">
-						<a href="#">
-							<span>Nurnabihah</span>
-							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						<a href="/EcoNex/Settings">
+							<span>${user.getUsername()}</span>
 						</a>
 					</div>
 				</div>
 				<div class="line">
 					<div class="menu">
-						<a href="/EcoNex/Events/DataEntry/${eventId}" class="tab-item">Data Entry</a>
-						<a href="/EcoNex/Events/Instructions/${eventId}" class="tab-item">Instructions</a>
-						<a href="/EcoNex/Events/EventInfo/${eventId}" class="tab-item">Event Info</a>
-						<a href="/EcoNex/Events/ProjectImpact/${eventId}" class="tab-item active">Project Impact</a>
-						<div class="menu-selected" style="left: 28px;"></div>
+						<a href="/EcoNex/Events/DataEntry/${event.getEventId()}" class="tab-item">Data Entry</a>
+						<a href="/EcoNex/Events/Instructions/${event.getEventId()}" class="tab-item">Instructions</a>
+						<a href="/EcoNex/Events/EventInfo/${event.getEventId()}" class="tab-item">Event Info</a>
+						<a href="/EcoNex/Events/ProjectImpact/${event.getEventId()}" class="tab-item active">Project Impact</a>
+						<div class="menu-selected" style="left: 350px;"></div>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="content-posts">
-				<h3>Please select a month to enter your carbon details</h3>
-				<h4>All data entries</h4>
+				<h3>Congratulations, celebrate your contribution with us</h3>
+				<h4>Available stats</h4>
 				<div class="grid-view">
-					<div class="month-card">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
+					<c:forEach var="con" items="${conList}">
+						<div class="month-card">
+							<h3>${con.getMonth()}</h3>
+							<p class="sub-desc">You have reduced your carbon intake by</p>
+							<div class="sub-status">
+								<p>Electricity</p>
+								<p>Water</p>
+								<p>Recycling</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn">
-								Opening soon
-							</a>
+							<div class="bottom-layer">
+								<div class="sub-date">
+									<p>Due Date</p>
+									<p>Date</p>
+								</div>
+								<a href="Housing/ShowForm/${event.getEventId()}" class="sub-btn">
+									Opening soon
+								</a>
+							</div>
 						</div>
-					</div>
+					</c:forEach>
 					<div class="month-card new">
 						<h3>Month</h3>
 						<p class="sub-desc">Entry status description</p>
@@ -105,7 +108,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn new">
+							<a href="Housing/ShowForm/${event.getEventId()}" class="sub-btn new">
 								Upload Details
 							</a>
 						</div>

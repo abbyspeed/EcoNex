@@ -80,14 +80,14 @@
 			</a>
 		</div>
 		<ul class="items">
-			<li class="item"><a href="/EcoNex/dashboard"> <i
+			<li class="item"><a href="/EcoNex/Dashboard"> <i
 					class="fa-solid fa-house fa icon"></i> <span class="text">Home</span>
 			</a></li>
 			<li class="item"><a href="/EcoNex/Events/ViewAll"> <i
 					class="fa-regular fa-calendar icon"></i> <span class="text">Events</span>
 			</a></li>
 			<li class="divider"></li>
-			<li class="item active"><a href="/EcoNex/settings"> <i
+			<li class="item active"><a href="/EcoNex/Settings"> <i
 					class="fa-solid fa-gear icon"></i> <span class="text">Settings</span>
 			</a></li>
 		</ul>
@@ -251,13 +251,13 @@
 		    </div>
 		</form>
 
-		<form action="/EcoNex/logout">
+		<form action="/EcoNex/Logout">
 			<button
 			class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 			type="submit">Log Out</button>
 		</form>
 		
-		<form action="/EcoNex/deleteAccount">
+		<form action="/EcoNex/DeleteAccount">
 			<button
 			class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 			type="submit">Delete My Account</button>

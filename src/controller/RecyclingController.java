@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -20,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import dbAccess.RecyclingDAO;
+import dbAccess.UserDAO;
 import model.Electricity;
 import model.Recycling;
+import model.User;
 
 @Controller
 @RequestMapping("/Recycling")
@@ -32,14 +35,25 @@ public class RecyclingController {
 	RecyclingDAO recyclingDAO = new RecyclingDAO();
 	Recycling recycling = new Recycling();
 	
-	@RequestMapping("/ShowForm/{userid}/{eventid}")
-	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
-		int userId = Integer.parseInt(userid);
+	UserDAO userDAO = new UserDAO();
+	
+	@RequestMapping("/ShowForm/{eventid}")
+	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("eventid") String eventid) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		
 		model = new ModelAndView("RecyclingFormView");
 		
-		model.addObject("userId", userId);
+		model.addObject("user", currentUser);
 		model.addObject("eventId", eventId);
 		
 		try {
@@ -54,10 +68,19 @@ public class RecyclingController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingAdd", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingAdd", method = RequestMethod.POST)
 	public ModelAndView addRecyclingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   			 @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		int conId = Integer.parseInt(request.getParameter("conId"));
 		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
@@ -72,16 +95,26 @@ public class RecyclingController {
 		recycling.setOilWeight(oilWeight);
 		recycling.setOilAmount(oilAmount);
 		recycling.setDescription(description);
+		recycling.setCarbonValue(wasteWeight, oilWeight);
 		
 		model = new ModelAndView("RecyclingFormPictureView");
 		
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/added", method = RequestMethod.POST)
 	public void addRecyclingInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							      @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		Part filePart = request.getPart("activityPic");
 		
@@ -103,13 +136,22 @@ public class RecyclingController {
 		
 		recyclingDAO.add(1, recycling);
 		
-		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingUpdate", method = RequestMethod.POST)
 	public ModelAndView updateRecyclingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   				@PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		int conId = Integer.parseInt(request.getParameter("conId"));
 		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
@@ -124,17 +166,28 @@ public class RecyclingController {
 		recycling.setOilWeight(oilWeight);
 		recycling.setOilAmount(oilAmount);
 		recycling.setDescription(description);
+		recycling.setCarbonValue(wasteWeight, oilWeight);
 		
 		model = new ModelAndView("RecyclingFormPictureView");
 		
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/updated", method = RequestMethod.POST)
 	public void updateRecyclingInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							         @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
+		
 		Part filePart = request.getPart("activityPic");
 		
 		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
@@ -155,15 +208,28 @@ public class RecyclingController {
 		
 		recyclingDAO.add(1, recycling);
 		
-		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping("/Deleted")
-	public String delete(HttpServletRequest request) {
+	@RequestMapping("/ShowForm/{eventid}/deleted")
+	public void delete(HttpServletRequest request, HttpServletResponse response,
+					   @PathVariable ("eventid") String eventid) throws IOException {
 		int recId = Integer.parseInt(request.getParameter("recId"));
+		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
+		int eventId = Integer.parseInt(eventid);
 
 		recyclingDAO.delete(recId);
 		
-		return "";
+		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + eventId);
 	}
 }

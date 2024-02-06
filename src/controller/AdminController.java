@@ -304,7 +304,7 @@ public class AdminController {
 //		}
 		
 		int eventId = Integer.parseInt(eventid);
-		int participantId = Integer.parseInt(request.getParameter("userId"));
+		int participantId = Integer.parseInt(request.getParameter("participantId"));
 		String housingArea = request.getParameter("housingArea");
 		String housingCategory = request.getParameter("housingCategory");
 		String housingName = request.getParameter("housingName");
@@ -342,7 +342,7 @@ public class AdminController {
 //		}
 		
 		int eventId = Integer.parseInt(eventid);
-		int participantId = Integer.parseInt(request.getParameter("userId"));
+		int participantId = Integer.parseInt(request.getParameter("participantId"));
 		String housingArea = request.getParameter("housingArea");
 		String housingCategory = request.getParameter("housingCategory");
 		String housingName = request.getParameter("housingName");
@@ -378,7 +378,7 @@ public class AdminController {
 //		}
 		
 		int eventId = Integer.parseInt(eventid);
-		int participantId = Integer.parseInt(request.getParameter("userId"));
+		int participantId = Integer.parseInt(request.getParameter("participantId"));
 //		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
 		housingDAO.delete(1);
@@ -442,6 +442,7 @@ public class AdminController {
 		electricity.setCurrentUsage(currentUsage);
 		electricity.setAmount(amount);
 		electricity.setDescription(description);
+		electricity.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("AdminElectricityFormPictureView");
 		
@@ -508,6 +509,7 @@ public class AdminController {
 		electricity.setCurrentUsage(currentUsage);
 		electricity.setAmount(amount);
 		electricity.setDescription(description);
+		electricity.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("AdminElectricityFormPictureView");
 		

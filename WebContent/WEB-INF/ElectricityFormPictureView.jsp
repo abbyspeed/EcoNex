@@ -8,10 +8,9 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/4022a78895.js" crossorigin="anonymous"></script>
 		<style>
-			<%@include file="css/contentMenu.css"%>
 			<%@include file="css/sidebarNav.css"%>
+			<%@include file="css/dataEntryContent.css"%>
 			<%@include file="css/style.css"%>
-			<%@include file="css/eventComponents.css"%>
 		</style>
 	</head>
 	<body>
@@ -27,20 +26,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -68,16 +67,16 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Housing/ShowForm/${eventId}">
 							<button>Housing Information</button>
 						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
 							<button class="active">Electricity Consumption</button>
 						</a>
-						<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Water/ShowForm/${eventId}">
 							<button>Water Consumption</button>
 						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
 							<button>Recycling Activity</button>
 						</a>
 					</div>
@@ -89,7 +88,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-							<form action="1/updated" method="post" enctype="multipart/form-data">
+							<form action="updated" method="post" enctype="multipart/form-data">
 								<table>
 									<tr>
 										<td>
@@ -116,7 +115,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-							<form action="1/added" method="post" enctype="multipart/form-data">
+							<form action="added" method="post" enctype="multipart/form-data">
 								<table>
 									<tr>
 										<td>

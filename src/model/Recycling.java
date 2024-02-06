@@ -2,22 +2,22 @@ package model;
 
 public class Recycling{
 	private int recId, conId;
-	private double wasteWeight, wasteAmount, oilWeight, oilAmount;
+	private double wasteWeight, wasteAmount, oilWeight, oilAmount, carbonValue;
 	private String image, description, status;
 	
-	public int getRecid() {
+	public int getRecId() {
 		return recId;
 	}
 	
-	public void setRecid(int recid) {
+	public void setRecId(int recid) {
 		this.recId = recid;
 	}
 	
-	public int getConid() {
+	public int getConId() {
 		return conId;
 	}
 	
-	public void setConid(int conid) {
+	public void setConId(int conid) {
 		this.conId = conid;
 	}
 	
@@ -82,5 +82,13 @@ public class Recycling{
 		} else {
 			this.status = "Completed";
 		}
+	}
+
+	public double getCarbonValue() {
+		return carbonValue;
+	}
+
+	public void setCarbonValue(double wasteWeight, double oilWeight) {
+		carbonValue = (wasteWeight * 2.86) + (oilWeight * 2.86);
 	}
 }

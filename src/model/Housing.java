@@ -4,14 +4,6 @@ public class Housing {
 	private int housingId, eventId, userId, householdNo, postcode;
 	private String name, address, area, category;
 	
-	public int getHousingid() {
-		return housingId;
-	}
-	
-	public void setHousingid(int housingid) {
-		this.housingId = housingid;
-	}
-	
 	public int getHousingId() {
 		return housingId;
 	}

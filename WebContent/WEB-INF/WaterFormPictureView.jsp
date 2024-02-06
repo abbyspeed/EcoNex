@@ -28,20 +28,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -69,16 +69,16 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Housing/ShowForm/${eventId}">
 							<button>Housing Information</button>
 						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
 							<button>Electricity Consumption</button>
 						</a>
-						<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Water/ShowForm/${eventId}">
 							<button class="active">Water Consumption</button>
 						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
 							<button>Recycling Activity</button>
 						</a>
 					</div>
@@ -90,7 +90,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/updated" method="POST">
+							<form action="updated" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -117,7 +117,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/added" method="POST">
+							<form action="added" method="POST">
 								<table>
 									<tr>
 										<td>

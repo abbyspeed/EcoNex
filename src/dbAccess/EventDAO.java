@@ -25,7 +25,7 @@ public class EventDAO {
 	}
 	
 	public int add(Event event) {
-		String sql = "INSERT INTO event (userid, name, slogan, description, startdate, enddate, image, status) " +
+		String sql = "INSERT INTO event (userid, name, slogan, description, startdate, enddate, image, progress) " +
 					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { event.getUserId(),
 						  event.getName(), 
@@ -42,7 +42,7 @@ public class EventDAO {
 	}
 	
 	public int update(int eventId, Event event) {
-		String sql = "UPDATE event SET name = ?, slogan = ?, description = ?, startdate = ?, enddate = ?, image = ?, status = ? WHERE eventid = ?";
+		String sql = "UPDATE event SET name = ?, slogan = ?, description = ?, startdate = ?, enddate = ?, image = ?, progress = ? WHERE eventid = ?";
 		Object args[] = { event.getName(), 
 						  event.getSlogan(), 
 						  event.getDescription(),

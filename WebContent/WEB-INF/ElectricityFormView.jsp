@@ -67,16 +67,16 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Housing/ShowForm/${eventId}">
 							<button>Housing Information</button>
 						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
 							<button class="active">Electricity Consumption</button>
 						</a>
-						<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Water/ShowForm/${eventId}">
 							<button>Water Consumption</button>
 						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
+						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
 							<button>Recycling Activity</button>
 						</a>
 					</div>

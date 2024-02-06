@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dbAccess.ConsumptionDAO;
 import dbAccess.HousingDAO;
+import dbAccess.UserDAO;
 import model.Housing;
+import model.User;
 
 @Controller
 @RequestMapping("/Housing")
@@ -24,16 +27,27 @@ public class HousingController {
 	ModelAndView model;
 	
 	HousingDAO housingDAO = new HousingDAO();
-	ConsumptionDAO conDAO = new ConsumptionDAO();
 	
-	@RequestMapping("/ShowForm/{userid}/{eventid}")
-	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
-		int userId = Integer.parseInt(userid);
+	ConsumptionDAO conDAO = new ConsumptionDAO();
+	UserDAO userDAO = new UserDAO();
+	
+	@RequestMapping("/ShowForm/{eventid}")
+	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("eventid") String eventid) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		
 		model = new ModelAndView("HousingFormView");
 		
-		model.addObject("userId", userId);
+		model.addObject("user", currentUser);
 		model.addObject("eventId", eventId);
 		
 		try {
@@ -49,10 +63,20 @@ public class HousingController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/added", method = RequestMethod.POST)
 	public void addHousingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
+		
 		int eventId = Integer.parseInt(eventid);
 		String housingArea = request.getParameter("housingArea");
 		String housingCategory = request.getParameter("housingCategory");
@@ -62,7 +86,7 @@ public class HousingController {
 		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
 		
 		Housing housing = new Housing();
-		housing.setUserId(userId);
+		housing.setUserId(currentUser.getUserid());
 		housing.setEventId(eventId);
 		housing.setArea(housingArea);
 		housing.setCategory(housingCategory);
@@ -75,13 +99,22 @@ public class HousingController {
 		
 //		conDAO.add(housing.getHousingid(), 1);
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Housing/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/updated", method = RequestMethod.POST)
 	public void updateHousingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							      @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		String housingArea = request.getParameter("housingArea");
 		String housingCategory = request.getParameter("housingCategory");
@@ -91,7 +124,7 @@ public class HousingController {
 		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
 		
 		Housing housing = new Housing();
-		housing.setUserId(userId);
+		housing.setUserId(currentUser.getUserid());
 		housing.setEventId(eventId);
 		housing.setArea(housingArea);
 		housing.setCategory(housingCategory);
@@ -102,18 +135,28 @@ public class HousingController {
 		
 		housingDAO.update(1, housing);
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Housing/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/deleted")
+	@RequestMapping(value = "/ShowForm/{eventid}/deleted")
 	public void deleteHousingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							      @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
+		User currentUser = userDAO.findUserByName(user.getUsername());
+		
 		int eventId = Integer.parseInt(eventid);
 //		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
 		housingDAO.delete(1);
 		
-		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Housing/ShowForm/" + eventId);
 	}
 }

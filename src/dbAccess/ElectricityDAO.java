@@ -33,7 +33,7 @@ public class ElectricityDAO {
 	}
 	
 	public int add(int conId, Electricity electricity) {
-		String sql = "INSERT INTO electricity (conid, noofdays, profactor, currentusage, amount, bill, description, status) " +
+		String sql = "INSERT INTO electricity (conid, noofdays, profactor, currentusage, amount, bill, description, status, carbonValue) " +
 					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { conId,
 						  electricity.getNoOfDays(), 
@@ -42,7 +42,8 @@ public class ElectricityDAO {
 						  electricity.getAmount(),
 						  electricity.getBill(),
 						  electricity.getDescription(),
-						  electricity.getStatus() };
+						  electricity.getStatus(),
+						  electricity.getCarbonValue() };
 		
 		int rowAffected = jdbctemp.update(sql, args);
 		
@@ -50,7 +51,7 @@ public class ElectricityDAO {
 	}
 	
 	public int update(int electId, Electricity electricity) {
-		String sql = "UPDATE electricity SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, status = ? WHERE electid = ?";
+		String sql = "UPDATE electricity SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, status = ?, carbonValue = ? WHERE electid = ?";
 		Object args[] = { electricity.getNoOfDays(), 
 						  electricity.getProfactor(), 
 						  electricity.getCurrentUsage(),
@@ -58,6 +59,7 @@ public class ElectricityDAO {
 						  electricity.getBill(),
 						  electricity.getDescription(),
 						  electricity.getStatus(),
+						  electricity.getCarbonValue(),
 				  		  electId };
 		
 		int rowAffected = jdbctemp.update(sql, args);

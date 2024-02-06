@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -87,15 +88,18 @@ public class ElectricityController {
 		electricity.setCurrentUsage(currentUsage);
 		electricity.setAmount(amount);
 		electricity.setDescription(description);
+		electricity.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("ElectricityFormPictureView");
+		
+		model.addObject("eventId", eventId);
 		
 		return model;
 	}
 	
 	@RequestMapping(value = "/ShowForm/{eventid}/added", method = RequestMethod.POST)
 	public void addElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   		@PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+							   		@PathVariable ("eventid") String eventid, Model model) throws IOException, ServletException {		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
@@ -125,6 +129,8 @@ public class ElectricityController {
 		electricity.setBill(fileName);
 		
 		electricityDAO.add(1, electricity);
+		
+		model.addAttribute("eventId", eventId);
 		
 		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}
@@ -153,15 +159,18 @@ public class ElectricityController {
 		electricity.setCurrentUsage(currentUsage);
 		electricity.setAmount(amount);
 		electricity.setDescription(description);
+		electricity.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("ElectricityFormPictureView");
+		
+		model.addObject("eventId", eventId);
 		
 		return model;
 	}
 	
 	@RequestMapping(value = "/ShowForm/{eventid}/updated", method = RequestMethod.POST)
 	public void updateElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   		   @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+							   		   @PathVariable ("eventid") String eventid, Model model) throws IOException, ServletException {		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
@@ -192,12 +201,14 @@ public class ElectricityController {
 		
 		electricityDAO.add(1, electricity);
 		
+		model.addAttribute("eventId", eventId);
+		
 		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}
 	
 	@RequestMapping(value = "/ShowForm/{eventid}/deleted", method = RequestMethod.POST)
 	public void deleteElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
-							   	  @PathVariable ("eventid") String eventid) throws IOException {
+							   	  @PathVariable ("eventid") String eventid, Model model) throws IOException {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
@@ -210,6 +221,8 @@ public class ElectricityController {
 		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
 		electricityDAO.delete(1);
+		
+		model.addAttribute("eventId", eventId);
 		
 		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}

@@ -26,20 +26,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -68,16 +68,16 @@
 				<c:if test="${not empty housing}">
 					<div class="left">
 						<div class="form-menu">
-							<a href="/EcoNex/Housing/ShowForm/${userId}/${eventId}">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
 								<button class="active">Housing Information</button>
 							</a>
-							<a href="/EcoNex/Electricity/ShowForm/${userId}/${eventId}">
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
 								<button>Electricity Consumption</button>
 							</a>
-							<a href="/EcoNex/Water/ShowForm/${userId}/${eventId}">
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
 								<button>Water Consumption</button>
 							</a>
-							<a href="/EcoNex/Recycling/ShowForm/${userId}/${eventId}">
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
 								<button>Recycling Activity</button>
 							</a>
 						</div>
@@ -87,7 +87,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Housing Information</h3>
-							<form action="1/updated" method="POST">
+							<form action="/updated" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -101,7 +101,7 @@
 									<tr>
 										<td>
 											<select id="housingArea" name="housingArea">
-												<option value="default" selected="selected">${housing.getArea()}</option>
+												<option value="default" selected="selected" required>${housing.getArea()}</option>
 												<option value="Skudai">Skudai</option>
 												<option value="Lima Kedai">Lima Kedai</option>
 												<option value="Gelang Patah">Gelang Patah</option>
@@ -113,7 +113,7 @@
 										<td class="inputDivider"></td>
 										<td>
 											<select id="housingCategory" name="housingCategory">
-												<option value="default" selected="selected">${housing.getCategory()}</option>
+												<option value="default" selected="selected" required>${housing.getCategory()}</option>
 												<option value="B1">B1</option>
 												<option value="B2">B2</option>
 												<option value="M1">M1</option>
@@ -134,12 +134,12 @@
 									<tr>
 										<td>
 											<input type="text" id="housingName" name="housingName" 
-											value="${housing.getName()}">
+											value="${housing.getName()}" required>
 										</td>
 										<td class="inputDivider"></td>
 										<td>
 											<input type="number" id="housingHouseholds" name="housingHouseholds" 
-											value="${housing.getHouseholdNo()}">
+											value="${housing.getHouseholdNo()}" required>
 										</td>
 									</tr>
 									
@@ -151,7 +151,7 @@
 									<tr>
 										<td colspan="3">
 											<input type="text" id="housingAddress" name="housingAddress" 
-											value="${housing.getAddress()}">
+											value="${housing.getAddress()}" required>
 										</td>
 									</tr>
 									

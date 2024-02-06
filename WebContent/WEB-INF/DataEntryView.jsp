@@ -27,21 +27,21 @@
 			</div>
 			
 			<ul class="items">
-                <li class="item active">
-                    <a href="#">
+                <li class="item">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
-                <li class="item">
-                    <a href="WEB-INF/EventsView.jsp">
+                <li class="item active">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -57,18 +57,17 @@
 						<h2>${event.getName()}</h2>
 					</div>
 					<div class="profileBadge">
-						<a href="#">
-							<span>Nurnabihah</span>
-							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						<a href="/EcoNex/Settings">
+							<span>${user.getUsername()}</span>
 						</a>
 					</div>
 				</div>
 				<div class="line">
 					<div class="menu">
-						<a href="/EcoNex/Events/DataEntry/${eventId}" class="tab-item active">Data Entry</a>
-						<a href="/EcoNex/Events/Instructions/${eventId}" class="tab-item">Instructions</a>
-						<a href="/EcoNex/Events/EventInfo/${eventId}" class="tab-item">Event Info</a>
-						<a href="/EcoNex/Events/ProjectImpact/${eventId}" class="tab-item">Project Impact</a>
+						<a href="/EcoNex/Events/DataEntry/${event.getEventId()}" class="tab-item active">Data Entry</a>
+						<a href="/EcoNex/Events/Instructions/${event.getEventId()}" class="tab-item">Instructions</a>
+						<a href="/EcoNex/Events/EventInfo/${event.getEventId()}" class="tab-item">Event Info</a>
+						<a href="/EcoNex/Events/ProjectImpact/${event.getEventId()}" class="tab-item">Project Impact</a>
 						<div class="menu-selected" style="left: 28px;"></div>
 					</div>
 				</div>
@@ -89,7 +88,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn">
+							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn">
 								Opening soon
 							</a>
 						</div>
@@ -105,7 +104,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn new">
+							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn new">
 								Upload Details
 							</a>
 						</div>
@@ -121,7 +120,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
+							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn active">
 								View Submission
 							</a>
 						</div>
@@ -137,7 +136,7 @@
 								<p>Due Date</p>
 								<p>Date</p>
 							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
+							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn active">
 								View Submission
 							</a>
 						</div>
