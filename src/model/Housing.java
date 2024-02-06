@@ -2,7 +2,7 @@ package model;
 
 public class Housing {
 	private int housingId, eventId, userId, householdNo, postcode;
-	private String name, address, eligibility, area, category;
+	private String name, address, area, category;
 	
 	public int getHousingid() {
 		return housingId;
@@ -66,14 +66,6 @@ public class Housing {
 	
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	
-	public String getEligibility() {
-		return eligibility;
-	}
-	
-	public void setEligibility(String eligibility) {
-		this.eligibility = eligibility;
 	}
 
 	public String getArea() {

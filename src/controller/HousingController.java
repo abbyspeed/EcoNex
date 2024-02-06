@@ -38,6 +38,7 @@ public class HousingController {
 			Housing housing = housingDAO.checkByEvent(eventId);
 			
 			model.addObject("housing", housing);
+			System.out.print(housing.getArea());
 			
 		} catch(EmptyResultDataAccessException e) {
 			System.out.println("No data yet. Direct to new form.");
@@ -46,7 +47,7 @@ public class HousingController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/{userid}/{eventid}/added", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
 	public void addHousingInfo(HttpServletRequest request, HttpServletResponse response, 
 							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
 		int userId = Integer.parseInt(userid);
@@ -55,8 +56,7 @@ public class HousingController {
 		String housingCategory = request.getParameter("housingCategory");
 		String housingName = request.getParameter("housingName");
 		int householdNo = Integer.parseInt(request.getParameter("housingHouseholds"));
-		String housingAddress1 = request.getParameter("housingAddress1");
-		String housingAddress2 = request.getParameter("housingAddress2");
+		String housingAddress = request.getParameter("housingAddress");
 		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
 		
 		Housing housing = new Housing();
@@ -66,7 +66,7 @@ public class HousingController {
 		housing.setCategory(housingCategory);
 		housing.setName(housingName);
 		housing.setHouseholdNo(householdNo);
-		housing.setAddress(housingAddress1 + " " + housingAddress2);
+		housing.setAddress(housingAddress);
 		housing.setPostcode(housingPostcode);
 		
 		housingDAO.add(housing);
@@ -74,7 +74,7 @@ public class HousingController {
 		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
 	}
 	
-	@RequestMapping(value = "/{userid}/{eventid}/updated", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
 	public void updateHousingInfo(HttpServletRequest request, HttpServletResponse response, 
 							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
 		int userId = Integer.parseInt(userid);
@@ -83,8 +83,7 @@ public class HousingController {
 		String housingCategory = request.getParameter("housingCategory");
 		String housingName = request.getParameter("housingName");
 		int householdNo = Integer.parseInt(request.getParameter("housingHouseholds"));
-		String housingAddress1 = request.getParameter("housingAddress1");
-		String housingAddress2 = request.getParameter("housingAddress2");
+		String housingAddress = request.getParameter("housingAddress");
 		int housingPostcode = Integer.parseInt(request.getParameter("housingPostcode"));
 		
 		Housing housing = new Housing();
@@ -94,10 +93,22 @@ public class HousingController {
 		housing.setCategory(housingCategory);
 		housing.setName(housingName);
 		housing.setHouseholdNo(householdNo);
-		housing.setAddress(housingAddress1 + " " + housingAddress2);
+		housing.setAddress(housingAddress);
 		housing.setPostcode(housingPostcode);
 		
-		housingDAO.update(housing);
+		housingDAO.update(1, housing);
+		
+		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
+	}
+	
+	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/deleted")
+	public void deleteHousingInfo(HttpServletRequest request, HttpServletResponse response, 
+							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
+		int userId = Integer.parseInt(userid);
+		int eventId = Integer.parseInt(eventid);
+//		int housingId = Integer.parseInt(request.getParameter("housingId"));
+		
+		housingDAO.delete(1);
 		
 		response.sendRedirect("/EcoNex/Housing/ShowForm/" + userId + "/" + eventId);
 	}

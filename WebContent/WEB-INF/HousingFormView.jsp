@@ -14,7 +14,6 @@
 		</style>
 	</head>
 	<body>
-		<c:set var="housing" value="${request.getAttribute('housing')}"/>
 		<nav class="sideBar">
 			<div class="sideBar-header">
 				<a href="#">
@@ -51,6 +50,10 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
+					<a class="back" href="/EcoNex/Events/DataEntry/1">
+						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
+						<span>Back</span>
+					</a>
 					<p>Events/Iskandar Puteri Low Carbon Competition</p>
 					<h2>Iskandar Puteri Low Carbon Competition</h2>
 					<p class="reminder">Your data is protected by our data and protection guidelines. 
@@ -62,228 +65,222 @@
 			</div>
 			
 			<div class="content-posts">
-				<c:choose>
-					<c:when test="${housing != null}">
-						<div class="left">
-							<div class="form-menu">
-								<button href="" class="active">Housing Information</button>
-								<button href="">Electricity Consumption</button>
-								<button href="">Water Consumption</button>
-								<button href="">Recycling Activity</button>
-							</div>
-							
-							<button class="btn-cancel">Leave</button>
+				<c:if test="${not empty housing}">
+					<div class="left">
+						<div class="form-menu">
+							<a href="">
+								<button class="active">Housing Information</button>
+							</a>
+							<a href="">
+								<button>Electricity Consumption</button>
+							</a>
+							<a href="">
+								<button>Water Consumption</button>
+							</a>
+							<a href="">
+								<button>Recycling Activity</button>
+							</a>
 						</div>
-						<div class="center">
-							<div class="form">
-								<h3 style="margin-bottom: 20px">Housing Information</h3>
-								<form action="update" method="POST">
-									<table>
-										<tr>
-											<td>
-												<label for="housingArea">Select Area</label>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<label for="housingCategory">Select Category</label>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<select id="housingArea" name="housingArea">
-													<option value="default" selected="selected">${housing.getName()}</option>
-													<option value="skudai">Skudai</option>
-													<option value="lima kedai">Lima Kedai</option>
-													<option value="gelang patah">Gelang Patah</option>
-													<option value="kangkar pulai">Kangkar Pulai</option>
-													<option value="iskandar puteri">Iskandar Puteri</option>
-													<option value="ulu choh">Ulu Choh</option>
-												</select>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<select id="housingCategory" name="housingCategory">
-													<option value="default" selected="selected">${housing.getName()}</option>
-													<option value="b1">B1</option>
-													<option value="b2">B2</option>
-													<option value="m1">M1</option>
-													<option value="m2">M2</option>
-												</select>
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="housingName">Name of Housing/Institution/School/Office</label>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<label for="housingHouseholds">Number of Households</label>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="text" id="housingName" name="housingName" 
-												value="${housing.getName()}">
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<input type="text" id="housingHouseholds" name="housingHouseholds" 
-												value="${housing.getHouseholdNo()}">
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="housingAddress">Full Address</label>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3">
-												<input type="text" id="housingAddress1" name="housingAddress1" 
-												value="${housing.getAddress()}">
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="margin-top: 5px;">
-												<input type="text" id="housingAddress2" name="housingAddress2" 
-												placeholder="Address Line 2">
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="housingPostcode">Postcode</label>
-												<input type="text" id="housingPostcode" name="housingPostcode" 
-												value="${housing.getPostcode()}">
-											</td>
-										</tr>
-									</table>
+						
+						<a href="1/deleted" class="btn-delete">Delete</a>
+					</div>
+					<div class="center">
+						<div class="form">
+							<h3 style="margin-bottom: 20px">Housing Information</h3>
+							<form action="1/updated" method="POST">
+								<table>
+									<tr>
+										<td>
+											<label for="housingArea">Select Area</label>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<label for="housingCategory">Select Category</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select id="housingArea" name="housingArea">
+												<option value="default" selected="selected">${housing.getArea()}</option>
+												<option value="Skudai">Skudai</option>
+												<option value="Lima Kedai">Lima Kedai</option>
+												<option value="Gelang Patah">Gelang Patah</option>
+												<option value="Kangkar Pulai">Kangkar Pulai</option>
+												<option value="Iskandar Puteri">Iskandar Puteri</option>
+												<option value="Ulu Choh">Ulu Choh</option>
+											</select>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<select id="housingCategory" name="housingCategory">
+												<option value="default" selected="selected">${housing.getCategory()}</option>
+												<option value="B1">B1</option>
+												<option value="B2">B2</option>
+												<option value="M1">M1</option>
+												<option value="M2">M2</option>
+											</select>
+										</td>
+									</tr>
 									
-									<input type="submit" id="submit-form" hidden/>
-								</form>
-							</div>
-						</div>
-		
-						<div class="right">
-							<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
-						</div>
-					</c:when>
-					<c:otherwise>
-						<div class="left">
-							<div class="form-menu">
-								<a href="">
-									<button class="active">Housing Information</button>
-								</a>
-								<a href="">
-									<button disabled>Electricity Consumption</button>
-								</a>
-								<a href="">
-									<button disabled>Water Consumption</button>
-								</a>
-								<a href="">
-									<button disabled>Recycling Activity</button>
-								</a>
-							</div>
-							
-							<button class="btn-cancel">Leave</button>
-						</div>
-						<div class="center">
-							<div class="form">
-								<h3 style="margin-bottom: 20px">Housing Information</h3>
-								<form action="add" method="POST">
-									<table>
-										<tr>
-											<td>
-												<label for="housingArea">Select Area</label>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<label for="housingCategory">Select Category</label>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<select id="housingArea" name="housingArea">
-													<option value="default" selected="selected">Choose your area</option>
-													<option value="skudai">Skudai</option>
-													<option value="lima kedai">Lima Kedai</option>
-													<option value="gelang patah">Gelang Patah</option>
-													<option value="kangkar pulai">Kangkar Pulai</option>
-													<option value="iskandar puteri">Iskandar Puteri</option>
-													<option value="ulu choh">Ulu Choh</option>
-												</select>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<select id="housingCategory" name="housingCategory">
-													<option value="default" selected="selected">Choose your category</option>
-													<option value="b1">B1</option>
-													<option value="b2">B2</option>
-													<option value="m1">M1</option>
-													<option value="m2">M2</option>
-												</select>
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="idNo">Name of Housing/Institution/School/Office</label>
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<label for="phoneNo">Number of Households</label>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="text" id="housingName" name="housingName" 
-												placeholder="e.g Taman Sri Skudai">
-											</td>
-											<td class="inputDivider"></td>
-											<td>
-												<input type="text" id="housingHouseholds" name="housingHouseholds" 
-												placeholder="e.g 240">
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="housingAddress">Full Address</label>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3">
-												<input type="text" id="housingAddress1" name="housingAddress1" 
-												placeholder="Address Line 1">
-											</td>
-										</tr>
-										<tr>
-											<td colspan="3" style="margin-top: 5px;">
-												<input type="text" id="housingAddress2" name="housingAddress2" 
-												placeholder="Address Line 2">
-											</td>
-										</tr>
-										
-										<tr>
-											<td>
-												<label for="housingPostcode">Postcode</label>
-												<input type="text" id="housingPostcode" name="housingPostcode" 
-												placeholder="e.g 46000">
-											</td>
-										</tr>
-									</table>
+									<tr>
+										<td>
+											<label for="housingName">Name of Housing/Institution/School/Office</label>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<label for="housingHouseholds">Number of Households</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="text" id="housingName" name="housingName" 
+											value="${housing.getName()}">
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<input type="number" id="housingHouseholds" name="housingHouseholds" 
+											value="${housing.getHouseholdNo()}">
+										</td>
+									</tr>
 									
-									<input type="submit" id="submit-form" hidden/>
-								</form>
-							</div>
+									<tr>
+										<td>
+											<label for="housingAddress">Full Address</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<input type="text" id="housingAddress" name="housingAddress" 
+											value="${housing.getAddress()}">
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<label for="housingPostcode">Postcode</label>
+											<input type="number" id="housingPostcode" name="housingPostcode" 
+											value="${housing.getPostcode()}" required>
+										</td>
+									</tr>
+								</table>
+								
+								<input type="submit" id="submit-form" hidden/>
+							</form>
 						</div>
-		
-						<div class="right">
-							<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
+					</div>
+	
+					<div class="right">
+						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
+					</div>
+				</c:if>
+				<c:if test="${empty housing}">
+					<div class="left">
+						<div class="form-menu">
+							<a href="">
+								<button class="active">Housing Information</button>
+							</a>
+							<a href="">
+								<button disabled>Electricity Consumption</button>
+							</a>
+							<a href="">
+								<button disabled>Water Consumption</button>
+							</a>
+							<a href="">
+								<button disabled>Recycling Activity</button>
+							</a>
 						</div>
-					</c:otherwise>
-				</c:choose>
+						
+						<a href="1/deleted" class="btn-delete">Delete</a>
+					</div>
+					<div class="center">
+						<div class="form">
+							<h3 style="margin-bottom: 20px">Housing Information</h3>
+							<form action="1/added" method="POST">
+								<table>
+									<tr>
+										<td>
+											<label for="housingArea">Select Area</label>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<label for="housingCategory">Select Category</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select id="housingArea" name="housingArea" required>
+												<option value="default" selected="selected">Choose your area</option>
+												<option value="Skudai">Skudai</option>
+												<option value="Lima Kedai">Lima Kedai</option>
+												<option value="Gelang Patah">Gelang Patah</option>
+												<option value="Kangkar Pulai">Kangkar Pulai</option>
+												<option value="Iskandar Puteri">Iskandar Puteri</option>
+												<option value="Ulu Choh">Ulu Choh</option>
+											</select>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<select id="housingCategory" name="housingCategory" required>
+												<option value="default" selected="selected">Choose your category</option>
+												<option value="B1">B1</option>
+												<option value="B2">B2</option>
+												<option value="M1">M1</option>
+												<option value="M2">M2</option>
+											</select>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<label for="idNo">Name of Housing/Institution/School/Office</label>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<label for="phoneNo">Number of Households</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="text" id="housingName" name="housingName" 
+											placeholder="e.g Taman Sri Skudai" required>
+										</td>
+										<td class="inputDivider"></td>
+										<td>
+											<input type="number" id="housingHouseholds" name="housingHouseholds" 
+											placeholder="e.g 240" required>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<label for="housingAddress">Full Address</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<input type="text" id="housingAddress" name="housingAddress" 
+											placeholder="Address Line" required>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<label for="housingPostcode">Postcode</label>
+											<input type="number" id="housingPostcode" name="housingPostcode" 
+											placeholder="e.g 46000" required>
+										</td>
+									</tr>
+								</table>
+								
+								<input type="submit" id="submit-form" hidden/>
+							</form>
+						</div>
+					</div>
+	
+					<div class="right">
+						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
+					</div>
+				</c:if>
 			</div>
 		</section>
 	</body>

@@ -68,7 +68,8 @@ td{
 input[type=text], 
 select,
 input[type=file],
-input[type=date]{
+input[type=date],
+input[type=number]{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0 20px 0;
@@ -105,15 +106,17 @@ textarea{
 	font-size: 16px;
 }
 
-.btn-cancel{
+.btn-delete{
 	width: 100%;
 	background-color: #FFFFFF;
 	padding: 10px 20px;
 	margin: 20px 0;
-	border: 3px solid black;
+	border: 3px solid red;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 14px;
+	color: red;
+	text-decoration: none;
 }
 
 .inputDivider{

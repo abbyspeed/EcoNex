@@ -75,48 +75,49 @@
 					</div>
 				</div>
 			</div>
-    <div class="container mt-5">
-        <h1 class="mb-4">Welcome to EcoNex - User Guide</h1>
-        
-        <!-- Feature 1: Streamlined Data Entry -->
-        <div class="card mb-4">
-            <div class="card-header">
-                Feature 1: Streamlined Data Entry
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    EcoNex provides an easy-to-use interface for entering your carbon consumption data. Simply click on the "Enter Data" button and follow the prompts to submit your monthly information.
-                </p>
-            </div>
-        </div>
-
-        <!-- Feature 2: Automated Data Calculation -->
-        <div class="card mb-4">
-            <div class="card-header">
-                Feature 2: Automated Data Calculation
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Say goodbye to manual calculations! EcoNex uses advanced algorithms to automatically calculate your carbon reduction based on the data you provide. This ensures accuracy and reduces errors.
-                </p>
-            </div>
-        </div>
-
-        <!-- Feature 3: Data Representation and Reporting -->
-        <div class="card">
-            <div class="card-header">
-                Feature 3: Data Representation and Reporting
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Explore your contributions! EcoNex generates detailed reports and graphs, allowing you to track your progress and compare it with your community's achievements. Stay motivated and make a positive impact.
-                </p>
-            </div>
-        </div>
-	</section>	
-        
-        <a href="index.html" class="btn btn-primary mt-4">Start Using EcoNex</a>
-    </div>
+		    <div class="container mt-5">
+		        <h1 class="mb-4">Welcome to EcoNex - User Guide</h1>
+		        
+		        <!-- Feature 1: Streamlined Data Entry -->
+		        <div class="card mb-4">
+		            <div class="card-header">
+		                Feature 1: Streamlined Data Entry
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text">
+		                    EcoNex provides an easy-to-use interface for entering your carbon consumption data. Simply click on the "Enter Data" button and follow the prompts to submit your monthly information.
+		                </p>
+		            </div>
+		        </div>
+		
+		        <!-- Feature 2: Automated Data Calculation -->
+		        <div class="card mb-4">
+		            <div class="card-header">
+		                Feature 2: Automated Data Calculation
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text">
+		                    Say goodbye to manual calculations! EcoNex uses advanced algorithms to automatically calculate your carbon reduction based on the data you provide. This ensures accuracy and reduces errors.
+		                </p>
+		            </div>
+		        </div>
+		
+		        <!-- Feature 3: Data Representation and Reporting -->
+		        <div class="card">
+		            <div class="card-header">
+		                Feature 3: Data Representation and Reporting
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text">
+		                    Explore your contributions! EcoNex generates detailed reports and graphs, allowing you to track your progress and compare it with your community's achievements. Stay motivated and make a positive impact.
+		                </p>
+		            </div>
+		        </div>
+				
+		        
+		        <a href="index.html" class="btn btn-primary mt-4">Start Using EcoNex</a>
+		    </div>
+    	</section>
     <!-- Include Bootstrap JS and jQuery here -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

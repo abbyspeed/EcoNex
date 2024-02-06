@@ -33,8 +33,8 @@ public class HousingDAO {
 	}
 	
 	public int add(Housing housing) {
-		String sql = "INSERT INTO housing (eventid, userid, area, category, name, householdno, address, postcode, eligibility) " +
-				 	 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO housing (eventid, userid, area, category, name, householdno, address, postcode) " +
+				 	 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { housing.getEventId(),
 						  housing.getUserId(),
 						  housing.getArea(),
@@ -42,8 +42,7 @@ public class HousingDAO {
 						  housing.getName(), 
 						  housing.getHouseholdNo(), 
 						  housing.getAddress(),
-						  housing.getPostcode(),
-						  housing.getEligibility() };
+						  housing.getPostcode() };
 		
 		int rowAffected = jdbctemp.update(sql, args);
 		
@@ -51,14 +50,13 @@ public class HousingDAO {
 	}
 	
 	public int update(int housingId, Housing housing) {
-		String sql = "UPDATE housing SET area = ?, category = ?, name = ?, householdno = ?, address = ?, postcode = ?, eligibility = ? WHERE housingId = ?";
+		String sql = "UPDATE housing SET area = ?, category = ?, name = ?, householdno = ?, address = ?, postcode = ? WHERE housingId = ?";
 		Object args[] = { housing.getArea(),
 						  housing.getCategory(),
 						  housing.getName(), 
 						  housing.getHouseholdNo(), 
 						  housing.getAddress(),
 						  housing.getPostcode(),
-						  housing.getEligibility(),
 						  housingId };
 		
 		int rowAffected = jdbctemp.update(sql, args);

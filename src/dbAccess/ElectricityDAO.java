@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import model.Electricity;
+import model.Housing;
 
 public class ElectricityDAO {
 	JdbcTemplate jdbctemp = new JdbcTemplate(DBConnect.getDataSource());
@@ -18,6 +19,13 @@ public class ElectricityDAO {
 	}
 	
 	public Electricity findById(int electId) {
+		String sql = "SELECT * FROM electricity WHERE electid = ?";
+		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), electId);
+		
+		return electricity;
+	}
+	
+	public Electricity checkByEvent(int electId) {
 		String sql = "SELECT * FROM electricity WHERE electid = ?";
 		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), electId);
 		

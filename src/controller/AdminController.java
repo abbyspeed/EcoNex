@@ -54,7 +54,6 @@ public class AdminController {
 		List<Event> upcomingList = new ArrayList<Event>();
 		List<Event> ongoingList = new ArrayList<Event>();
 		
-//		model.addAttribute("sessionid", session);
 		for(Event event : eventList) {
 			if(event.getStatus() == "Upcoming") {
 				upcomingList.add(event);

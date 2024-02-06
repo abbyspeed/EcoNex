@@ -98,12 +98,12 @@
 								<tr>
 									<td>
 										<input type="text" id="materialWeight" name="materialWeight" 
-										placeholder="e.g 30">
+										placeholder="e.g 30" required>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
 										<input type="text" id="materialAmount" name="materialAmount" 
-										placeholder="e.g 30">
+										placeholder="e.g 30" required>
 									</td>
 								</tr>
 								
@@ -125,12 +125,12 @@
 								<tr>
 									<td>
 										<input type="text" id="oilWeight" name="oilWeight" 
-										placeholder="e.g 30">
+										placeholder="e.g 30" required>
 									</td>
 									<td class="inputDivider"></td>
 									<td>
 										<input type="text" id="oilAmount" name="oilAmount" 
-										placeholder="e.g 30">
+										placeholder="e.g 30" required>
 									</td>
 								</tr>
 								
@@ -141,7 +141,7 @@
 								</tr>
 								<tr>
 									<td colspan="3">
-										<input type="file" id="activityPic" name="activityPic" accept="image/*">
+										<input type="file" id="activityPic" name="activityPic" accept="image/*" required>
 									</td>
 								</tr>
 								
@@ -153,16 +153,18 @@
 								<tr>
 									<td colspan="3">
 										<textarea rows="20" cols="90" name="activityDesc" 
-										placeholder="e.g I kept every plastic bottle I got from joining events and send it to the recycling centre in bulk."></textarea>
+										placeholder="e.g I kept every plastic bottle I got from joining events and send it to the recycling centre in bulk." required></textarea>
 									</td>
 								</tr>
 							</table>
+							
+							<input type="submit" id="submit-form" hidden/>
 						</form>
 					</div>
 				</div>
 
 				<div class="right">
-					<input type="button" value="Save">
+					<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 				</div>
 			</div>
 			
