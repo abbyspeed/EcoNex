@@ -18,6 +18,13 @@ public class ElectricityDAO {
 		return electricityList;
 	}
 	
+	public Electricity findByConId(int conId) {
+		String sql = "SELECT * FROM electricity WHERE conid = ?";
+		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), conId);
+		
+		return electricity;
+	}
+	
 	public Electricity findById(int electId) {
 		String sql = "SELECT * FROM electricity WHERE electid = ?";
 		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), electId);

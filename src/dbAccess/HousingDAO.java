@@ -25,6 +25,13 @@ public class HousingDAO {
 		return housing;
 	}
 	
+	public Housing findByEventId(int eventId) {
+		String sql = "SELECT * FROM housing WHERE eventid = ?";
+		Housing housing = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Housing>(Housing.class), eventId);
+		
+		return housing;
+	}
+	
 	public Housing checkByEvent(int eventId) {
 		String sql = "SELECT * FROM housing WHERE eventid = ?";
 		Housing housing = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Housing>(Housing.class), eventId);

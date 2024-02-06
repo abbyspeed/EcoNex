@@ -17,9 +17,9 @@ public class ConsumptionDAO {
 		return submissionList;
 	}
 	
-	public List<Consumption> findByHousing(int housingId) {
+	public Consumption findByHousing(int housingId) {
 		String sql = "SELECT * FROM consumption WHERE housingid = ?";
-		List<Consumption> conList = jdbctemp.query(sql, new BeanPropertyRowMapper<Consumption>(Consumption.class), housingId);
+		Consumption conList = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Consumption>(Consumption.class), housingId);
 		
 		return conList;
 	}

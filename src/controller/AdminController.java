@@ -27,15 +27,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import dbAccess.ConsumptionDAO;
 import dbAccess.ElectricityDAO;
 import dbAccess.EventDAO;
 import dbAccess.HousingDAO;
+import dbAccess.RecyclingDAO;
 import dbAccess.UserDAO;
+import dbAccess.WaterDAO;
+import model.Consumption;
 import model.Electricity;
 import model.Event;
 import model.Housing;
+import model.Recycling;
 import model.User;
 import model.Utils;
+import model.Water;
 
 @Controller
 @MultipartConfig
@@ -49,10 +55,15 @@ public class AdminController {
 	Event event = new Event();
 
 	HousingDAO housingDAO = new HousingDAO();
+	ConsumptionDAO consumptionDAO = new ConsumptionDAO();
 	Housing housing = new Housing();
 
 	ElectricityDAO electricityDAO = new ElectricityDAO();
 	Electricity electricity = new Electricity();
+	
+	RecyclingDAO recDAO = new RecyclingDAO();
+	
+	WaterDAO watDAO = new WaterDAO();
 
 	// DASHBOARD
 	@RequestMapping("/Dashboard")
@@ -593,6 +604,21 @@ public class AdminController {
 
 		Event event = eventDAO.findById(eventId);
 		List<Housing> housingList = housingDAO.getAll();
+		
+		//find Housing by eventid
+		Housing house = housingDAO.findByEventId(eventId);
+		
+		//find consumption by housing id
+		Consumption con = consumptionDAO.findByHousing(house.getHousingId());
+		
+		//find electricity by consumption id
+		Electricity electricity = electricityDAO.findByConId(con.getConid());
+		
+		//find recycling by conid
+		Recycling rec = recDAO.findByConId(con.getConid());
+		
+		//find water by conid
+		Water water = watDAO.findByConId(con.getConid());
 
 		model = new ModelAndView("AdminAnalyticsView");
 
@@ -600,6 +626,9 @@ public class AdminController {
 		model.addObject("eventId", eventId);
 		model.addObject("event", event);
 		model.addObject("housingList", housingList);
+		model.addObject("water", water);
+		model.addObject("rec", rec);
+		model.addObject("elec", electricity);
 
 		return model;
 	}
