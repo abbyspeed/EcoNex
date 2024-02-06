@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dbAccess.ElectricityDAO;
 import model.Electricity;
+import model.User;
 
 @Controller
 @MultipartConfig
@@ -30,14 +32,22 @@ public class ElectricityController {
 	ElectricityDAO electricityDAO = new ElectricityDAO();
 	Electricity electricity = new Electricity();
 
-	@RequestMapping("/ShowForm/{userid}/{eventid}")
-	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
-		int userId = Integer.parseInt(userid);
+	@RequestMapping("/ShowForm/{eventid}")
+	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("eventid") String eventid) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		
 		model = new ModelAndView("ElectricityFormView");
 		
-		model.addObject("userId", userId);
+		model.addObject("user", user);
 		model.addObject("eventId", eventId);
 		
 		try {
@@ -52,10 +62,18 @@ public class ElectricityController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingAdd", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingAdd", method = RequestMethod.POST)
 	public ModelAndView addElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   			   @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		int noOfDays = Integer.parseInt(request.getParameter("electricityDays"));
 		double profactor = Double.parseDouble(request.getParameter("electricityProrate"));
@@ -75,10 +93,18 @@ public class ElectricityController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/added", method = RequestMethod.POST)
 	public void addElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							   		@PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		Part filePart = request.getPart("electricityProof");
 		
@@ -100,13 +126,21 @@ public class ElectricityController {
 		
 		electricityDAO.add(1, electricity);
 		
-		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingUpdate", method = RequestMethod.POST)
 	public ModelAndView updateElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   				  @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		int noOfDays = Integer.parseInt(request.getParameter("electricityDays"));
 		double profactor = Double.parseDouble(request.getParameter("electricityProrate"));
@@ -125,10 +159,18 @@ public class ElectricityController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/updated", method = RequestMethod.POST)
 	public void updateElectricityInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							   		   @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		Part filePart = request.getPart("electricityProof");
 		
@@ -150,18 +192,25 @@ public class ElectricityController {
 		
 		electricityDAO.add(1, electricity);
 		
-		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/deleted", method = RequestMethod.POST)
-	public void deleteHousingInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+	@RequestMapping(value = "/ShowForm/{eventid}/deleted", method = RequestMethod.POST)
+	public void deleteElectricityInfo(HttpServletRequest request, HttpServletResponse response, 
+							   	  @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
 		electricityDAO.delete(1);
 		
-		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Electricity/ShowForm/" + eventId);
 	}
 }

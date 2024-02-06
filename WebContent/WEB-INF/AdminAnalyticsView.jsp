@@ -28,20 +28,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="Dashboard.jsp">
+                    <a href="/EcoNex/Admin/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Projects/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Projects</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -57,7 +57,7 @@
 						<h2>${event.getName()}</h2>
 					</div>
 					<div class="profileBadge">
-						<a href="#">
+						<a href="/EcoNex/Admin/Settings">
 							<c:set value="${sessionScope.user.username}" var="username" />
 							<span><c:out value="${username}"></c:out></span>
 							<!-- <img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg"> -->
@@ -66,9 +66,9 @@
 				</div>
 				<div class="line">
 					<div class="menu">
-						<a href="/EcoNex/Admin/Projects/ViewProject/${userId}/${eventId}" class="tab-item">Event Info</a>
-						<a href="/EcoNex/Admin/Projects/ViewSubmission/${userId}/${eventId}" class="tab-item">Submissions</a>
-						<a href="/EcoNex/Admin/Projects/ViewAnalytics/${userId}/${eventId}" class="tab-item active">Analytics</a>
+						<a href="/EcoNex/Admin/Projects/ViewProject/${eventId}" class="tab-item">Event Info</a>
+						<a href="/EcoNex/Admin/Projects/ViewSubmission/${eventId}" class="tab-item">Submissions</a>
+						<a href="/EcoNex/Admin/Projects/ViewAnalytics/${eventId}" class="tab-item active">Analytics</a>
 						<div class="menu-selected"></div>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 					<h3 class="event-slogan">
 						This is our achievement so far
 					</h3>
-					<a href=""></a>
+					<a href="">Refresh data</a>
 					<div class="event-section">
 						
 					</div>

@@ -26,27 +26,27 @@ import model.User;
 @RequestMapping("/")
 public class UserController {
 
-	@RequestMapping("/login")
+	@RequestMapping("/Login")
 	public String login() {
 		return "LoginView";
 	}
 
-	@RequestMapping("/signup")
+	@RequestMapping("/Signup")
 	public String signUp() {
 		return "SignUpView";
 	}
 
-	@RequestMapping("/logout")
+	@RequestMapping("/Logout")
 	protected ModelAndView logout(HttpServletRequest request) {
 		// clear session
 		HttpSession session = request.getSession();
 		session.invalidate();
 		// redirect to login
-		return new ModelAndView("redirect:/login");
+		return new ModelAndView("redirect:/Login");
 	}
 
 	// TODO - ADD PROPER PAGE ROUTES FOR ADMIN
-	@RequestMapping("/dashboard")
+	@RequestMapping("/Dashboard")
 	protected ModelAndView dashboard(HttpServletRequest request, RedirectAttributes redirectAttrs) {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
@@ -54,19 +54,19 @@ public class UserController {
 		// not logged in
 		if (user == null) {
 			redirectAttrs.addFlashAttribute("error", "Login First");
-			return new ModelAndView("redirect:/login");
+			return new ModelAndView("redirect:/Login");
 		}
 
 		redirectAttrs.addFlashAttribute(user);
 
 		if ("admin".equals(user.getRole())) {
-			return new ModelAndView("DashboardView");
+			return new ModelAndView("redirect:/Admin/Dashboard");
 		}
 
 		return new ModelAndView("DashboardView");
 	}
 
-	@RequestMapping("/settings")
+	@RequestMapping("/Settings")
 	protected ModelAndView settings(HttpServletRequest request) {
 		try {
 			HttpSession session = request.getSession();
@@ -74,7 +74,7 @@ public class UserController {
 
 			// not logged in
 			if (user == null) {
-				return new ModelAndView("redirect:/login");
+				return new ModelAndView("redirect:/Login");
 			}
 
 			// get user by id
@@ -82,7 +82,7 @@ public class UserController {
 			User foundUser = udao.findUserByName(user.getUsername());
 
 			if ("admin".equals(user.getRole())) {
-				return new ModelAndView("ProfileSettingsViewAdmin").addObject("initUser", foundUser);
+				return new ModelAndView("AdminProfileSettingsView").addObject("initUser", foundUser);
 			}
 
 			return new ModelAndView("ProfileSettingsView").addObject("initUser", foundUser);
@@ -93,7 +93,7 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping("/processLogin")
+	@RequestMapping("/ProcessLogin")
 	protected ModelAndView processLogin(HttpServletRequest request, RedirectAttributes redirectAttrs) {
 		// get user by username
 		// if exists create session with username, id, role
@@ -125,13 +125,13 @@ public class UserController {
 				session.setAttribute("user", userWithoutPassword);
 				redirectAttrs.addFlashAttribute("user", userWithoutPassword);
 				if ("admin".equals(user.getRole())) {
-					return new ModelAndView("redirect:/dashboard"); // Redirect to admin page
+					return new ModelAndView("redirect:/Admin/Dashboard"); // Redirect to admin page
 				} else {
-					return new ModelAndView("redirect:/dashboard");
+					return new ModelAndView("redirect:/Dashboard");
 				}
 			}
 
-			ModelAndView errorPage = new ModelAndView("redirect:/login");
+			ModelAndView errorPage = new ModelAndView("redirect:/Login");
 			redirectAttrs.addFlashAttribute("error", "Invalid Credentials");
 			return errorPage;
 		} catch (Exception e) {
@@ -140,16 +140,16 @@ public class UserController {
 
 			redirectAttrs.addFlashAttribute("error", "There was an error. Please try again.");
 
-			return new ModelAndView("redirect:/login");
+			return new ModelAndView("redirect:/Login");
 		}
 	}
 
-	@RequestMapping("/processSignup")
+	@RequestMapping("/ProcessSignup")
 	protected ModelAndView processSignup(@ModelAttribute User user, RedirectAttributes redirectAttrs) {
 		try {
 			UserDAO userDAO = new UserDAO();
-			ModelAndView modelLogin = new ModelAndView("redirect:/login");
-			ModelAndView modelSignup = new ModelAndView("redirect:/signup");
+			ModelAndView modelLogin = new ModelAndView("redirect:/Login");
+			ModelAndView modelSignup = new ModelAndView("redirect:/Signup");
 
 			// Check if the username already exists
 			User existingUser = userDAO.findUserByName(user.getUsername());
@@ -166,13 +166,13 @@ public class UserController {
 		} catch (Exception e) {
 			// Handle other exceptions (log the error, redirect to an error page, etc.)
 			e.printStackTrace();
-			ModelAndView mv = new ModelAndView("redirect:/signup");
+			ModelAndView mv = new ModelAndView("redirect:/Signup");
 			redirectAttrs.addFlashAttribute("error", "There was an error. Please try again.");
 			return mv;
 		}
 	}
 
-	@RequestMapping("/updateProfile")
+	@RequestMapping("/UpdateProfile")
 	protected ModelAndView updateProfile(@ModelAttribute User user, HttpServletRequest request,
 			RedirectAttributes redirectAttrs) {
 		try {
@@ -183,14 +183,14 @@ public class UserController {
 			User storedUser = (User) session.getAttribute("user");
 
 			if (storedUser == null) {
-				return new ModelAndView("redirect:/login");
+				return new ModelAndView("redirect:/Login");
 			}
 
 			// update user
 			User foundUser = userDAO.findUserByName(storedUser.getUsername());
 
 			if (foundUser == null) {
-				return new ModelAndView("redirect:/logout");
+				return new ModelAndView("redirect:/Logout");
 			}
 
 			user.setUserid(foundUser.getUserid());
@@ -205,22 +205,22 @@ public class UserController {
 
 			session.setAttribute("user", userWithoutPassword);
 
-			return new ModelAndView("redirect:/settings");
+			return new ModelAndView("redirect:/Settings");
 
 		} catch (Exception e) {
 			// Handle other exceptions (log the error, redirect to an error page, etc.)
 			e.printStackTrace();
-			ModelAndView mv = new ModelAndView("redirect:/settings");
+			ModelAndView mv = new ModelAndView("redirect:/Settings");
 			redirectAttrs.addFlashAttribute("error", "There was an error. Please try again." + e.getMessage());
 			return mv;
 		}
 	}
 
-	@RequestMapping("/deleteAccount")
+	@RequestMapping("/DeleteAccount")
 	protected ModelAndView deleteAccount(HttpServletRequest request) {
 		try {
 			UserDAO userDAO = new UserDAO();
-			ModelAndView modelLogin = new ModelAndView("redirect:/login");
+			ModelAndView modelLogin = new ModelAndView("redirect:/Login");
 
 			// check if logged in
 			HttpSession session = request.getSession();
@@ -242,7 +242,7 @@ public class UserController {
 		} catch (Exception e) {
 			// Handle other exceptions (log the error, redirect to an error page, etc.)
 			e.printStackTrace();
-			ModelAndView mv = new ModelAndView("redirect:/login");
+			ModelAndView mv = new ModelAndView("redirect:/Login");
 			return mv;
 		}
 	}

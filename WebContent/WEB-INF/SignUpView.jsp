@@ -109,7 +109,7 @@ body {
 									<div class="alert alert-danger" role="alert">${error}</div>
 								</c:if>
 								<!-- Sign In Form -->
-								<form action="/EcoNex/processSignup">
+								<form action="/EcoNex/ProcessSignup">
 									<div class="form-floating mb-3">
 										<input type="text" name="fullName" class="form-control" id="floatingInput"
 											placeholder="John Doe" required> <label for="floatingInput">Full
@@ -180,7 +180,7 @@ body {
 											class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 											type="submit">Sign Up</button>
 										<div class="text-center">
-											<a class="small" href="/EcoNex/login">Got an account? <span class="">Log
+											<a class="small" href="/EcoNex/Login">Got an account? <span class="">Log
 													in instead</span></a>
 										</div>
 									</div>

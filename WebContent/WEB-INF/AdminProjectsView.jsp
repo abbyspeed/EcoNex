@@ -30,94 +30,91 @@
 			<jsp:param name="subheading" value="" />
 			<jsp:param name="projectActive" value="active" />
 		</jsp:include>
-		<!--<c:set var="sessionid" scope="session" value="${session.getAttribute('sessionid')}"/>-->
 		<div class="section-content">
 			<div>
-				<c:choose>
-					<c:when test="${ongoingList.size() > 0}">
-							<!-- Card -->
-							<div class="card-container" style="padding-left: 30px;">
-								<div class="card container-fluid">
-									<!-- Card image -->
-									<img class="card-img-top"
-										src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
-										alt="Card image cap">
-									<!-- Card content -->
-									<div class="card-body">
-										<!-- Title -->
-										<h4 class="card-title">
-											<a>${ongoingList}</a>
-										</h4>
-										<!-- Text -->
-										<p class="card-text">
-											<span><b>Participants: </b></span>
-										</p>
-										<p class="card-text">
-											<span><b>Duration: </b>
-										</p>
-										<p class="card-text">
-											<span><b>Area: </b>Iskandar Puteri region
-										</p>
-										<!-- Button -->
-										<a href="/EcoNex/Admin/Projects/ViewProject/2/1" class="btn btn-lg btn-primary btn-login"
-											style="background-color: #080930">View Project</a>
-									</div>
+				<c:if test="${not empty ongoingList}">
+					<c:forEach var="upcomingEvent" items="${ongoingList}">
+						<!-- Card -->
+						<div class="card-container" style="padding-left: 30px;">
+							<div class="card container-fluid">
+								<!-- Card image -->
+								<img class="card-img-top"
+									src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
+									alt="Card image cap">
+								<!-- Card content -->
+								<div class="card-body">
+									<!-- Title -->
+									<h4 class="card-title">
+										<a>${ongoingList}</a>
+									</h4>
+									<!-- Text -->
+									<p class="card-text">
+										<span><b>Participants: </b></span>
+									</p>
+									<p class="card-text">
+										<span><b>Duration: </b>
+									</p>
+									<p class="card-text">
+										<span><b>Area: </b>Iskandar Puteri region
+									</p>
+									<!-- Button -->
+									<a href="/EcoNex/Admin/Projects/ViewProject/2/1" class="btn btn-lg btn-primary btn-login"
+										style="background-color: #080930">View Project</a>
 								</div>
 							</div>
-							<!-- Card -->
-					</c:when>
-					<c:otherwise>
-						<p style="padding-left: 30px;">You have no ongoing events.</p>
-					</c:otherwise>
-				</c:choose>
+						</div>
+						<!-- Card -->
+					</c:forEach>
+			</c:if>
+			<c:if test="${empty ongoingList}">
+				<p style="padding-left: 30px;">You have no ongoing events.</p>
+			</c:if>
 			</div>
 			<div class="upcoming-container">
 				<!-- Upcoming Text -->
 				<div class="upcoming-header">
 					<h3>Upcoming</h3>
-					<a href="/EcoNex/Admin/Projects/ProjectForm/2">
+					<a href="/EcoNex/Admin/Projects/ProjectForm">
 						<i class="fa fa-plus" aria-hidden="true"></i>
 						Create New Project
 					</a>
 				</div>
-				<c:choose>
-					<c:when test="${upcomingList.size() > 0}">
-						<c:forEach var="upcomingEvent" items="${upcomingList}">
-							<!-- Card -->
-							<div class="card-container">
-								<div class="card container-fluid">
-									<!-- Card image -->
-									<img class="card-img-top"
-										src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
-										alt="Card image cap">
-									<!-- Card content -->
-									<div class="card-body">
-										<!-- Title -->
-										<h4 class="card-title">
-											<a>${upcomingEvent}</a>
-										</h4>
-										<p class="card-text">
-											<span><b>Participants: </b></span>
-										</p>
-										<p class="card-text">
-											<span><b>Duration: </b>
-										</p>
-										<p class="card-text">
-											<span><b>Area: </b>Iskandar Puteri region
-										</p>
-										<!-- Button -->
-										<a href="#" class="btn btn-lg btn-primary btn-login"
-											style="background-color: #080930">View Project</a>
-									</div>
+				<c:if test="${not empty upcomingList}">
+					<c:forEach var="upcomingEvent" items="${upcomingList}">
+						<!-- Card -->
+						<div class="card-container">
+							<div class="card container-fluid">
+								<!-- Card image -->
+								<img class="card-img-top"
+									src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
+									alt="Card image cap">
+								<!-- Card content -->
+								<div class="card-body">
+									<!-- Title -->
+									<h4 class="card-title">
+										<a>${upcomingEvent}</a>
+									</h4>
+									<p class="card-text">
+										<span><b>Participants: </b></span>
+									</p>
+									<p class="card-text">
+										<span><b>Duration: </b>
+									</p>
+									<p class="card-text">
+										<span><b>Area: </b>Iskandar Puteri region
+									</p>
+									<!-- Button -->
+									<a href="#" class="btn btn-lg btn-primary btn-login"
+										style="background-color: #080930">View Project</a>
 								</div>
 							</div>
-							<!-- Card -->
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<p style="margin-top: 40px;">There are no upcoming events.</p>
-					</c:otherwise>
-				</c:choose>
+						</div>
+						<!-- Card -->
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty upcomingList}">
+					<p style="margin-top: 40px;">There are no upcoming events.</p>
+				</c:if>
 			</div>
 		</div>
 		<!-- MDB -->

@@ -49,22 +49,22 @@ public class UserDAO {
 
 	// add
 	public int add(User u) {
-		String sql = "INSERT INTO user (username, password, fullName, IC, phone, employmentStatus, employmentSector) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO user (username, password, fullName, IC, phone, employmentStatus, employmentSector, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		String hashedPassword = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 		Object args[] = { u.getUsername(), hashedPassword, u.getFullName(), u.getIC(), u.getPhone(),
-				u.getEmploymentStatus(), u.getEmploymentSector() };
+						  u.getEmploymentStatus(), u.getEmploymentSector(), "user" };
 		int rowAffected = jdbctemp.update(sql, args);
 		return rowAffected;
 	}
 
 	// update
 	public int update(User u) {
-		String sql = "UPDATE user SET username=?, password=?, fullName=?, IC=?, phone=?, employmentStatus=?, employmentSector=? WHERE userid=?";
+		String sql = "UPDATE user SET username=?, password=?, fullName=?, IC=?, phone=?, employmentStatus=?, employmentSector=?, role=? WHERE userid=?";
 
 		String hashedPassword = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 		Object[] args = { u.getUsername(), hashedPassword, u.getFullName(), u.getIC(), u.getPhone(),
-				u.getEmploymentStatus(), u.getEmploymentSector(), u.getUserid() };
+						  u.getEmploymentStatus(), u.getEmploymentSector(), "user", u.getUserid() };
 		int rowAffected = jdbctemp.update(sql, args);
 		return rowAffected;
 	}

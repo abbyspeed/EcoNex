@@ -27,20 +27,20 @@
 			
 			<ul class="items">
                 <li class="item <%= request.getParameter("homeActive")%>">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item <%= request.getParameter("projectActive")%>">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Projects/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Projects</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item <%= request.getParameter("settingsActive")%>">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -57,7 +57,7 @@
 						<p><%= request.getParameter("subheading") %></p>
 					</div>
 					<div class="profileBadge">
-						<a href="#">
+						<a href="/EcoNex/Admin/Settings">
 							<span>Nurnabihah</span>
 							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
 						</a>

@@ -26,20 +26,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Projects/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
-                        <span class="text">Events</span>
+                        <span class="text">Projects</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -50,7 +50,7 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="/EcoNex/Admin/Projects/ViewSubmissions/${userId}/${eventId}">
+					<a class="back" href="/EcoNex/Admin/Projects/ViewSubmissions/${eventId}">
 						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
 						<span>Back</span>
 					</a>
@@ -67,19 +67,27 @@
 			<div class="content-posts">
 				<div class="left">
 					<div class="form-menu">
-						<a href="">Housing Information</a>
-						<a href="" class="active">Electricity Consumption</a>
-						<a href="">Water Consumption</a>
-						<a href="">Recycling Activity</a>
+						<a href="/EcoNex/Admin/Projects/ViewSubmission/${eventId}/Housing/ShowForm">
+							<button>Housing Information</button>
+						</a>
+						<a href="/EcoNex/Admin/Projects/ViewSubmission/${eventId}/Electricity/ShowForm">
+							<button class="active">Electricity Consumption</button>
+						</a>
+						<a href="/EcoNex/Admin/Projects/ViewSubmission/${eventId}/Water/ShowForm">
+							<button>Water Consumption</button>
+						</a>
+						<a href="/EcoNex/Admin/Projects/ViewSubmission/${eventId}/Recycling/ShowForm">
+							<button>Recycling Activity</button>
+						</a>
 					</div>
 					
-					<button class="btn-cancel">Leave</button>
+					<a href="1/deleted" class="btn-delete">Delete</a>
 				</div>
 				
 				<div class="center">
 					<div class="form">
 						<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-						<form>
+						<form action="" method="POST">
 							<table>
 								<tr>
 									<td>

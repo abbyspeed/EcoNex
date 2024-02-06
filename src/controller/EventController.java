@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dbAccess.EventDAO;
 import model.Event;
+import model.User;
 
 @Controller
 @RequestMapping("/Events")
@@ -26,13 +27,19 @@ public class EventController {
 	
 	@RequestMapping("/ViewAll")
 	public ModelAndView getAllEvents(HttpServletRequest request) {
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		
 		List<Event> eventList = eventDAO.getAll();
 		List<Event> upcomingList = new ArrayList<Event>();
 		List<Event> ongoingList = new ArrayList<Event>();
 		
-//		model.addAttribute("sessionid", session);
 		for(Event event : eventList) {
 			if(event.getStatus() == "Upcoming") {
 				upcomingList.add(event);
@@ -44,6 +51,7 @@ public class EventController {
 		
 		model = new ModelAndView("EventsView");
 		
+		model.addObject("user", user);
 		model.addObject("eventList", eventList);
 		model.addObject("upcomingList", upcomingList);
 		model.addObject("ongoingList", ongoingList);

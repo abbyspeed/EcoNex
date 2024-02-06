@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import dbAccess.ElectricityDAO;
 import dbAccess.WaterDAO;
 import model.Electricity;
+import model.User;
 import model.Water;
 
 @Controller
@@ -31,14 +33,21 @@ public class WaterController {
 	WaterDAO waterDAO = new WaterDAO();
 	Water water = new Water();
 
-	@RequestMapping("/ShowForm/{userid}/{eventid}")
-	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) {
-		int userId = Integer.parseInt(userid);
+	@RequestMapping("/ShowForm/{eventid}")
+	public ModelAndView showForm(HttpServletRequest request, @PathVariable ("eventid") String eventid) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		
 		model = new ModelAndView("WaterFormView");
 		
-		model.addObject("userId", userId);
+		model.addObject("user", user);
 		model.addObject("eventId", eventId);
 		
 		try {
@@ -53,10 +62,18 @@ public class WaterController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingAdd", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingAdd", method = RequestMethod.POST)
 	public ModelAndView addWaterInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   		 @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
+		
 		int eventId = Integer.parseInt(eventid);
 		int noOfDays = Integer.parseInt(request.getParameter("waterDays"));
 		double profactor = Double.parseDouble(request.getParameter("waterProrate"));
@@ -76,10 +93,17 @@ public class WaterController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/added", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/added", method = RequestMethod.POST)
 	public void addWaterInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							  @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		Part filePart = request.getPart("waterProof");
 		
@@ -101,13 +125,20 @@ public class WaterController {
 		
 		waterDAO.add(1, water);
 		
-		response.sendRedirect("/EcoNex/Water/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Water/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/processingUpdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/processingUpdate", method = RequestMethod.POST)
 	public ModelAndView updateWaterInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							   			@PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		int noOfDays = Integer.parseInt(request.getParameter("waterDays"));
 		double profactor = Double.parseDouble(request.getParameter("waterProrate"));
@@ -126,10 +157,17 @@ public class WaterController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/updated", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/updated", method = RequestMethod.POST)
 	public void updateWaterInfo2(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
-		int userId = Integer.parseInt(userid);
+							     @PathVariable ("eventid") String eventid) throws IOException, ServletException {		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		Part filePart = request.getPart("waterProof");
 		
@@ -151,18 +189,25 @@ public class WaterController {
 		
 		waterDAO.add(1, water);
 		
-		response.sendRedirect("/EcoNex/Water/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Water/ShowForm/" + eventId);
 	}
 	
-	@RequestMapping(value = "/ShowForm/{userid}/{eventid}/deleted", method = RequestMethod.POST)
+	@RequestMapping(value = "/ShowForm/{eventid}/deleted", method = RequestMethod.POST)
 	public void deleteWaterInfo(HttpServletRequest request, HttpServletResponse response, 
-							   @PathVariable ("userid") String userid, @PathVariable ("eventid") String eventid) throws IOException {
-		int userId = Integer.parseInt(userid);
+							    @PathVariable ("eventid") String eventid) throws IOException {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		// not logged in
+//		if (user == null) {
+//			redirectAttrs.addFlashAttribute("error", "Login First");
+//			return new ModelAndView("redirect:/Login");
+//		}
 		int eventId = Integer.parseInt(eventid);
 		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
 		waterDAO.delete(1);
 		
-		response.sendRedirect("/EcoNex/Water/ShowForm/" + userId + "/" + eventId);
+		response.sendRedirect("/EcoNex/Water/ShowForm/" + eventId);
 	}
 }

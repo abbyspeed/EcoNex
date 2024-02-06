@@ -44,66 +44,60 @@
 		</style>
 	</head>
 	<body>
-		<jsp:include page="/WEB-INF/components/Sidebar.jsp">
-			<jsp:param name="pageName" value="Events" />
-			<jsp:param name="heading" value="Ongoing" />
-			<jsp:param name="subheading" value="" />
-			<jsp:param name="eventActive" value="active" />
-		</jsp:include>
-		<!--<c:set var="sessionid" scope="session" value="${session.getAttribute('sessionid')}"/>-->
-		<c:set var="eventList" value="${request.getAttribute('eventList')}"/>
-		<c:set var="ongoingList" value="${request.getAttribute('ongoingList')}"/>
-		<c:set var="upcomingList" value="${request.getAttribute('upcomingList')}"/>
+		<nav class="sideBar">
+			<div class="sideBar-header">
+				<a href="#">
+					<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701198691/img/logo_medium_e6ci8s.svg"/>
+				</a>
+				<a class="toggle">
+					<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701070223/icons/Menu_Alt_05_nffut7.svg" class="toggle">
+				</a>
+			</div>
+			
+			<ul class="items">
+                <li class="item active">
+                    <a href="/EcoNex/Dashboard">
+                        <i class="fa-solid fa-house fa icon"></i>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="/EcoNex/Events/ViewAll">
+                        <i class="fa-regular fa-calendar icon"></i>
+                        <span class="text">Events</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="item">
+                    <a href="/EcoNex/Settings">
+                        <i class="fa-solid fa-gear icon"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+		</nav>
+		
+		<section class="content">
+			<div class="content-header">
+				<div class="item">
+					<div class="title">
+						<p>Events</p>
+						<h3>Ongoing</h3>
+						<p></p>
+					</div>
+					<div class="profileBadge">
+						<a href="/EcoNex/Settings">
+							<span>Nabihah</span>
+							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+				
 		<div class="section-content">
 			<div>
-				<c:choose>
-					<c:when test="${ongoingList}">
-						<c:forEach var="ongoingEvent" items="${ongoingList}">
-							<!-- Card -->
-							<div class="card-container">
-								<div class="card container-fluid">
-									<!-- Card image -->
-									<img class="card-img-top"
-										src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
-										alt="Card image cap">
-									<!-- Card content -->
-									<div class="card-body">
-										<!-- Title -->
-										<h4 class="card-title">
-											<a>${ongoingEvent.getName()}</a>
-										</h4>
-										<!-- Text -->
-										<p class="card-text">
-											<span><b>Eligibility: </b></span>Approved
-										</p>
-										<p class="card-text">
-											<span><b>Participation Status: </b>Not joined yet.
-										</p>
-										<p class="card-text">
-											<span><b>Duration: </b>${ongoingEvent.dateParser(ongoingEvent.getStartDate())} - ${ongoingEvent.dateParser(ongoingEvent.getEndDate())}
-										</p>
-										<p class="card-text">
-											<span><b>Area: </b>Iskandar Puteri region
-										</p>
-										<!-- Button -->
-										<a href="#" class="btn btn-lg btn-primary btn-login"
-											style="background-color: #080930">Register</a>
-									</div>
-								</div>
-							</div>
-							<!-- Card -->
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<p style="padding-left: 30px;">You have no ongoing events.</p>
-					</c:otherwise>
-				</c:choose>
-			</div>
-			<div style="padding-left: 30px; margin-top: 50px;">
-				<!-- Upcoming Text -->
-				<h3>Upcoming</h3>
-				<c:choose>
-					<c:when test="${upcomingList}">
+				<c:if test="${not empty ongoingList}">
 						<!-- Card -->
 						<div class="card-container">
 							<div class="card container-fluid">
@@ -115,7 +109,7 @@
 								<div class="card-body">
 									<!-- Title -->
 									<h4 class="card-title">
-										<a>${ongoingEvent.getName()}</a>
+										<a>${ongoingList.getName()}</a>
 									</h4>
 									<!-- Text -->
 									<p class="card-text">
@@ -125,23 +119,64 @@
 										<span><b>Participation Status: </b>Not joined yet.
 									</p>
 									<p class="card-text">
-										<span><b>Duration: </b>${ongoingEvent.dateParser(ongoingEvent.getStartDate())} - ${ongoingEvent.dateParser(ongoingEvent.getEndDate())}
+										<span><b>Duration: </b>
 									</p>
 									<p class="card-text">
 										<span><b>Area: </b>Iskandar Puteri region
 									</p>
 									<!-- Button -->
-									<a href="#" class="btn btn-lg btn-primary btn-login"
+									<a href="/EcoNex/DataEntry/${ongoingList.getEventId()}" class="btn btn-lg btn-primary btn-login"
 										style="background-color: #080930">Register</a>
 								</div>
 							</div>
 						</div>
 						<!-- Card -->
-					</c:when>
-					<c:otherwise>
-						<p style="margin-top: 40px;">There are no upcoming events.</p>
-					</c:otherwise>
-				</c:choose>
+				</c:if>
+				<c:if test="${empty ongoingList}">
+					<p style="padding-left: 30px;">You have no ongoing events.</p>
+				</c:if>
+			</div>
+			<div style="padding-left: 30px; margin-top: 50px;">
+				<!-- Upcoming Text -->
+				<h3>Upcoming</h3>
+				<c:if test="${not empty upcomingList}">
+						<!-- Card -->
+						<div class="card-container">
+							<div class="card container-fluid">
+								<!-- Card image -->
+								<img class="card-img-top"
+									src="https://res-console.cloudinary.com/dprlflxcj/media_explorer_thumbnails/839294ea3c0fed2c0118d3586d812ca0/detailed"
+									alt="Card image cap">
+								<!-- Card content -->
+								<div class="card-body">
+									<!-- Title -->
+									<h4 class="card-title">
+										<a>${upcomingEvent.getName()}</a>
+									</h4>
+									<!-- Text -->
+									<p class="card-text">
+										<span><b>Eligibility: </b></span>Approved
+									</p>
+									<p class="card-text">
+										<span><b>Participation Status: </b>Not joined yet.
+									</p>
+									<p class="card-text">
+										<span><b>Duration: </b>
+									</p>
+									<p class="card-text">
+										<span><b>Area: </b>Iskandar Puteri region
+									</p>
+									<!-- Button -->
+									<a href="/EcoNex/DataEntry/${upcomingEvent.getEventId()}" class="btn btn-lg btn-primary btn-login"
+										style="background-color: #080930">Register</a>
+								</div>
+							</div>
+						</div>
+						<!-- Card -->
+				</c:if>
+				<c:if test="${empty upcomingList}">
+					<p style="margin-top: 40px;">There are no upcoming events.</p>
+				</c:if>
 			</div>
 		</div>
 		<!-- MDB -->
