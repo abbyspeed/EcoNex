@@ -13,7 +13,7 @@ public class User {
 	private String employmentStatus;
 	private String employmentSector;
 	private String role;
-	private Blob profileImage;
+	private String profileImage;
 
 	public User() {
 
@@ -91,11 +91,11 @@ public class User {
 		this.employmentSector = employmentSector;
 	}
 
-	public Blob getProfileImage() {
+	public String getProfileImage() {
 		return profileImage;
 	}
 
-	public void setProfileImage(Blob profileImage) {
+	public void setProfileImage(String profileImage) {
 		this.profileImage = profileImage;
 	}
 

@@ -20,8 +20,13 @@ public class UserDAO {
 
 	public User findUserByName(String name) {
 		String sql = "SELECT * FROM user WHERE username = ?";
-		User usr = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), name);
-		return usr;
+		List<User> users = jdbctemp.query(sql, new BeanPropertyRowMapper<>(User.class), name);
+
+		if (!users.isEmpty()) {
+			return users.get(0);
+		} else {
+			return null; // User not found
+		}
 	}
 
 	public User findUserById(int id) {
@@ -32,17 +37,10 @@ public class UserDAO {
 
 	// add
 	public int add(User u) {
-		User found = findUserByName(u.getUsername());
-
-		// user already exists
-		if (found != null) {
-			return -1;
-		}
-
-		String sql = "INSERT INTO user (username, password, role, fullName, IC, phone, employmentStatus, employmentSector) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO user (username, password, fullName, IC, phone, employmentStatus, employmentSector) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		String hashedPassword = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
-		Object args[] = { u.getUsername(), hashedPassword, u.getRole(), u.getFullName(), u.getIC(), u.getPhone(),
+		Object args[] = { u.getUsername(), hashedPassword, u.getFullName(), u.getIC(), u.getPhone(),
 				u.getEmploymentStatus(), u.getEmploymentSector() };
 		int rowAffected = jdbctemp.update(sql, args);
 		return rowAffected;
@@ -50,8 +48,10 @@ public class UserDAO {
 
 	// update
 	public int update(User u) {
-		String sql = "UPDATE user SET username=?, password=?, role=?, full_name=?, IC=?, phone=?, employment_status=?, employment_sector=?, profile_image=? WHERE id=?";
-		Object[] args = { u.getUsername(), u.getPassword(), u.getRole(), u.getFullName(), u.getIC(), u.getPhone(),
+		String sql = "UPDATE user SET username=?, password=?, fullName=?, IC=?, phone=?, employmentStatus=?, employmentSector=?, profileImage=? WHERE id=?";
+		
+		String hashedPassword = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
+		Object[] args = { u.getUsername(), hashedPassword, u.getFullName(), u.getIC(), u.getPhone(),
 				u.getEmploymentStatus(), u.getEmploymentSector(), u.getProfileImage(), u.getId() };
 		int rowAffected = jdbctemp.update(sql, args);
 		return rowAffected;
