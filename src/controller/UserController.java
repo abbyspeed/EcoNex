@@ -51,8 +51,6 @@ public class UserController {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		System.out.print(user);
-
 		// not logged in
 		if (user == null) {
 			redirectAttrs.addFlashAttribute("error", "Login First");
@@ -81,7 +79,7 @@ public class UserController {
 
 			// get user by id
 			UserDAO udao = new UserDAO();
-			User foundUser = udao.findUserById(user.getId());
+			User foundUser = udao.findUserByName(user.getUsername());
 
 			if ("admin".equals(user.getRole())) {
 				return new ModelAndView("ProfileSettingsViewAdmin").addObject("initUser", foundUser);
@@ -117,10 +115,9 @@ public class UserController {
 				session.setMaxInactiveInterval(-1);
 
 				User userWithoutPassword = new User();
-				userWithoutPassword.setId(user.getId());
+				userWithoutPassword.setUserid(user.getUserid());
 				userWithoutPassword.setUsername(user.getUsername());
 				userWithoutPassword.setRole(user.getRole());
-				userWithoutPassword.setProfileImage(user.getProfileImage());
 
 				// encode image to base64
 //				userWithoutPassword.setProfileImage(encodedProfileImage);
@@ -190,19 +187,19 @@ public class UserController {
 			}
 
 			// update user
-			User foundUser = userDAO.findUserById(storedUser.getId());
+			User foundUser = userDAO.findUserByName(storedUser.getUsername());
 
 			if (foundUser == null) {
 				return new ModelAndView("redirect:/logout");
 			}
 
-			user.setId(foundUser.getId());
+			user.setUserid(foundUser.getUserid());
 
 			int updated = userDAO.update(user);
 			System.out.print(updated);
 
 			User userWithoutPassword = new User();
-			userWithoutPassword.setId(user.getId());
+			userWithoutPassword.setUserid(user.getUserid());
 			userWithoutPassword.setUsername(user.getUsername());
 			userWithoutPassword.setRole(storedUser.getRole());
 
@@ -234,10 +231,10 @@ public class UserController {
 				return modelLogin;
 			}
 
-			User foundUser = userDAO.findUserById(user.getId());
+			User foundUser = userDAO.findUserByName(user.getUsername());
 
 			// delete user
-			userDAO.delete(foundUser.getId());
+			userDAO.delete(foundUser.getUsername());
 			session.invalidate();
 
 			// redirect to login page

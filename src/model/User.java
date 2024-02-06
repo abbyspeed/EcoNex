@@ -4,7 +4,7 @@ import com.mysql.cj.jdbc.Blob;
 
 public class User {
 
-	private int id;
+	private int userid;
 	private String username;
 	private String password;
 	private String fullName;
@@ -13,7 +13,6 @@ public class User {
 	private String employmentStatus;
 	private String employmentSector;
 	private String role;
-	private String profileImage;
 
 	public User() {
 
@@ -43,12 +42,12 @@ public class User {
 		this.role = role;
 	}
 
-	public int getId() {
-		return id;
+	public int getUserid() {
+		return userid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserid(int id) {
+		this.userid = id;
 	}
 
 	public String getFullName() {
@@ -90,13 +89,4 @@ public class User {
 	public void setEmploymentSector(String employmentSector) {
 		this.employmentSector = employmentSector;
 	}
-
-	public String getProfileImage() {
-		return profileImage;
-	}
-
-	public void setProfileImage(String profileImage) {
-		this.profileImage = profileImage;
-	}
-
 }

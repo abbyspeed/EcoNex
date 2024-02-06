@@ -58,8 +58,9 @@
 					</div>
 					<div class="profileBadge">
 						<a href="#">
-							<span>Nurnabihah</span>
-							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+							<c:set value="${sessionScope.user.username}" var="username" />
+							<span><c:out value="${username}"></c:out></span>
+							<!-- <img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg"> -->
 						</a>
 					</div>
 				</div>
