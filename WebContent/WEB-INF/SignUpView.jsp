@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,29 +105,33 @@ body {
 								</div>
 								<h3 class="login-heading mb-4 text-center">Create an
 									account</h3>
-
+								<c:if test="${error != null}">
+									<div class="alert alert-danger" role="alert">${error}</div>
+								</c:if>
 								<!-- Sign In Form -->
-								<form>
+								<form action="/EcoNex/processSignup">
 									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="floatingInput"
+										<input type="text" name="fullName" class="form-control" id="floatingInput"
 											placeholder="John Doe" required> <label for="floatingInput">Full
 											Name</label>
 									</div>
 									<div class="form-floating mb-3">
-										<input type="email" class="form-control" id="floatingInput"
+										<input type="text" name="username" class="form-control" id="floatingInput"
 											placeholder="name@example.com" required> <label
-											for="floatingInput">Email address</label>
+											for="floatingInput">Username</label>
 									</div>
 									<div class="form-floating mb-3">
-										<input type="password" class="form-control"
+										<input type="password" name="password" class="form-control"
 											id="floatingPassword" placeholder="Password" required> <label
 											for="floatingPassword">Password</label>
 									</div>
-									<div class="form-floating mb-3">
+									<!-- <div class="form-floating mb-3">
 										<input type="password" class="form-control"
 											id="floatingPassword" placeholder="Password" required> <label
 											for="floatingPassword">Confirm Password</label>
-									</div>
+									</div> -->
+									
+									
 
 									<!-- <div class="form-check mb-3">
 										<input class="form-check-input" type="checkbox" value=""
@@ -134,6 +139,41 @@ body {
 											class="form-check-label" for="rememberPasswordCheck">
 											Remember password </label>
 									</div> -->
+									
+									<!-- Additional fields -->
+								    <div class="form-floating mb-3">
+								        <input type="text" name="IC" class="form-control" id="floatingIC" placeholder="IC" required>
+								        <label for="floatingIC">IC</label>
+								    </div>
+								    <div class="form-floating mb-3">
+								        <input type="text" name="phone" class="form-control" id="floatingPhone" placeholder="Phone number" required>
+								        <label for="floatingPhone">Phone number</label>
+								    </div>
+								    <div class="form-row d-md-flex mb-6">
+								    <div class="form-group col-md-6">
+								    	<label for="floatingEmploymentStatus">Employment Status</label>
+								        <!-- Dropdown for Employment Status -->
+								        <select class="form-select" name="employmentStatus" id="floatingEmploymentStatus" required>
+								            <option value="" disabled selected>Select</option>
+								            <option value="Employed">Employed</option>
+								            <option value="Unemployed">Unemployed</option>
+								            <!-- Add more options as needed -->
+								        </select>
+								        
+								    </div>
+								    
+								    <div class="form-group col-md-6">
+								    	<label for="floatingEmploymentSector">Employment Sector</label>
+								        <!-- Dropdown for Employment Sector -->
+								        <select class="form-select" name="employmentSector" id="floatingEmploymentSector" required>
+								            <option value="" disabled selected>Select</option>
+								            <option value="Public">Public</option>
+								            <option value="Private">Private</option>
+								            <!-- Add more options as needed -->
+								        </select>
+								        
+								    </div>
+									</div>
 
 									<div class="d-grid">
 										<button

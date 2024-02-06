@@ -257,11 +257,11 @@
 			type="submit">Log Out</button>
 		</form>
 		
-		<form action="/EcoNex/deleteAccount">
+		<!-- <form action="/EcoNex/logout">
 			<button
 			class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 			type="submit">Delete My Account</button>
-		</form>
+		</form> -->
 	</section>
 	<script type="text/javascript" defer><%@include file="js/sidebarNav.js" %></script>
 	<script type="text/javascript">
