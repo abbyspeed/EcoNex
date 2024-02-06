@@ -32,8 +32,8 @@ public class WaterDAO {
 	}
 	
 	public int add(int conId, Water water) {
-		String sql = "INSERT INTO water (conid, noofdays, profactor, currentusage, amount, bill, description, status, carbonValue) " +
-					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO water (conid, noofdays, profactor, currentusage, amount, bill, description, carbonValue) " +
+					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { conId,
 						  water.getNoOfDays(), 
 						  water.getProfactor(), 
@@ -41,7 +41,6 @@ public class WaterDAO {
 						  water.getAmount(),
 						  water.getBill(),
 						  water.getDescription(),
-						  water.getStatus(),
 						  water.getCarbonValue() };
 		
 		int rowAffected = jdbctemp.update(sql, args);
@@ -50,14 +49,13 @@ public class WaterDAO {
 	}
 	
 	public int update(int waterId, Water water) {
-		String sql = "UPDATE water SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, status = ?, carbonValue = ? WHERE waterid = ?";
+		String sql = "UPDATE water SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, carbonValue = ? WHERE waterid = ?";
 		Object args[] = { water.getNoOfDays(), 
 						  water.getProfactor(), 
 						  water.getCurrentUsage(),
 						  water.getAmount(),
 						  water.getBill(),
 						  water.getDescription(),
-						  water.getStatus(),
 						  water.getCarbonValue(),
 						  waterId };
 		

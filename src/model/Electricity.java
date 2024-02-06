@@ -74,7 +74,7 @@ public class Electricity {
 	}
 	
 	public void setStatus(String status) {
-		this.status = status;
+		this.status = "Completed";
 	}
 
 	public double getCarbonValue() {

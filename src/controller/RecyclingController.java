@@ -169,6 +169,7 @@ public class RecyclingController {
 		recycling.setCarbonValue(wasteWeight, oilWeight);
 		
 		model = new ModelAndView("RecyclingFormPictureView");
+		model.addObject("recycling", recycling);
 		
 		return model;
 	}

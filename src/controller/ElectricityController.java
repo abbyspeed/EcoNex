@@ -162,6 +162,7 @@ public class ElectricityController {
 		electricity.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("ElectricityFormPictureView");
+		model.addObject("electricity", electricity);
 		
 		model.addObject("eventId", eventId);
 		
@@ -199,7 +200,7 @@ public class ElectricityController {
 		
 		electricity.setBill(fileName);
 		
-		electricityDAO.add(1, electricity);
+		electricityDAO.update(electricity.getElectId(), electricity);
 		
 		model.addAttribute("eventId", eventId);
 		

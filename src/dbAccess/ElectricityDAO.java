@@ -25,15 +25,15 @@ public class ElectricityDAO {
 		return electricity;
 	}
 	
-	public Electricity checkByEvent(int electId) {
-		String sql = "SELECT * FROM electricity WHERE electid = ?";
-		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), electId);
+	public Electricity checkByEvent(int eventId) {
+		String sql = "SELECT * FROM electricity WHERE eventid = ?";
+		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), eventId);
 		
 		return electricity;
 	}
 	
 	public int add(int conId, Electricity electricity) {
-		String sql = "INSERT INTO electricity (conid, noofdays, profactor, currentusage, amount, bill, description, status, carbonValue) " +
+		String sql = "INSERT INTO electricity (conid, noofdays, profactor, currentusage, amount, bill, description, carbonValue) " +
 					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { conId,
 						  electricity.getNoOfDays(), 
@@ -42,7 +42,6 @@ public class ElectricityDAO {
 						  electricity.getAmount(),
 						  electricity.getBill(),
 						  electricity.getDescription(),
-						  electricity.getStatus(),
 						  electricity.getCarbonValue() };
 		
 		int rowAffected = jdbctemp.update(sql, args);
@@ -51,14 +50,13 @@ public class ElectricityDAO {
 	}
 	
 	public int update(int electId, Electricity electricity) {
-		String sql = "UPDATE electricity SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, status = ?, carbonValue = ? WHERE electid = ?";
+		String sql = "UPDATE electricity SET noofdays = ?, profactor = ?, currentusage = ?, amount = ?, bill = ?, description = ?, carbonValue = ? WHERE electid = ?";
 		Object args[] = { electricity.getNoOfDays(), 
 						  electricity.getProfactor(), 
 						  electricity.getCurrentUsage(),
 						  electricity.getAmount(),
 						  electricity.getBill(),
 						  electricity.getDescription(),
-						  electricity.getStatus(),
 						  electricity.getCarbonValue(),
 				  		  electId };
 		

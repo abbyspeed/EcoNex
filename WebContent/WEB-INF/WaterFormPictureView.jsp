@@ -66,31 +66,31 @@
 				<div class="line"></div>
 			</div>
 
-			<div class="content-posts">
-				<div class="left">
-					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${eventId}">
-							<button>Housing Information</button>
-						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
-							<button>Electricity Consumption</button>
-						</a>
-						<a href="/EcoNex/Water/ShowForm/${eventId}">
-							<button class="active">Water Consumption</button>
-						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
-							<button>Recycling Activity</button>
-						</a>
+			<c:if test="${not empty water}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button>Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button class="active">Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+						
+						<a href="${water.getWaterId()}/deleted" class="btn-delete">Delete</a>
 					</div>
 					
-					<a href="1/deleted" class="btn-delete">Delete</a>
-				</div>
-				
-				<c:if test="${not empty water}">
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="updated" method="POST">
+							<form action="updated" method="POST" enctype="multipart/form-data">
 								<table>
 									<tr>
 										<td>
@@ -112,12 +112,30 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
 					</div>
-				</c:if>
-				<c:if test="${empty water}">
+				</div>
+			</c:if>
+			<c:if test="${empty water}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button>Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button class="active">Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="added" method="POST">
+							<form action="added" method="POST" enctype="multipart/form-data">
 								<table>
 									<tr>
 										<td>
@@ -139,8 +157,8 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 					</div>
-				</c:if>
-			</div>
+				</div>
+			</c:if>
     </section>
     <!-- Include Bootstrap JS and jQuery here -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

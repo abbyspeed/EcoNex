@@ -26,20 +26,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Events/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Events</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
@@ -64,31 +64,31 @@
 				<div class="line"></div>
 			</div>
 			
-			<div class="content-posts">
-				<div class="left">
-					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${eventId}">
-							<button>Housing Information</button>
-						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
-							<button class="active">Electricity Consumption</button>
-						</a>
-						<a href="/EcoNex/Water/ShowForm/${eventId}">
-							<button>Water Consumption</button>
-						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
-							<button>Recycling Activity</button>
-						</a>
+			<c:if test="${not empty electricity}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button class="active">Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button>Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+						
+						<a href="${electricity}/deleted" class="btn-delete">Delete</a>
 					</div>
-					
-					<a href="1/deleted" class="btn-delete">Delete</a>
-				</div>
-				
-				<c:if test="${not empty electricity}">
+	
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-							<form action="1/processingUpdate" method="POST">
+							<form action="${eventId}/processingUpdate" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -107,7 +107,7 @@
 										<td class="inputDivider"></td>
 										<td>
 											<input type="number" step="any" id="electricityProrate" name="electricityProrate" 
-											value="${electricity.getProrate()}" required>
+											value="${electricity.getProfactor()}" required>
 										</td>
 									</tr>
 									
@@ -139,7 +139,7 @@
 									<tr>
 										<td colspan="3">
 											<textarea rows="20" cols="90" name="electricityDesc" 
-											value="${electricity.getDescription()}" required></textarea>
+											 required>${electricity.getDescription()}</textarea>
 										</td>
 									</tr>
 								</table>
@@ -152,8 +152,26 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
 					</div>
-				</c:if>
-				<c:if test="${empty electricity}">
+				</div>
+			</c:if>
+			<c:if test="${empty electricity}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button class="active">Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button>Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
@@ -222,9 +240,8 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 					</div>
-				</c:if>
-			</div>
-			
+				</div>
+			</c:if>
 		</section>
 	</body>
 </html>

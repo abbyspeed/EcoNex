@@ -33,7 +33,7 @@ public class RecyclingDAO {
 	}
 	
 	public int add(int conId, Recycling recycling) {
-		String sql = "INSERT INTO recycling (conid, wasteweight, wasteamount, oilweight, oilamount, image, description, status, carbonValue) " +
+		String sql = "INSERT INTO recycling (conid, wasteweight, wasteamount, oilweight, oilamount, image, description, carbonValue) " +
 					 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		Object args[] = { conId,
 						  recycling.getWasteWeight(), 
@@ -42,7 +42,6 @@ public class RecyclingDAO {
 						  recycling.getOilAmount(),
 						  recycling.getImage(),
 						  recycling.getDescription(),
-						  recycling.getStatus(),
 						  recycling.getCarbonValue() };
 		
 		int rowAffected = jdbctemp.update(sql, args);
@@ -51,14 +50,13 @@ public class RecyclingDAO {
 	}
 	
 	public int update(int recId, Recycling recycling) {
-		String sql = "UPDATE recycling SET wasteweight = ?, wasteamount = ?, oilweight = ?, oilamount = ?, image = ?, description = ?, status = ?, carbonValue WHERE recid = ?";
+		String sql = "UPDATE recycling SET wasteweight = ?, wasteamount = ?, oilweight = ?, oilamount = ?, image = ?, description = ?, carbonValue WHERE recid = ?";
 		Object args[] = { recycling.getWasteWeight(), 
 				  		  recycling.getWasteAmount(), 
 				  		  recycling.getOilWeight(),
 				  		  recycling.getOilAmount(),
 				  		  recycling.getImage(),
 				  		  recycling.getDescription(),
-				  		  recycling.getStatus(),
 				  		  recycling.getCarbonValue(),
 				  		  recId };
 		

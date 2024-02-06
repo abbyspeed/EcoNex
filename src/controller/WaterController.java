@@ -155,6 +155,7 @@ public class WaterController {
 		water.setCarbonValue(currentUsage);
 		
 		model = new ModelAndView("WaterFormPictureView");
+		model.addObject("water", water);
 		
 		return model;
 	}
@@ -189,7 +190,7 @@ public class WaterController {
 		
 		water.setBill(fileName);
 		
-		waterDAO.add(1, water);
+		waterDAO.update(water.getWaterId(), water);
 		
 		response.sendRedirect("/EcoNex/Water/ShowForm/" + eventId);
 	}
@@ -208,7 +209,7 @@ public class WaterController {
 		int eventId = Integer.parseInt(eventid);
 		int housingId = Integer.parseInt(request.getParameter("housingId"));
 		
-		waterDAO.delete(1);
+		waterDAO.delete(water.getWaterId());
 		
 		response.sendRedirect("/EcoNex/Water/ShowForm/" + eventId);
 	}

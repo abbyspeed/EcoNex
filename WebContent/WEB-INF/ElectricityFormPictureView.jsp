@@ -64,54 +64,71 @@
 				<div class="line"></div>
 			</div>
 			
-			<div class="content-posts">
-				<div class="left">
-					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${eventId}">
-							<button>Housing Information</button>
-						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
-							<button class="active">Electricity Consumption</button>
-						</a>
-						<a href="/EcoNex/Water/ShowForm/${eventId}">
-							<button>Water Consumption</button>
-						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
-							<button>Recycling Activity</button>
-						</a>
-					</div>
-					
-					<a href="1/deleted" class="btn-delete">Delete</a>
-				</div>
-				
-				<c:if test="${not empty electricity}">
-					<div class="center">
-						<div class="form">
-							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
-							<form action="updated" method="post" enctype="multipart/form-data">
-								<table>
-									<tr>
-										<td>
-											<label for="electricityProof">Bill Proof</label>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="3">
-											<input type="file" id="electricityProof" name="electricityProof" accept="image/*" value="${electricity.getBill()}" required>
-										</td>
-									</tr>
-								</table>
-								
-								<input type="submit" id="submit-form" hidden/>
-							</form>
+			<c:if test="${not empty electricity}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button class="active">Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button>Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
 						</div>
+						
+						<a href="${electricity.getElectId()}/deleted" class="btn-delete">Delete</a>
 					</div>
-	
-					<div class="right">
-						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
+						<div class="center">
+							<div class="form">
+								<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
+								<form action="updated" method="post" enctype="multipart/form-data">
+									<table>
+										<tr>
+											<td>
+												<label for="electricityProof">Bill Proof</label>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="3">
+												<input type="file" id="electricityProof" name="electricityProof" accept="image/*" value="${electricity.getBill()}" required>
+											</td>
+										</tr>
+									</table>
+									
+									<input type="submit" id="submit-form" hidden/>
+								</form>
+							</div>
+						</div>
+		
+						<div class="right">
+							<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
+						</div>
 					</div>
 				</c:if>
 				<c:if test="${empty electricity}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button class="active">Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button>Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Electricity Consumption</h3>
@@ -137,9 +154,8 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 					</div>
-				</c:if>
-			</div>
-			
+				</div>
+			</c:if>
 		</section>
 	</body>
 </html>

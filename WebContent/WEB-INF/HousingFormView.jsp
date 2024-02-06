@@ -82,12 +82,12 @@
 							</a>
 						</div>
 						
-						<a href="1/deleted" class="btn-delete">Delete</a>
+						<a href="${housing.getHousingId()}/deleted" class="btn-delete">Delete</a>
 					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Housing Information</h3>
-							<form action="/updated" method="POST">
+							<form action="${eventId}/updated" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -189,13 +189,11 @@
 								<button disabled>Recycling Activity</button>
 							</a>
 						</div>
-						
-						<a href="1/deleted" class="btn-delete">Delete</a>
 					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Housing Information</h3>
-							<form action="1/added" method="POST">
+							<form action="${eventId}/added" method="POST">
 								<table>
 									<tr>
 										<td>

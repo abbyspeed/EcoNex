@@ -93,8 +93,6 @@ public class EventController {
 		
 		int eventId = Integer.parseInt(eventid);
 		
-		model = new ModelAndView("EventInfoView");
-		
 		Event event = eventDAO.findById(eventId);
 		
 		model = new ModelAndView("InstructionsView");
@@ -131,8 +129,6 @@ public class EventController {
 		User user = (User) session.getAttribute("user");
 		
 		int eventId = Integer.parseInt(eventid);
-		
-		model = new ModelAndView("EventInfoView");
 		
 		Event event = eventDAO.findById(eventId);
 		Housing housing = housingDAO.checkByEvent(eventId);

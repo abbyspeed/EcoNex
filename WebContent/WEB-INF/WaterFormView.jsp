@@ -66,31 +66,30 @@
 				<div class="line"></div>
 			</div>
 
-			<div class="content-posts">
-				<div class="left">
-					<div class="form-menu">
-						<a href="/EcoNex/Housing/ShowForm/${eventId}">
-							<button>Housing Information</button>
-						</a>
-						<a href="/EcoNex/Electricity/ShowForm/${eventId}">
-							<button>Electricity Consumption</button>
-						</a>
-						<a href="/EcoNex/Water/ShowForm/${eventId}">
-							<button class="active">Water Consumption</button>
-						</a>
-						<a href="/EcoNex/Recycling/ShowForm/${eventId}">
-							<button>Recycling Activity</button>
-						</a>
+			<c:if test="${not empty water}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button>Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button class="active">Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+						
+						<a href="${water.getWaterId()}/deleted" class="btn-delete">Delete</a>
 					</div>
-					
-					<a href="1/deleted" class="btn-delete">Delete</a>
-				</div>
-				
-				<c:if test="${not empty water}">
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/processingUpdate" method="POST">
+							<form action="${eventId}/processingUpdate" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -109,7 +108,7 @@
 										<td class="inputDivider"></td>
 										<td>
 											<input type="number" step="any" id="waterProrate" name="waterProrate" 
-											value="${water.getProrate()}" required>
+											value="${water.getProfactor()}" required>
 										</td>
 									</tr>
 									
@@ -141,7 +140,7 @@
 									<tr>
 										<td colspan="3">
 											<textarea rows="20" cols="90" name="waterDesc" 
-											value="${water.getDescription()}" required></textarea>
+											 required>${water.getDescription()}</textarea>
 										</td>
 									</tr>
 								</table>
@@ -154,12 +153,30 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Update</label>
 					</div>
-				</c:if>
-				<c:if test="${empty water}">
+				</div>
+			</c:if>
+			<c:if test="${empty water}">
+				<div class="content-posts">
+					<div class="left">
+						<div class="form-menu">
+							<a href="/EcoNex/Housing/ShowForm/${eventId}">
+								<button>Housing Information</button>
+							</a>
+							<a href="/EcoNex/Electricity/ShowForm/${eventId}">
+								<button>Electricity Consumption</button>
+							</a>
+							<a href="/EcoNex/Water/ShowForm/${eventId}">
+								<button class="active">Water Consumption</button>
+							</a>
+							<a href="/EcoNex/Recycling/ShowForm/${eventId}">
+								<button>Recycling Activity</button>
+							</a>
+						</div>
+					</div>
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Water Consumption</h3>
-							<form action="1/processingAdd" method="POST">
+							<form action="${eventId}/processingAdd" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -223,8 +240,8 @@
 					<div class="right">
 						<label class="submit-btn" for="submit-form" tabindex="0">Save</label>
 					</div>
-				</c:if>
-			</div>
+				</div>
+			</c:if>
     </section>
     <!-- Include Bootstrap JS and jQuery here -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
