@@ -138,7 +138,7 @@
 				<!-- Left links -->
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link"
-						href="/EcoNex/dashboard">Home</a></li>
+						href="/EcoNex/Dashboard">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/EcoNex/Events/ViewAll">Events</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Settings</a>
@@ -202,7 +202,7 @@
 				</div>
 			</div> -->
 		</div>
-		<form action="/EcoNex/updateProfile">
+		<form action="/EcoNex/UpdateProfile">
 		    <div class="form-floating mb-3">
 		        <input type="text" name="fullName" class="form-control" id="fullName" placeholder="John Doe" value="${initUser.fullName}" required>
 		        <label for="fullName">Full Name</label>
@@ -251,7 +251,7 @@
 		    </div>
 		</form>
 
-		<form action="/EcoNex/logout">
+		<form action="/EcoNex/Logout">
 			<button
 			class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
 			type="submit">Log Out</button>
