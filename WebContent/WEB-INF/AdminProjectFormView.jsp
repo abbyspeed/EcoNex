@@ -52,7 +52,7 @@
 		<section class="content">
 			<div class="content-header">
 				<div class="title" style="text-align: center;">
-					<a class="back" href="/EcoNex/Admin/Projects/ViewAll/${userId}/${eventId}">
+					<a class="back" href="/EcoNex/Admin/Projects/ViewAll/">
 						<i class="fa-solid fa-chevron-left" style="color: #000000; margin-right: 15px;"></i>
 						<span>Back</span>
 					</a>
@@ -67,12 +67,11 @@
 			<div class="content-posts">
 				<div class="left">
 					<div></div>
-					<button class="btn-cancel">Leave</button>
 				</div>
 				<div class="center">
 					<div class="form">
 						<h3 style="margin-bottom: 20px">Project Information</h3>
-						<form action="2/processing" method="post">
+						<form action="/EcoNex/Admin/Projects/ProjectForm/processing" method="post">
 			                <label for="projectName">Name</label>
 			                <input type="text" id="projectName" name="projectName" placeholder="e.g Gotong Royong Perdana" required>
 

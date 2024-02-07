@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 import dbAccess.ElectricityDAO;
 import dbAccess.EventDAO;
 import dbAccess.HousingDAO;
+import dbAccess.UserDAO;
 import model.Electricity;
 import model.Event;
 import model.Housing;
@@ -43,6 +44,8 @@ public class AdminController {
 	
 	ModelAndView model;
 	Utils utils = new Utils();
+	
+	UserDAO userDAO = new UserDAO();
 	
 	EventDAO eventDAO = new EventDAO();
 	Event event = new Event();
@@ -65,9 +68,14 @@ public class AdminController {
 //			return new ModelAndView("redirect:/Login");
 //		}
 		
+		User currentUser = userDAO.findUserByName(user.getUsername());
+		
+		List<Event> eventList = eventDAO.getAll();
+		
 		model = new ModelAndView("AdminDashboardView");
 		
-		model.addObject("user", user);
+		model.addObject("user", currentUser);
+		model.addObject("eventList", eventList);
 		
 		return model;
 	}
@@ -104,25 +112,11 @@ public class AdminController {
 //		}
 		
 		List<Event> eventList = eventDAO.getAll();
-		List<Event> upcomingList = new ArrayList<Event>();
-		List<Event> ongoingList = new ArrayList<Event>();
-		
-		for(Event event : eventList) {
-			if(event.getStatus() == "Upcoming") {
-				upcomingList.add(event);
-				
-			} else if(event.getStatus() == "Ongoing") {
-				ongoingList.add(event);
-			}
-		}
-		
-		System.out.print(ongoingList);
 		
 		model = new ModelAndView("AdminProjectsView");
 		
 		model.addObject("eventList", eventList);
-		model.addObject("upcomingList", upcomingList);
-		model.addObject("ongoingList", ongoingList);
+		model.addObject("user", user);
 		
 		return model;
 	}
@@ -204,7 +198,7 @@ public class AdminController {
 		event.setImage(fileName);
 		eventDAO.add(event);
 		
-		response.sendRedirect("/EcoNex/Admin/Projects/ViewAll/" + user.getUserid());
+		response.sendRedirect("/EcoNex/Admin/Projects/ViewAll/");
 	}
 	
 	

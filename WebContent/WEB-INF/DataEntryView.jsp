@@ -77,70 +77,46 @@
 				<h3>Please select a month to enter your carbon details</h3>
 				<h4>All data entries</h4>
 				<div class="grid-view">
-					<div class="month-card">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn">
-								Opening soon
-							</a>
-						</div>
-					</div>
-					<div class="month-card new">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn new">
-								Upload Details
-							</a>
-						</div>
-					</div>
-					<div class="month-card active">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn active">
-								View Submission
-							</a>
-						</div>
-					</div>
-					<div class="month-card active">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn active">
-								View Submission
-							</a>
-						</div>
-					</div>
+					<c:forEach var="con" items="${conList}">
+						<c:choose>
+							<c:when test="${con.getMonth() == 2}">
+								<div class="month-card new">
+									<h3>${con.monthToString()}</h3>
+									<p class="sub-desc">Entry status description</p>
+									<div class="sub-status">
+										Submission status
+									</div>
+									<div class="bottom-layer">
+										<div class="sub-date">
+											<p>Due Date</p>
+											<p>${event.getEndDate()}</p>
+										</div>
+										<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}" class="sub-btn new">
+											Upload details
+										</a>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="month-card">
+									<h3>${con.monthToString()}</h3>
+									<p class="sub-desc">Entry status description</p>
+									<div class="sub-status">
+										Submission status
+									</div>
+									<div class="bottom-layer">
+										<div class="sub-date">
+											<p>Due Date</p>
+											<p>Not Available</p>
+										</div>
+										<a href="/EcoNex/Housing/ShowForm/${event.getEventId()}">
+											<button class="sub-btn" disabled>Opening Soon</button>
+										</a>
+									</div>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
 				</div>
 			</div>
 		</section>

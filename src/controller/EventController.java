@@ -14,12 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import dbAccess.ConsumptionDAO;
+import dbAccess.ElectricityDAO;
 import dbAccess.EventDAO;
 import dbAccess.HousingDAO;
+import dbAccess.RecyclingDAO;
 import dbAccess.UserDAO;
+import dbAccess.WaterDAO;
 import model.Consumption;
+import model.Electricity;
 import model.Event;
 import model.Housing;
+import model.Recycling;
 import model.User;
 import model.Utils;
 
@@ -35,6 +40,9 @@ public class EventController {
 	ConsumptionDAO conDAO = new ConsumptionDAO();
 	HousingDAO housingDAO = new HousingDAO();
 	UserDAO userDAO = new UserDAO();
+	ElectricityDAO electricityDAO = new ElectricityDAO();
+	WaterDAO waterDAO = new WaterDAO();
+	RecyclingDAO recyclingDAO = new RecyclingDAO();
 	
 	Utils utils = new Utils();
 	
@@ -77,11 +85,15 @@ public class EventController {
 		int eventId = Integer.parseInt(eventid);
 		
 		Event event = eventDAO.findById(eventId);
+		Housing housing = housingDAO.checkByEvent(eventId);
+		List<Consumption> conList = conDAO.findByHousing(housing.getHousingId());
 		
 		model = new ModelAndView("DataEntryView");
 		
 		model.addObject("user", currentUser);
 		model.addObject("event", event);
+		model.addObject("housing", housing);
+		model.addObject("conList", conList);
 		
 		return model;
 	}
@@ -133,6 +145,9 @@ public class EventController {
 		Event event = eventDAO.findById(eventId);
 		Housing housing = housingDAO.checkByEvent(eventId);
 		List<Consumption> conList = conDAO.findByHousing(housing.getHousingId());
+		Electricity electricity = electricityDAO.checkByEvent(eventId);
+//		List<Recycling> recyclingList = recyclingDAO.getByCon();
+		
 		
 		System.out.print(housing.getHousingId());
 		System.out.print(conList);
@@ -142,6 +157,8 @@ public class EventController {
 		model.addObject("event", event);
 		model.addObject("housing", housing);
 		model.addObject("con", conList);
+		model.addObject("electricity", electricity);
+//		model.addObject("recycling", recyclingList);
 		
 		return model;
 	}

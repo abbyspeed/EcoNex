@@ -87,7 +87,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Recycling Activity</h3>
-							<form action="${eventId}/processing" method="POST">
+							<form action="${eventId}/processingUpdate" method="POST">
 								<table>
 									<tr>
 										<td>
@@ -150,7 +150,7 @@
 									<tr>
 										<td colspan="3">
 											<textarea rows="20" cols="90" name="activityDesc" 
-											value="${recycling.getDescription()}" required></textarea>
+											required>${recycling.getDescription()}</textarea>
 										</td>
 									</tr>
 								</table>
@@ -186,7 +186,7 @@
 					<div class="center">
 						<div class="form">
 							<h3 style="margin-bottom: 20px">Recycling Activity</h3>
-							<form action="${eventId}/added" method="POST">
+							<form action="${eventId}/processingAdd" method="POST">
 								<table>
 									<tr>
 										<td>

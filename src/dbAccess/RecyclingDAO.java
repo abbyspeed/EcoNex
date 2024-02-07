@@ -25,9 +25,16 @@ public class RecyclingDAO {
 		return recycling;
 	}
 	
-	public Recycling checkByEvent(int recId) {
-		String sql = "SELECT * FROM electricity WHERE electid = ?";
-		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), recId);
+	public Recycling checkByEvent(int conId) {
+		String sql = "SELECT * FROM recycling WHERE conId = ?";
+		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), conId);
+		
+		return recycling;
+	}
+	
+	public List<Recycling> getByCon() {
+		String sql = "SELECT * FROM recycling INNER JOIN housing ON recycling.conid = housing.conid";
+		List<Recycling> recycling = jdbctemp.query(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class));
 		
 		return recycling;
 	}

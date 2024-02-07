@@ -28,20 +28,20 @@
 			
 			<ul class="items">
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Dashboard">
                         <i class="fa-solid fa-house fa icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="item active">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Projects/ViewAll">
                         <i class="fa-regular fa-calendar icon"></i>
                         <span class="text">Projects</span>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li class="item">
-                    <a href="#">
+                    <a href="/EcoNex/Admin/Settings">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>

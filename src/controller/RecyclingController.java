@@ -82,13 +82,13 @@ public class RecyclingController {
 		
 		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
-		int conId = Integer.parseInt(request.getParameter("conId"));
-		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
-		double wasteAmount = Double.parseDouble(request.getParameter("wasteAmount"));
+//		int conId = Integer.parseInt(request.getParameter("conId"));
+		double wasteWeight = Double.parseDouble(request.getParameter("materialWeight"));
+		double wasteAmount = Double.parseDouble(request.getParameter("materialAmount"));
 		double oilWeight = Double.parseDouble(request.getParameter("oilWeight"));
 		double oilAmount = Double.parseDouble(request.getParameter("oilAmount"));
 		String image = request.getParameter("image");
-		String description = request.getParameter("description");
+		String description = request.getParameter("activityDesc");
 		
 		recycling.setWasteWeight(wasteWeight);
 		recycling.setWasteAmount(wasteAmount);
@@ -154,12 +154,12 @@ public class RecyclingController {
 		User currentUser = userDAO.findUserByName(user.getUsername());
 		int eventId = Integer.parseInt(eventid);
 		int conId = Integer.parseInt(request.getParameter("conId"));
-		double wasteWeight = Double.parseDouble(request.getParameter("wasteWeight"));
-		double wasteAmount = Double.parseDouble(request.getParameter("wasteAmount"));
+		double wasteWeight = Double.parseDouble(request.getParameter("materialWeight"));
+		double wasteAmount = Double.parseDouble(request.getParameter("materialAmount"));
 		double oilWeight = Double.parseDouble(request.getParameter("oilWeight"));
 		double oilAmount = Double.parseDouble(request.getParameter("oilAmount"));
 		String image = request.getParameter("image");
-		String description = request.getParameter("description");
+		String description = request.getParameter("activityDesc");
 		
 		recycling.setWasteWeight(wasteWeight);
 		recycling.setWasteAmount(wasteAmount);
@@ -207,7 +207,8 @@ public class RecyclingController {
 		
 		recycling.setImage(fileName);
 		
-		recyclingDAO.add(1, recycling);
+		
+		recyclingDAO.update(1, recycling);
 		
 		response.sendRedirect("/EcoNex/Recycling/ShowForm/" + eventId);
 	}

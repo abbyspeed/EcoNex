@@ -53,13 +53,12 @@
 				<div class="item">
 					<div class="title">
 						<p>Dashboard</p>
-						<h3>Hello, Nurnabihah</h3>
+						<h3>Hello, ${user.getUsername()}</h3>
 						<p>Check out what's new today</p>
 					</div>
 					<div class="profileBadge">
 						<a href="/EcoNex/Admin/Settings">
-							<span>Nurnabihah</span>
-							<img src="https://res.cloudinary.com/dprlflxcj/image/upload/v1701259220/img/user_i1inw7.jpg">
+							<span>${user.getUsername()}</span>
 						</a>
 					</div>
 				</div>

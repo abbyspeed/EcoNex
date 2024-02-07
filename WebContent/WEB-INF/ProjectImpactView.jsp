@@ -80,71 +80,14 @@
 					<c:forEach var="con" items="${conList}">
 						<div class="month-card">
 							<h3>${con.getMonth()}</h3>
-							<p class="sub-desc">You have reduced your carbon intake by</p>
+							<p class="sub-desc">This is your carbon intake</p>
 							<div class="sub-status">
-								<p>Electricity</p>
-								<p>Water</p>
-								<p>Recycling</p>
-							</div>
-							<div class="bottom-layer">
-								<div class="sub-date">
-									<p>Due Date</p>
-									<p>Date</p>
-								</div>
-								<a href="Housing/ShowForm/${event.getEventId()}" class="sub-btn">
-									Opening soon
-								</a>
+								<p>Electricity : ${electricity.getCarbonValue()}</p>
+								<p>Water : ${water.getCarbonValue}</p>
+								<p>Recycling : </p>
 							</div>
 						</div>
 					</c:forEach>
-					<div class="month-card new">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="Housing/ShowForm/${event.getEventId()}" class="sub-btn new">
-								Upload Details
-							</a>
-						</div>
-					</div>
-					<div class="month-card active">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
-								View Submission
-							</a>
-						</div>
-					</div>
-					<div class="month-card active">
-						<h3>Month</h3>
-						<p class="sub-desc">Entry status description</p>
-						<div class="sub-status">
-							Submission status
-						</div>
-						<div class="bottom-layer">
-							<div class="sub-date">
-								<p>Due Date</p>
-								<p>Date</p>
-							</div>
-							<a href="Housing/ShowForm/${eventId}" class="sub-btn active">
-								View Submission
-							</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>

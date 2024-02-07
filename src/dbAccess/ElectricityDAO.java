@@ -25,9 +25,9 @@ public class ElectricityDAO {
 		return electricity;
 	}
 	
-	public Electricity checkByEvent(int eventId) {
-		String sql = "SELECT * FROM electricity WHERE eventid = ?";
-		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), eventId);
+	public Electricity checkByEvent(int conId) {
+		String sql = "SELECT * FROM electricity WHERE conid = ?";
+		Electricity electricity = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Electricity>(Electricity.class), conId);
 		
 		return electricity;
 	}
