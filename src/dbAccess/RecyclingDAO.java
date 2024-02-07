@@ -18,6 +18,13 @@ public class RecyclingDAO {
 		return recyclingList;
 	}
 	
+	public Recycling findByConId(int conId) {
+		String sql = "SELECT * FROM recycling WHERE conid = ?";
+		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), conId);
+		
+		return recycling;
+	}
+	
 	public Recycling findById(int recId) {
 		String sql = "SELECT * FROM recycling WHERE recid = ?";
 		Recycling recycling = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Recycling>(Recycling.class), recId);

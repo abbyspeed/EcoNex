@@ -24,6 +24,13 @@ public class WaterDAO {
 		return water;
 	}
 	
+	public Water findByConId(int conId) {
+		String sql = "SELECT * FROM water WHERE conid = ?";
+		Water water = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Water>(Water.class), conId);
+		
+		return water;
+	}
+	
 	public Water checkByEvent(int waterId) {
 		String sql = "SELECT * FROM water WHERE waterid = ?";
 		Water water = jdbctemp.queryForObject(sql, new BeanPropertyRowMapper<Water>(Water.class), waterId);

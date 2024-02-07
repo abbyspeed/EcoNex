@@ -79,6 +79,9 @@
 					<h3 class="event-slogan">
 						This is our achievement so far
 					</h3>
+					<p>Water - <c:out value="${water.carbonValue}"></c:out></p>
+					<p>Electricity - <c:out value="${elec.carbonValue}"></c:out></p>
+					<p>Recycling - <c:out value="${rec.carbonValue}"></c:out></p>
 					<a href="">Refresh data</a>
 					<div class="event-section">
 						
